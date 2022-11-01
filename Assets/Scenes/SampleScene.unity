@@ -123,22 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 0eeb9f7f99d187c4d811bad05b001768, type: 2}
---- !u!114 &84422418 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 444790088, guid: dc20ea6d54630164cb3dd97fdf33e994, type: 3}
-  m_PrefabInstance: {fileID: 8436125084890272240}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &641977280 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 724326777, guid: dc20ea6d54630164cb3dd97fdf33e994, type: 3}
-  m_PrefabInstance: {fileID: 8436125084890272240}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,11 +274,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2cc424aeb863de4eb7f54ca6a206add, type: 3}
---- !u!1 &1826705386 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8575718073317808058, guid: dc20ea6d54630164cb3dd97fdf33e994, type: 3}
-  m_PrefabInstance: {fileID: 8436125084890272240}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1313737172299013305
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -681,22 +660,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8436125083147643388, guid: dc20ea6d54630164cb3dd97fdf33e994, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8436125083634113980, guid: dc20ea6d54630164cb3dd97fdf33e994, type: 3}
-      propertyPath: pauseMenu
-      value: 
-      objectReference: {fileID: 1826705386}
-    - target: {fileID: 8436125083634113980, guid: dc20ea6d54630164cb3dd97fdf33e994, type: 3}
-      propertyPath: enemiesLeft
-      value: 
-      objectReference: {fileID: 84422418}
-    - target: {fileID: 8436125083634113980, guid: dc20ea6d54630164cb3dd97fdf33e994, type: 3}
-      propertyPath: playerDamageScreen
-      value: 
-      objectReference: {fileID: 641977280}
-    - target: {fileID: 8575718073317808058, guid: dc20ea6d54630164cb3dd97fdf33e994, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
