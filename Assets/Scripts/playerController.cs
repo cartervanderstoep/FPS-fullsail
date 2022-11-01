@@ -31,6 +31,7 @@ public class playerController : MonoBehaviour
     private void Start()
     {
         playerSpeedOrig = playerSpeed;
+        HPOrig = HP;
         respawn(); 
         // This should work
     }
@@ -119,6 +120,7 @@ public class playerController : MonoBehaviour
         controller.enabled = false;
         HP = HPOrig;
         transform.position = gameManager.instance.spawnPos.transform.position;
+        gameManager.instance.playerDeadMenu.SetActive(false);
         controller.enabled = true;
     }
 }

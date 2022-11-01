@@ -27,6 +27,8 @@ public class biterAI : MonoBehaviour, IDamage
     void Start()
     {
         mobSpeed = agent.speed;
+        gameManager.instance.enemiesToKill++;
+        gameManager.instance.updateUI();
     }
 
     // Update is called once per frame
@@ -65,6 +67,9 @@ public class biterAI : MonoBehaviour, IDamage
         if (HP <= 0)
         {
             Destroy(gameObject);
+            gameManager.instance.updateEnemyNumber();
+         
+           
         }
     }
     IEnumerator flashDamage()
