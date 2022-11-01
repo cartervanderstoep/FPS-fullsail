@@ -104,9 +104,9 @@ public class playerController : MonoBehaviour
     public void damage(int dmg)
     {
         HP -= dmg;
+            StartCoroutine(gameManager.instance.playerDamageFlash());
         if(HP <= 0)
         {
-            StartCoroutine(gameManager.instance.playerDamageFlash());
             if (HP <= 0)
             {
                 gameManager.instance.playerDeadMenu.SetActive(true);
