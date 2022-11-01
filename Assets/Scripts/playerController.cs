@@ -33,7 +33,6 @@ public class playerController : MonoBehaviour
         playerSpeedOrig = playerSpeed;
         HPOrig = HP;
         respawn(); 
-        // This should work
     }
 
     void Update()
@@ -107,11 +106,8 @@ public class playerController : MonoBehaviour
             StartCoroutine(gameManager.instance.playerDamageFlash());
         if(HP <= 0)
         {
-            if (HP <= 0)
-            {
                 gameManager.instance.playerDeadMenu.SetActive(true);
-                gameManager.instance.pause();
-            }
+                gameManager.instance.pause();   
         }
     }
 
