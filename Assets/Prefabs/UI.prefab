@@ -154,6 +154,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   playerScript: {fileID: 0}
+  pauseMenu: {fileID: 0}
+  playerDeadMenu: {fileID: 0}
+  winMenu: {fileID: 0}
+  playerDamageScreen: {fileID: 0}
+  enemiesLeft: {fileID: 0}
+  enemiesToKill: 0
+  spawnPos: {fileID: 0}
+  isPaused: 0
 --- !u!1 &8436125084016709509
 GameObject:
   m_ObjectHideFlags: 0
