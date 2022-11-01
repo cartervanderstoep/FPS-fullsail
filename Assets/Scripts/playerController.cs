@@ -23,6 +23,7 @@ public class playerController : MonoBehaviour
     Vector3 move;
     private Vector3 playerVelocity;
     int jumpsTimes;
+    int HPOrig; 
     bool isSprinting;
     bool isShooting;
     float playerSpeedOrig;
@@ -30,6 +31,8 @@ public class playerController : MonoBehaviour
     private void Start()
     {
         playerSpeedOrig = playerSpeed;
+        respawn(); 
+        // This should work
     }
 
     void Update()
@@ -100,5 +103,13 @@ public class playerController : MonoBehaviour
     public void damage(int dmg)
     {
         HP -= dmg;
+    }
+
+    public void respawn()
+    {
+        controller.enabled = false;
+        HP = HPOrig;
+        transform.position = gameManager.instance.spawnPos.transform.position;
+        controller.enabled = true;
     }
 }
