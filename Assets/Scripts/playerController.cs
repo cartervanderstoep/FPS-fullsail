@@ -32,6 +32,7 @@ public class playerController : MonoBehaviour
     {
         playerSpeedOrig = playerSpeed;
         respawn(); 
+        // This should work
     }
 
     void Update()
