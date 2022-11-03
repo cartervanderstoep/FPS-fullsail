@@ -191,16 +191,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
+      propertyPath: shootRate
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: playerFaceSpeed
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155566, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Radius
-      value: 25
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155567, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Speed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
@@ -485,7 +489,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895687072838, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_RootOrder
-      value: 58
+      value: 59
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895687072838, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -528,16 +532,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
+      propertyPath: shootRate
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: playerFaceSpeed
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155566, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Radius
-      value: 25
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155567, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Speed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
@@ -550,7 +558,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1036005669421038865, guid: c2cc424aeb863de4eb7f54ca6a206add, type: 3}
       propertyPath: m_RootOrder
-      value: 48
+      value: 49
       objectReference: {fileID: 0}
     - target: {fileID: 1036005669421038865, guid: c2cc424aeb863de4eb7f54ca6a206add, type: 3}
       propertyPath: m_LocalPosition.x
@@ -737,7 +745,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1036005669421038865, guid: c2cc424aeb863de4eb7f54ca6a206add, type: 3}
       propertyPath: m_RootOrder
-      value: 55
+      value: 56
       objectReference: {fileID: 0}
     - target: {fileID: 1036005669421038865, guid: c2cc424aeb863de4eb7f54ca6a206add, type: 3}
       propertyPath: m_LocalPosition.x
@@ -794,7 +802,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1036005669421038865, guid: c2cc424aeb863de4eb7f54ca6a206add, type: 3}
       propertyPath: m_RootOrder
-      value: 52
+      value: 53
       objectReference: {fileID: 0}
     - target: {fileID: 1036005669421038865, guid: c2cc424aeb863de4eb7f54ca6a206add, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1554,7 +1562,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895687072838, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_RootOrder
-      value: 59
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895687072838, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1597,16 +1605,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
+      propertyPath: shootRate
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: playerFaceSpeed
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155566, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Radius
-      value: 25
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155567, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Speed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
@@ -1705,7 +1717,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 63
+  m_RootOrder: 48
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &381351112
 PrefabInstance:
@@ -1917,16 +1929,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
+      propertyPath: shootRate
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: playerFaceSpeed
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155566, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Radius
-      value: 25
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155567, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Speed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
@@ -1939,7 +1955,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1036005669421038865, guid: c2cc424aeb863de4eb7f54ca6a206add, type: 3}
       propertyPath: m_RootOrder
-      value: 53
+      value: 54
       objectReference: {fileID: 0}
     - target: {fileID: 1036005669421038865, guid: c2cc424aeb863de4eb7f54ca6a206add, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2100,16 +2116,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
+      propertyPath: shootRate
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: playerFaceSpeed
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155566, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Radius
-      value: 25
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155567, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Speed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
@@ -2238,16 +2258,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
+      propertyPath: shootRate
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: playerFaceSpeed
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155566, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Radius
-      value: 25
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155567, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Speed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
@@ -2821,7 +2845,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2037599781972049456, guid: 945919305e028584cbbc3bc852957aa3, type: 3}
       propertyPath: m_RootOrder
-      value: 56
+      value: 57
       objectReference: {fileID: 0}
     - target: {fileID: 2037599781972049456, guid: 945919305e028584cbbc3bc852957aa3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3169,7 +3193,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1036005669421038865, guid: c2cc424aeb863de4eb7f54ca6a206add, type: 3}
       propertyPath: m_RootOrder
-      value: 49
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1036005669421038865, guid: c2cc424aeb863de4eb7f54ca6a206add, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4249,16 +4273,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
+      propertyPath: shootRate
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: playerFaceSpeed
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155566, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Radius
-      value: 25
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155567, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Speed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
@@ -4271,7 +4299,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2037599781972049456, guid: 945919305e028584cbbc3bc852957aa3, type: 3}
       propertyPath: m_RootOrder
-      value: 57
+      value: 58
       objectReference: {fileID: 0}
     - target: {fileID: 2037599781972049456, guid: 945919305e028584cbbc3bc852957aa3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4328,7 +4356,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1036005669421038865, guid: c2cc424aeb863de4eb7f54ca6a206add, type: 3}
       propertyPath: m_RootOrder
-      value: 51
+      value: 52
       objectReference: {fileID: 0}
     - target: {fileID: 1036005669421038865, guid: c2cc424aeb863de4eb7f54ca6a206add, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4444,16 +4472,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
+      propertyPath: shootRate
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: playerFaceSpeed
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155566, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Radius
-      value: 25
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155567, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Speed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
@@ -4957,7 +4989,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895687072838, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_RootOrder
-      value: 61
+      value: 62
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895687072838, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5000,16 +5032,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
+      propertyPath: shootRate
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: playerFaceSpeed
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155566, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Radius
-      value: 25
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155567, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Speed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
@@ -5166,16 +5202,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
+      propertyPath: shootRate
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: playerFaceSpeed
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155566, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Radius
-      value: 25
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155567, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Speed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
@@ -5747,7 +5787,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1036005669421038865, guid: c2cc424aeb863de4eb7f54ca6a206add, type: 3}
       propertyPath: m_RootOrder
-      value: 50
+      value: 51
       objectReference: {fileID: 0}
     - target: {fileID: 1036005669421038865, guid: c2cc424aeb863de4eb7f54ca6a206add, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5851,16 +5891,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
+      propertyPath: shootRate
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: playerFaceSpeed
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155566, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Radius
-      value: 25
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155567, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Speed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
@@ -5934,7 +5978,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1036005669421038865, guid: c2cc424aeb863de4eb7f54ca6a206add, type: 3}
       propertyPath: m_RootOrder
-      value: 54
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 1036005669421038865, guid: c2cc424aeb863de4eb7f54ca6a206add, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6303,7 +6347,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895687072838, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_RootOrder
-      value: 60
+      value: 61
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895687072838, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6346,16 +6390,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
+      propertyPath: shootRate
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: playerFaceSpeed
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155566, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Radius
-      value: 25
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155567, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Speed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
@@ -7100,16 +7148,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
+      propertyPath: shootRate
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: playerFaceSpeed
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155566, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Radius
-      value: 25
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155567, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Speed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
@@ -7203,7 +7255,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895687072838, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.01
+      value: 0.82
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895687072838, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7211,7 +7263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895687072838, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: -0.05694199
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895687072838, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_LocalRotation.x
@@ -7219,7 +7271,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895687072838, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.99837756
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895687072838, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_LocalRotation.z
@@ -7231,11 +7283,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895687072838, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 186.529
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895687072838, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
+      propertyPath: shootRate
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: playerFaceSpeed
@@ -7243,15 +7299,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: playerIsTargeted
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155566, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Radius
-      value: 25
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155567, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Speed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
@@ -7746,7 +7802,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895687072838, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_RootOrder
-      value: 62
+      value: 63
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895687072838, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7789,16 +7845,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
+      propertyPath: shootRate
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: playerFaceSpeed
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155566, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Radius
-      value: 25
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155567, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Speed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
@@ -8138,16 +8198,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
+      propertyPath: shootRate
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: playerFaceSpeed
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155566, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Radius
-      value: 25
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155567, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Speed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
@@ -8498,16 +8562,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
+      propertyPath: shootRate
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: playerFaceSpeed
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155566, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Radius
-      value: 25
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155567, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: m_Speed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
@@ -8720,6 +8788,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6268688499471105128, guid: a793828b41c65494a89e5f2310bad5e1, type: 3}
+      propertyPath: jumpHeight
+      value: 8.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 6458955180908342729, guid: a793828b41c65494a89e5f2310bad5e1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a793828b41c65494a89e5f2310bad5e1, type: 3}
 --- !u!1001 &1497403270499981338
@@ -8896,8 +8972,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
+      propertyPath: shootRate
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919058895696155565, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
       propertyPath: playerIsTargeted
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919058895696155566, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
+      propertyPath: m_Radius
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919058895696155567, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
+      propertyPath: m_Speed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca96c9bb36ae7994abc23ad74e17dd1b, type: 3}
