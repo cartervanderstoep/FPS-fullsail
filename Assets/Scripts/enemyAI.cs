@@ -18,6 +18,9 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] Transform shootPos;
     [SerializeField] float shootRate;
 
+    [Header("---------test bool--------")]
+    [SerializeField] bool playerIsTargeted;
+
     bool isShooting;
     bool playerInRange;
     Vector3 playerDir;
@@ -32,9 +35,13 @@ public class enemyAI : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-        agent.SetDestination(gameManager.instance.player.transform.position);
+        if (playerIsTargeted)
+        {
+            agent.SetDestination(gameManager.instance.player.transform.position);
+        }
 
-        playerDir = (gameManager.instance.player.transform.position - transform.position);
+
+                playerDir = (gameManager.instance.player.transform.position - transform.position);
 
         if (playerInRange)
         {

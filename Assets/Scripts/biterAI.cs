@@ -15,6 +15,9 @@ public class biterAI : MonoBehaviour, IDamage
     [SerializeField] int playerFaceSpeed;
     [SerializeField] int damage;
     [SerializeField] float attackRate;
+   
+    [Header("---------test bool--------")]
+    [SerializeField] bool playerIsTargeted;
 
 
     bool playerInRange;
@@ -34,8 +37,10 @@ public class biterAI : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-      
-        agent.SetDestination(gameManager.instance.player.transform.position);
+        if (playerIsTargeted)
+        {
+            agent.SetDestination(gameManager.instance.player.transform.position);
+        }
 
         playerDir = (gameManager.instance.player.transform.position - transform.position);
 

@@ -249,6 +249,7 @@ MonoBehaviour:
   bullet: {fileID: 6543254759723058396, guid: a68cdbd829d62864b9af79bff57b6092, type: 3}
   shootPos: {fileID: 7066853621138368767}
   shootRate: 1
+  playerIsTargeted: 1
 --- !u!195 &2306999502998271430
 NavMeshAgent:
   m_ObjectHideFlags: 0
