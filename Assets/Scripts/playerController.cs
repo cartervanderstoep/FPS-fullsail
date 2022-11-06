@@ -156,4 +156,17 @@ public class playerController : MonoBehaviour
         gameManager.instance.playerDeadMenu.SetActive(false);
         controller.enabled = true;
     }
+    public void healPickUp(healStats healStat)
+    {
+        if (HP + healStat.healValue > HPOrig && HP != HPOrig)
+        {
+            int netHeal = HPOrig - HP;
+
+            HP += netHeal;
+        }
+        else if (HP + healStat.healValue <= HPOrig)
+        {
+            HP += healStat.healValue;
+        }
+    }
 }
