@@ -3,7 +3,15 @@ guid: d3d885f4c8c0cc94a8540b7b5c9abab0
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - player: {instanceID: 0}
+  - playerScript: {instanceID: 0}
+  - pauseMenu: {instanceID: 0}
+  - playerDeadMenu: {instanceID: 0}
+  - winMenu: {instanceID: 0}
+  - playerDamageScreen: {instanceID: 0}
+  - enemiesLeft: {instanceID: 0}
+  - spawnPos: {fileID: 4909287886608673685, guid: 28c1fb7067fa4854898d278d4164666b, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
