@@ -123,6 +123,21 @@ public class playerController : MonoBehaviour
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStatx.gunModel.GetComponent<MeshRenderer>().sharedMaterial;
         guns.Add(gunStatx);
     }
+    public void powerupPickup(powerupStats powerupstat)
+    {
+        if(powerupstat.speedMultiplier > 0)
+        {
+            playerSpeed = powerupstat.speedMultiplier * playerSpeed;
+        }
+        if(powerupstat.jumpHeightIncrease > 0)
+        {
+            jumpHeight += powerupstat.jumpHeightIncrease;
+        }
+        if(powerupstat.jumpNumberIncrease > 0)
+        {
+            jumpsMax += powerupstat.jumpNumberIncrease;
+        }
+    }
     void gunSelect()
     {
         if (guns.Count > 1)
