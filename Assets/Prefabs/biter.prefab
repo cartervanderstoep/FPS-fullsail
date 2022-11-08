@@ -263,11 +263,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1036005669421038865}
+  - component: {fileID: 692750570372482342}
   - component: {fileID: 2997496477661426075}
   - component: {fileID: 5783264858214827218}
   - component: {fileID: 6731464942800670858}
   - component: {fileID: 8785216005848671412}
-  - component: {fileID: 692750570372482342}
   m_Layer: 6
   m_Name: biter
   m_TagString: Untagged
@@ -292,6 +292,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &692750570372482342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3066674096876426915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df22cdb806596374b88777601c1e6987, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  model: {fileID: 2839571450784125146}
+  agent: {fileID: 2997496477661426075}
+  HP: 1
+  playerFaceSpeed: 6
+  damage: 1
+  attackRate: 0.75
+  playerIsTargeted: 1
 --- !u!195 &2997496477661426075
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -361,25 +380,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.9
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &692750570372482342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3066674096876426915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df22cdb806596374b88777601c1e6987, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  model: {fileID: 2839571450784125146}
-  agent: {fileID: 2997496477661426075}
-  HP: 1
-  playerFaceSpeed: 6
-  damage: 1
-  attackRate: 0.75
-  playerIsTargeted: 1
 --- !u!1 &3133911351839761606
 GameObject:
   m_ObjectHideFlags: 0
