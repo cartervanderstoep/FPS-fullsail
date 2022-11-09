@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8798059410059496468}
   - component: {fileID: 6493319541340410383}
   - component: {fileID: 3381973664519811870}
-  - component: {fileID: 751683302873843488}
   m_Layer: 6
   m_Name: exploder 1
   m_TagString: Untagged
@@ -90,19 +89,6 @@ CapsuleCollider:
   m_Height: 2.5
   m_Direction: 1
   m_Center: {x: 0, y: 1.25, z: 0}
---- !u!135 &751683302873843488
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6416181711343383863}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 15
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &8798059408950712739
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5596530019200372760}
   - component: {fileID: 2150673493919679799}
   - component: {fileID: 7903471781257507672}
+  - component: {fileID: -7756177924907634439}
   m_Layer: 6
   m_Name: 'bird '
   m_TagString: Untagged
@@ -88,6 +89,20 @@ MonoBehaviour:
   playerFaceSpeed: 6
   damage: 1
   playerIsTargeted: 1
+--- !u!136 &-7756177924907634439
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5673658788032804640}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &7903471779559414368
 PrefabInstance:
   m_ObjectHideFlags: 0
