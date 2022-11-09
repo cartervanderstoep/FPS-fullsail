@@ -15,7 +15,8 @@ public class gameManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject playerDeadMenu;
     public GameObject winMenu;
-    public GameObject playerDamageScreen; 
+    public GameObject playerDamageScreen;
+    public GameObject playerPowerupScreen;
     public TextMeshProUGUI enemiesLeft;
 
     public int enemiesToKill;
@@ -67,6 +68,13 @@ public class gameManager : MonoBehaviour
         playerDamageScreen.SetActive(true);
         yield return new WaitForSeconds(0.1f);
         playerDamageScreen.SetActive(false);
+    }
+    public IEnumerator playerPowerupFlash(float timer)
+    {
+        playerPowerupScreen.SetActive(true);
+        yield return new WaitForSeconds(timer);
+        playerPowerupScreen.SetActive(false);
+
     }
 
     public void youWin()

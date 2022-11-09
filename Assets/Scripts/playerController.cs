@@ -31,9 +31,13 @@ public class playerController : MonoBehaviour
     bool isSprinting;
     bool isShooting;
     float playerSpeedOrig;
+    int jumpsMaxOrig;
+    float jumpHeightOrig;
 
     private void Start()
     {
+        jumpHeightOrig = jumpHeight;
+        jumpsMaxOrig = jumpsMax;
         playerSpeedOrig = playerSpeed;
         HPOrig = HP;
         respawn(); 
@@ -128,6 +132,7 @@ public class playerController : MonoBehaviour
         if(powerupstat.speedMultiplier > 0)
         {
             playerSpeed = powerupstat.speedMultiplier * playerSpeed;
+            
         }
         if(powerupstat.jumpHeightIncrease > 0)
         {
@@ -137,7 +142,14 @@ public class playerController : MonoBehaviour
         {
             jumpsMax += powerupstat.jumpNumberIncrease;
         }
+        StartCoroutine(gameManager.instance.playerPowerupFlash(powerupstat.duration));
+        new WaitForSeconds(powerupstat.duration);
+        playerSpeed = playerSpeedOrig;
+        jumpHeight = jumpHeightOrig;
+        jumpsMax = jumpsMaxOrig;
+
     }
+    
     void gunSelect()
     {
         if (guns.Count > 1)

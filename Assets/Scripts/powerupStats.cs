@@ -6,9 +6,10 @@ using UnityEngine;
 
 public class powerupStats : ScriptableObject
 {
-    public int speedMultiplier;
-    public int jumpHeightIncrease;
+    public float speedMultiplier;
+    public float jumpHeightIncrease;
     public int jumpNumberIncrease;
+    public float duration;
     public GameObject powerupModel;
     public GameObject pickupEffect;
     public AudioClip powerupSound;
