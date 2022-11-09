@@ -9,7 +9,7 @@ public class playerController : MonoBehaviour
 
     [Header("----- Player Stats -----")]
     [Range(0, 10)][SerializeField] int HP;
-    [Range(1, 5)][SerializeField] float playerSpeed;
+    [Range(1, 100)][SerializeField] float playerSpeed;
     [Range(1.5f, 5)][SerializeField] float sprintMod;
     [Range(8, 20)][SerializeField] float jumpHeight;
     [Range(0, 35)][SerializeField] float gravityValue;
@@ -33,9 +33,11 @@ public class playerController : MonoBehaviour
     float playerSpeedOrig;
     int jumpsMaxOrig;
     float jumpHeightOrig;
+    
 
     private void Start()
     {
+        
         jumpHeightOrig = jumpHeight;
         jumpsMaxOrig = jumpsMax;
         playerSpeedOrig = playerSpeed;
@@ -129,24 +131,31 @@ public class playerController : MonoBehaviour
     }
     public void powerupPickup(powerupStats powerupstat)
     {
-        if(powerupstat.speedMultiplier > 0)
+        if(powerupstat.speedMultiplier != 0)
         {
-            playerSpeed = powerupstat.speedMultiplier * playerSpeed;
+            playerSpeed *= powerupstat.speedMultiplier;
             
         }
-        if(powerupstat.jumpHeightIncrease > 0)
+        if(powerupstat.jumpHeightIncrease!= 0)
         {
             jumpHeight += powerupstat.jumpHeightIncrease;
         }
-        if(powerupstat.jumpNumberIncrease > 0)
+        if(powerupstat.jumpNumberIncrease !=0)
         {
             jumpsMax += powerupstat.jumpNumberIncrease;
         }
         StartCoroutine(gameManager.instance.playerPowerupFlash(powerupstat.duration));
-        new WaitForSeconds(powerupstat.duration);
-        playerSpeed = playerSpeedOrig;
-        jumpHeight = jumpHeightOrig;
-        jumpsMax = jumpsMaxOrig;
+        
+        //if(isSprinting == true)
+        //{
+        //    playerSpeed = playerSpeedOrig * sprintMod;
+        //}
+        //else
+        //{
+        //    playerSpeed = playerSpeedOrig;
+        //}
+        //jumpHeight = jumpHeightOrig;
+        //jumpsMax = jumpsMaxOrig;
 
     }
     
@@ -196,4 +205,5 @@ public class playerController : MonoBehaviour
             HP += healStat.healValue;
         }
     }
+   
 }
