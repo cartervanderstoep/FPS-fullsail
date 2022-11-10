@@ -15,7 +15,7 @@ MonoBehaviour:
   speedMultiplier: 10
   jumpHeightIncrease: 10
   jumpNumberIncrease: 10
-  duration: 5
+  duration: 1
   powerupModel: {fileID: 9082659423305186780, guid: 98f6ff90027e8b2419dfa6bbdf7ac56d, type: 3}
   pickupEffect: {fileID: 0}
   powerupSound: {fileID: 0}
