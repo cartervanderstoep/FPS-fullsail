@@ -10,7 +10,7 @@ public class powerupPickup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            gameManager.instance.playerScript.powerupPickup(powerupStat);
+            gameManager.instance.playerScript.powerupActPlayer(powerupStat);
             Destroy(gameObject);
         }
     }

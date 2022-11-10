@@ -158,7 +158,17 @@ public class playerController : MonoBehaviour
         //jumpsMax = jumpsMaxOrig;
 
     }
-    
+    public IEnumerator powerupActivate(powerupStats Pup)
+    {
+        playerSpeed *= Pup.speedMultiplier;
+        StartCoroutine(gameManager.instance.playerPowerupFlash(Pup.duration));
+        yield return new WaitForSeconds(Pup.duration);
+        playerSpeed = playerSpeedOrig;
+    }
+    public void powerupActPlayer(powerupStats alt)
+    {
+        StartCoroutine(powerupActivate(alt));
+    }
     void gunSelect()
     {
         if (guns.Count > 1)
