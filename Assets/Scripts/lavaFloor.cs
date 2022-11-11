@@ -29,12 +29,13 @@ public class lavaFloor : MonoBehaviour
 
     IEnumerator inflictDamage()
     {
-
-        tookDamage = true;
-        gameManager.instance.playerScript.damage(damage);
-
-        yield return new WaitForSeconds(timer);
-        tookDamage = false;
+        while (inRange)
+        {
+            tookDamage = true;
+            gameManager.instance.playerScript.damage(damage);
+            yield return new WaitForSeconds(timer);
+            tookDamage = false;
+        }
     }
 
     public void OnTriggerExit(Collider other)
