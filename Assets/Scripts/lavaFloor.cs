@@ -5,18 +5,43 @@ using UnityEngine;
 public class lavaFloor : MonoBehaviour
 {
     [SerializeField] int damage;
+    [SerializeField] int timer;
+    bool inRange;
+    bool tookDamage;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        tookDamage = false;
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            gameManager.instance.playerScript.damage(damage);
+            inRange = true;
+            if (!tookDamage)
+            {
+                StartCoroutine(inflictDamage());
+            }
+        }
+    }
+
+    IEnumerator inflictDamage()
+    {
+
+        tookDamage = true;
+        gameManager.instance.playerScript.damage(damage);
+
+        yield return new WaitForSeconds(timer);
+        tookDamage = false;
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            inRange = false;
         }
     }
 }
