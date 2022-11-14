@@ -244,12 +244,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 7027665271722017717}
   agent: {fileID: 2306999502998271430}
+  anim: {fileID: 6476013838506229903}
   HP: 3
   playerFaceSpeed: 5
+  speedChase: 0
+  sightDist: 7
+  sightAngle: 45
+  roamDist: 10
+  animLerpSpeed: 0
+  headPos: {fileID: 5836441661596832697}
   bullet: {fileID: 6543254759723058396, guid: a68cdbd829d62864b9af79bff57b6092, type: 3}
   shootPos: {fileID: 7066853621138368767}
   shootRate: 1
-  playerIsTargeted: 1
+  playerIsTargeted: 0
 --- !u!195 &2306999502998271430
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -264,7 +271,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1
+  m_StoppingDistance: 8
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
   m_AutoRepath: 1
@@ -282,7 +289,7 @@ Animator:
   m_GameObject: {fileID: 2527125423012090622}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: f4209d51d1ad0434299f2d498ee076ba, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 05aec78db99e3fc4d823a8ed92b5265d, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1

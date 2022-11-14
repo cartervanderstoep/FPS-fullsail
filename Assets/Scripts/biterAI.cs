@@ -9,13 +9,19 @@ public class biterAI : MonoBehaviour, IDamage
     [Header("----- Components -----")]
     [SerializeField] Renderer model;
     [SerializeField] NavMeshAgent agent;
+    [SerializeField] Animator anim;
 
     [Header("----- Enemy Stats -----")]
     [SerializeField] int HP;
     [SerializeField] int playerFaceSpeed;
     [SerializeField] int damage;
     [SerializeField] float attackRate;
-   
+    [SerializeField] int sightDist;
+    [SerializeField] int sightAngle;
+    [SerializeField] int roamDist;
+    [SerializeField] int animLerpSpeed;
+    [SerializeField] GameObject headPos;
+
     [Header("---------test bool--------")]
     [SerializeField] bool playerIsTargeted;
 
@@ -24,6 +30,10 @@ public class biterAI : MonoBehaviour, IDamage
     Vector3 playerDir;
     float mobSpeed;
     bool isFighting;
+    float breakDist;
+    float angleToPlayer;
+    Vector3 trackingPos;
+    Vector3 startingPos;
    
 
     // Start is called before the first frame update
@@ -32,6 +42,9 @@ public class biterAI : MonoBehaviour, IDamage
         mobSpeed = agent.speed;
         gameManager.instance.enemiesToKill++;
         gameManager.instance.updateUI();
+        breakDist = agent.stoppingDistance;
+        startingPos = transform.position;
+      
     }
 
     // Update is called once per frame
@@ -41,22 +54,61 @@ public class biterAI : MonoBehaviour, IDamage
         {
             agent.SetDestination(gameManager.instance.player.transform.position);
         }
+        anim.SetFloat("Speed", agent.velocity.normalized.magnitude);
 
-        playerDir = (gameManager.instance.player.transform.position - transform.position);
+        playerDir = (gameManager.instance.player.transform.position - trackingPos);
+        trackingPos = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
 
-        
-            facePlayer();
-        if (playerInRange && !isFighting)
+        if (agent.enabled)
         {
-            StartCoroutine(attack());
+            if (playerInRange)
+            {
+                canSeePlayer();
+            }
+            else if (agent.remainingDistance < 0.1f && agent.destination != gameManager.instance.player.transform.position)
+            {
+                roam();
+            }
+        }
 
+    }
+    void canSeePlayer()
+    {
+        playerDir = (gameManager.instance.player.transform.position - trackingPos);
+        angleToPlayer = Vector3.Angle(playerDir, transform.forward);
+
+        RaycastHit hit;
+        if (Physics.Raycast(trackingPos,playerDir, out hit))
+        {
+            if (hit.collider.CompareTag("Player") && angleToPlayer <= sightAngle)
+            {
+                agent.SetDestination(gameManager.instance.player.transform.position);
+                facePlayer();
+                if (agent.remainingDistance < breakDist && !isFighting)
+                {
+                    StartCoroutine(attack());
+
+                }
+
+            }
         }
 
 
 
+    }
+    void roam()
+    {
+        agent.stoppingDistance = 0;
 
+        Vector3 randomDir = Random.insideUnitSphere * roamDist;
 
+        randomDir += startingPos;
 
+        NavMeshHit hit;
+        NavMesh.SamplePosition(new Vector3(randomDir.x, 0, randomDir.z), out hit, 1, 1);
+        NavMeshPath path = new NavMeshPath();
+        agent.CalculatePath(hit.position, path);
+        agent.SetPath(path);
     }
     void facePlayer()
     {
@@ -89,7 +141,7 @@ public class biterAI : MonoBehaviour, IDamage
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
-            agent.speed = 0;
+            
         }
     }
 
@@ -98,7 +150,7 @@ public class biterAI : MonoBehaviour, IDamage
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
-            agent.speed = mobSpeed;
+           
         }
     }
    IEnumerator attack()

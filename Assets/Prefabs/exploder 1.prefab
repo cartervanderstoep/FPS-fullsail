@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8798059410059496468}
   - component: {fileID: 6493319541340410383}
   - component: {fileID: 3381973664519811870}
+  - component: {fileID: 718474555}
+  - component: {fileID: 884923893}
   m_Layer: 6
   m_Name: exploder 1
   m_TagString: Untagged
@@ -49,9 +51,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 2157333994115424158}
   agent: {fileID: 6493319541340410383}
+  anim: {fileID: 884923893}
   HP: 3
   playerFaceSpeed: 5
-  playerIsTargeted: 1
+  sightDist: 10
+  sightAngle: 45
+  roamDist: 5
+  animLerpSpeed: 0
+  headPos: {fileID: 2157333994126922398}
+  playerIsTargeted: 0
   explosion: {fileID: 4429021292482948830, guid: b70b205b6e008d7489d443104ac0c919, type: 3}
 --- !u!195 &6493319541340410383
 NavMeshAgent:
@@ -89,6 +97,39 @@ CapsuleCollider:
   m_Height: 2.5
   m_Direction: 1
   m_Center: {x: 0, y: 1.25, z: 0}
+--- !u!135 &718474555
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6416181711343383863}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 6.22
+  m_Center: {x: 0, y: 1.97, z: 0}
+--- !u!95 &884923893
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6416181711343383863}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 508a4bc4f3fb8b242b65c276ab61a344, type: 3}
+  m_Controller: {fileID: 9100000, guid: 17e377f27f818134c9ddcaef650fa838, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &8798059408950712739
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -96,6 +137,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9071790308717321861}
     m_Modifications:
+    - target: {fileID: 7487410016649246973, guid: 9e6401f8e2320e54797a680db42d218f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7487410016656463645, guid: 9e6401f8e2320e54797a680db42d218f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -174,5 +219,10 @@ SkinnedMeshRenderer:
 --- !u!4 &2157333994126495420 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7487410016656463647, guid: 9e6401f8e2320e54797a680db42d218f, type: 3}
+  m_PrefabInstance: {fileID: 8798059408950712739}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2157333994126922398 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7487410016656624445, guid: 9e6401f8e2320e54797a680db42d218f, type: 3}
   m_PrefabInstance: {fileID: 8798059408950712739}
   m_PrefabAsset: {fileID: 0}

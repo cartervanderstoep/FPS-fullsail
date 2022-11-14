@@ -8,6 +8,7 @@ public class enemyAI : MonoBehaviour, IDamage
     [Header("----- Components -----")]
     [SerializeField] Renderer model;
     [SerializeField] NavMeshAgent agent;
+    [SerializeField] Animator anim;
 
     [Header("----- Enemy Stats -----")]
     [SerializeField] int HP;
@@ -55,7 +56,7 @@ public class enemyAI : MonoBehaviour, IDamage
         }
 
 
-        playerDir = (gameManager.instance.player.transform.position - headPos.transform.position);
+        anim.SetFloat("Speed", agent.velocity.normalized.magnitude);
 
         angleToPlayer = Vector3.Angle(playerDir, transform.forward);
         
@@ -78,7 +79,7 @@ public class enemyAI : MonoBehaviour, IDamage
         angleToPlayer = Vector3.Angle(playerDir, transform.forward);
         RaycastHit hit;
 
-        if (Physics.Raycast(headPos.transform.position,playerDir, out hit))
+        if (Physics.Raycast(headPos.transform.position, playerDir, out hit))
         {
             if (hit.collider.CompareTag("Player")&& angleToPlayer <= sightAngle)
             {

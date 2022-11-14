@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2150673493919679799}
   - component: {fileID: 7903471781257507672}
   - component: {fileID: -7756177924907634439}
+  - component: {fileID: 607196746}
   m_Layer: 6
   m_Name: 'bird '
   m_TagString: Untagged
@@ -85,10 +86,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 7903471779545846210}
   agent: {fileID: 5596530019200372760}
+  anim: {fileID: 607196746}
   HP: 3
   playerFaceSpeed: 6
   damage: 1
-  playerIsTargeted: 1
+  sightDist: 0
+  sightAngle: 135
+  roamDist: 0
+  animLerpSpeed: 0
+  headPos: {fileID: 7903471779559447718}
+  playerIsTargeted: 0
 --- !u!136 &-7756177924907634439
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -103,6 +110,26 @@ CapsuleCollider:
   m_Height: 3.96
   m_Direction: 0
   m_Center: {x: 0, y: 0.75, z: 0}
+--- !u!95 &607196746
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5673658788032804640}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 221f97476fc29794da96ee45e1fb7f2e, type: 3}
+  m_Controller: {fileID: 9100000, guid: 96ed3ac84edfbf74190ac82dbbdbf529, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &7903471779559414368
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -170,6 +197,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 221f97476fc29794da96ee45e1fb7f2e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 221f97476fc29794da96ee45e1fb7f2e, type: 3}
 --- !u!137 &7903471779545846210 stripped
@@ -180,5 +211,10 @@ SkinnedMeshRenderer:
 --- !u!4 &7903471779559014624 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 221f97476fc29794da96ee45e1fb7f2e, type: 3}
+  m_PrefabInstance: {fileID: 7903471779559414368}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7903471779559447718 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100038, guid: 221f97476fc29794da96ee45e1fb7f2e, type: 3}
   m_PrefabInstance: {fileID: 7903471779559414368}
   m_PrefabAsset: {fileID: 0}
