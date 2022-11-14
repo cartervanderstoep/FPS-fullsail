@@ -129,41 +129,24 @@ public class playerController : MonoBehaviour
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStatx.gunModel.GetComponent<MeshRenderer>().sharedMaterial;
         guns.Add(gunStatx);
     }
-    public void powerupPickup(powerupStats powerupstat)
-    {
-        if(powerupstat.speedMultiplier != 0)
-        {
-            playerSpeed *= powerupstat.speedMultiplier;
-            
-        }
-        if(powerupstat.jumpHeightIncrease!= 0)
-        {
-            jumpHeight += powerupstat.jumpHeightIncrease;
-        }
-        if(powerupstat.jumpNumberIncrease !=0)
-        {
-            jumpsMax += powerupstat.jumpNumberIncrease;
-        }
-        StartCoroutine(gameManager.instance.playerPowerupFlash(powerupstat.duration));
-        
-        //if(isSprinting == true)
-        //{
-        //    playerSpeed = playerSpeedOrig * sprintMod;
-        //}
-        //else
-        //{
-        //    playerSpeed = playerSpeedOrig;
-        //}
-        //jumpHeight = jumpHeightOrig;
-        //jumpsMax = jumpsMaxOrig;
-
-    }
+    
     public IEnumerator powerupActivate(powerupStats Pup)
     {
         playerSpeed *= Pup.speedMultiplier;
+        jumpsMax += Pup.jumpNumberIncrease;
+        jumpHeight = Pup.jumpHeightIncrease;
         StartCoroutine(gameManager.instance.playerPowerupFlash(Pup.duration));
         yield return new WaitForSeconds(Pup.duration);
-        playerSpeed = playerSpeedOrig;
+        if(isSprinting == true)
+        {
+            playerSpeed = playerSpeedOrig * sprintMod;
+        }
+        else
+        {
+            playerSpeed = playerSpeedOrig;
+        }
+        jumpHeight = jumpHeightOrig;
+        jumpsMax = jumpsMaxOrig;
     }
     public void powerupActPlayer(powerupStats alt)
     {
