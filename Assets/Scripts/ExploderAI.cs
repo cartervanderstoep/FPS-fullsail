@@ -32,6 +32,7 @@ public class ExploderAI : MonoBehaviour, IDamage
     float mobSpeed;
     float angleToPlayer;
     float breakDist;
+    int explosionCount;
     Vector3 playerDir;
     Vector3 startingPos;
 
@@ -102,6 +103,7 @@ public class ExploderAI : MonoBehaviour, IDamage
 
                     if (warningCount >= 3 && !isExploding)
                     {
+                        warningCount = 0;
                         explode();
                     }
                     Debug.Log(warningCount.ToString());
@@ -144,12 +146,10 @@ public class ExploderAI : MonoBehaviour, IDamage
         HP -= dmg;
         StartCoroutine(flashDamage());
 
-        if (HP <= 0)
+        if (HP <= 0 && !isExploding)
         {
-
-
+            Debug.Log("ouch");
             explode();
-
         }
     }
 
@@ -175,10 +175,15 @@ public class ExploderAI : MonoBehaviour, IDamage
     }
     void explode()
     {
-        isExploding = true;
-        gameManager.instance.updateEnemyNumber();
-        Instantiate(explosion,transform.position,transform.rotation);
-        Destroy(gameObject);
+        if (!isExploding)
+        {
+            Debug.Log("bang");
+            isExploding = true;
+            gameManager.instance.updateEnemyNumber();
+            Instantiate(explosion, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
+
     }
     private void OnTriggerEnter(Collider other)
     {

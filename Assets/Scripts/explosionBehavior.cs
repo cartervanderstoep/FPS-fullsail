@@ -9,17 +9,14 @@ public class explosionBehavior : MonoBehaviour
     bool isExploding = false;
    
     // Start is called before the first frame update
-    private void Awake()
+    private void Start()
     {
-       
-    }
-
-    private void Update()
-    {
+        Instantiate(explosion, transform.position, transform.rotation);
         explode(gameObject.transform.position, explosionDamage * 2);
         StartCoroutine(wait());
     }
 
+   
 
 
 
@@ -56,6 +53,7 @@ public class explosionBehavior : MonoBehaviour
     void explode(Vector3 center, float radius)
     {
         Collider[] Colliders = Physics.OverlapSphere(center, radius);
+        
         foreach (var entity in Colliders)
         {
             if (entity.CompareTag("Player"))
@@ -72,6 +70,8 @@ public class explosionBehavior : MonoBehaviour
                     entity.GetComponent<Collider>().GetComponent<IDamage>().takeDamage(explosionDamage - (int)Vector3.Distance(gameObject.transform.position, entity.transform.position));
                 }
             }
+
+
 
         }
         isExploding = false;

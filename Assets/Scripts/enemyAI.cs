@@ -127,15 +127,15 @@ public class enemyAI : MonoBehaviour, IDamage
             agent.stoppingDistance = 0;
             if (HP <= 0)
             {
+                isDead = true;
                 gameManager.instance.updateEnemyNumber();
                 agent.enabled = false;
                 anim.SetBool("Dead", true);
-                isDead = true;
                 gameObject.GetComponent<Collider>().enabled = false;
 
 
 
-                //  Destroy(gameObject);
+                //Destroy(gameObject);
 
             }
         }
