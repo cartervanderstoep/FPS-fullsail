@@ -162,6 +162,7 @@ public class birdScript : MonoBehaviour, IDamage
                 agent.enabled = false;
                 anim.SetBool("Dead", true);
                 isDead = true;
+                gameObject.GetComponent<Collider>().enabled = false;
 
 
 

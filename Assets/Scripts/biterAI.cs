@@ -124,6 +124,7 @@ public class biterAI : MonoBehaviour, IDamage
         if (HP <= 0)
         {
             Destroy(gameObject);
+            gameObject.GetComponent<Collider>().enabled = false;
             gameManager.instance.updateEnemyNumber();
          
            

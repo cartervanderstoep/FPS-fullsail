@@ -7,42 +7,83 @@ public class explosionBehavior : MonoBehaviour
     [SerializeField] int explosionDamage;
     public GameObject explosion;
     bool isExploding = false;
+   
     // Start is called before the first frame update
+    private void Awake()
+    {
+       
+    }
 
     private void Update()
     {
-        
+        explode(gameObject.transform.position, explosionDamage * 2);
         StartCoroutine(wait());
     }
 
 
 
-    private void OnTriggerEnter(Collider other)
+
+    
+
+
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    isExploding = true;
+    //    Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
+
+
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        if (explosionDamage - Vector3.Distance(gameObject.transform.position, other.transform.position) >= 0)
+    //        {
+    //            gameManager.instance.playerScript.damage(explosionDamage - (int)Vector3.Distance(gameObject.transform.position, other.transform.position));
+    //        }
+    //    }
+    //    if (other.GetComponent<IDamage>() != null)
+    //    {
+    //        if (explosionDamage - Vector3.Distance(gameObject.transform.position, other.transform.position) >= 0)
+    //        {
+    //            other.GetComponent<Collider>().GetComponent<IDamage>().takeDamage(explosionDamage - (int)Vector3.Distance(gameObject.transform.position, other.transform.position));
+    //        }
+    //    }
+
+    //    isExploding = false;
+    //    StartCoroutine(wait());
+    //}
+
+
+    void explode(Vector3 center, float radius)
     {
-        isExploding = true;
-        Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
-        if (other.CompareTag("Player"))
+        Collider[] Colliders = Physics.OverlapSphere(center, radius);
+        foreach (var entity in Colliders)
         {
-            if (explosionDamage - Vector3.Distance(gameObject.transform.position, other.transform.position) >= 0)
+            if (entity.CompareTag("Player"))
             {
-                gameManager.instance.playerScript.damage(explosionDamage - (int)Vector3.Distance(gameObject.transform.position, other.transform.position));
+                if (explosionDamage - Vector3.Distance(gameObject.transform.position, entity.transform.position) >= 0)
+                {
+                    gameManager.instance.playerScript.damage(explosionDamage - (int)Vector3.Distance(gameObject.transform.position, entity.transform.position));
+                }
             }
-        }
-          if(other.GetComponent<IDamage>() != null)
-        {
-            if (explosionDamage - Vector3.Distance(gameObject.transform.position, other.transform.position) >= 0)
+            if (entity.GetComponent<IDamage>() != null)
             {
-                other.GetComponent<Collider>().GetComponent<IDamage>().takeDamage(explosionDamage - (int)Vector3.Distance(gameObject.transform.position, other.transform.position));
+                if (explosionDamage - Vector3.Distance(gameObject.transform.position, entity.transform.position) >= 0)
+                {
+                    entity.GetComponent<Collider>().GetComponent<IDamage>().takeDamage(explosionDamage - (int)Vector3.Distance(gameObject.transform.position, entity.transform.position));
+                }
             }
-        }
 
-          isExploding = false;
+        }
+        isExploding = false;
         StartCoroutine(wait());
     }
+
+
+
     IEnumerator wait()
     {
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.2f);
         if (isExploding == false)
         {
             Destroy(gameObject);
