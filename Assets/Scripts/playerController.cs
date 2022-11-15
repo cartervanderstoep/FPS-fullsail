@@ -15,7 +15,7 @@ public class playerController : MonoBehaviour
     [Range(0, 35)][SerializeField] float gravityValue;
     [Range(1, 3)][SerializeField] int jumpsMax;
     [Range(1, 60)][SerializeField] float playerStamina;
-    [Range(1, 15)][SerializeField] float hoverTime; 
+    [Range(1, 60)][SerializeField] float hoverTime;
 
     [Header("----- Gun Stats -----")]
     [SerializeField] float shootRate;
@@ -34,13 +34,18 @@ public class playerController : MonoBehaviour
     float playerSpeedOrig;
     float jumpHeightOrig;
     float pStaminaOG;
+    float gravityOG;
+    float hoverTimeOG; 
     bool isSprinting;
     bool isShooting;
-    bool isJumping; 
+    bool isJumping;
+    bool isHovering; 
     
 
     private void Start()
     {
+        hoverTimeOG = hoverTime; 
+        gravityOG = gravityValue; 
         pStaminaOG = playerStamina; 
         jumpHeightOrig = jumpHeight;
         jumpsMaxOrig = jumpsMax;
@@ -52,10 +57,19 @@ public class playerController : MonoBehaviour
     void Update()
     {
         movement();
+        if (isHovering)
+        {
+            hoverTime = Mathf.Lerp(hoverTime, 0, Time.deltaTime * 3);
+        }
+        if (hoverTime < hoverTimeOG && !isHovering)
+        {
+            hoverTime = Mathf.Lerp(hoverTime, hoverTimeOG + 0.1f, Time.deltaTime);
+        }
+
         sprint();
         if(isSprinting)
         {
-            playerStamina = Mathf.Lerp(playerStamina, 0, Time.deltaTime);
+            playerStamina = Mathf.Lerp(playerStamina, 0, Time.deltaTime * 3);
         }
         if(playerStamina < pStaminaOG && !isSprinting)
         {
@@ -84,25 +98,34 @@ public class playerController : MonoBehaviour
             isJumping = true; 
             jumpsTimes++;
             playerVelocity.y = jumpHeight;
-            isJumping = false; 
         }
+
+        if (Input.GetButtonDown("Hover") && hoverTime > 0.1)
+        {
+            if(hoverTime > 0)
+            {
+                isHovering = true;
+                gravityValue = 0;
+                playerVelocity.y = 0;
+            }
+        }
+        else if (Input.GetButtonUp("Hover"))
+        {
+            isHovering = false;
+            gravityValue = gravityOG;
             playerVelocity.y -= gravityValue * Time.deltaTime;
+        }
+        playerVelocity.y -= gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+        isJumping = false;
     }
 
     void sprint()
     {
-        if(playerStamina < pStaminaOG)
+        if (Input.GetButtonDown("Sprint") && playerStamina > 0.1)
         {
-            playerStamina += Time.deltaTime; 
-        }
-        if (Input.GetButtonDown("Sprint"))
-        {
-            if(playerStamina > 0)
-            {
                 playerSpeed *= sprintMod;
                 isSprinting = true;
-            }
         }
         else if (Input.GetButtonUp("Sprint"))
         {
@@ -196,12 +219,7 @@ public class playerController : MonoBehaviour
         }
     }
 
-    //void hover()
-    //{
-    //      if (Input.GetButton("Jump") && jumpsTimes < jumpsMax)
-    //      {
-    //      }
-    //}
+   
     void changeGuns()
     {
         shootRate = guns[selectedGun].gunShootRate;

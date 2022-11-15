@@ -483,6 +483,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6268688499471105128, guid: a793828b41c65494a89e5f2310bad5e1, type: 3}
+      propertyPath: hoverTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268688499471105128, guid: a793828b41c65494a89e5f2310bad5e1, type: 3}
+      propertyPath: hoverForce
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a793828b41c65494a89e5f2310bad5e1, type: 3}
 --- !u!1001 &1110715200
