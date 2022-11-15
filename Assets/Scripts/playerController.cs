@@ -22,6 +22,7 @@ public class playerController : MonoBehaviour
     [SerializeField] GameObject gunModel;
     [SerializeField] List<gunStats> guns = new List<gunStats>();
     [SerializeField] GameObject hitEffect;
+    
 
     Vector3 move;
     private Vector3 playerVelocity;
@@ -113,6 +114,7 @@ public class playerController : MonoBehaviour
     public void damage(int dmg)
     {
         HP -= dmg;
+        updatePlayerHPBar();
             StartCoroutine(gameManager.instance.playerDamageFlash());
         if(HP <= 0)
         {
@@ -120,6 +122,11 @@ public class playerController : MonoBehaviour
                 gameManager.instance.pause();   
         }
     }
+    void updatePlayerHPBar()
+    {
+        gameManager.instance.HPBar.fillAmount = (float)HP / (float)HPOrig;
+    }
+
     public void gunPickup(gunStats gunStatx)
     {
         shootRate = gunStatx.gunShootRate;
@@ -181,6 +188,7 @@ public class playerController : MonoBehaviour
     {
         controller.enabled = false;
         HP = HPOrig;
+        updatePlayerHPBar();
         transform.position = gameManager.instance.spawnPos.transform.position;
         gameManager.instance.playerDeadMenu.SetActive(false);
         controller.enabled = true;
@@ -199,6 +207,7 @@ public class playerController : MonoBehaviour
         {
             HP += healStat.healValue;
         }
+        updatePlayerHPBar();
     }
    
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class gameManager : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class gameManager : MonoBehaviour
     public GameObject playerPowerupScreen;
     public GameObject playerHealthupScreen;
     public TextMeshProUGUI enemiesLeft;
+    public Image HPBar;
 
     public int enemiesToKill;
 
