@@ -10,8 +10,6 @@ public class healPickUp : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-
-
             gameManager.instance.playerScript.healPickUp(healStat);
             Destroy(gameObject);
         }

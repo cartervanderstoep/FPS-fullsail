@@ -38,7 +38,7 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Cancel") && !playerDeadMenu.activeSelf && !winMenu.activeSelf && !playerPowerupScreen.activeSelf)
+        if (Input.GetButtonDown("Cancel") && !playerDeadMenu.activeSelf && !winMenu.activeSelf && !playerPowerupScreen.activeSelf && !playerHealthupScreen.activeSelf)
         {
             isPaused = !isPaused;
             pauseMenu.SetActive(isPaused);
@@ -80,8 +80,8 @@ public class gameManager : MonoBehaviour
     public IEnumerator playerHealthupFlash()
     {
         playerHealthupScreen.SetActive(true);
-        yield return new WaitForSeconds(1);
-        playerPowerupScreen.SetActive(false);
+        yield return new WaitForSeconds(1.5f);
+        playerHealthupScreen.SetActive(false);
     }
 
     
