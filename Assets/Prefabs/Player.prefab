@@ -449,6 +449,7 @@ MonoBehaviour:
   jumpHeight: 8.69
   gravityValue: 25
   jumpsMax: 1
+  playerStamina: 10
   shootRate: 0.1
   shootDist: 50
   shootDamage: 1

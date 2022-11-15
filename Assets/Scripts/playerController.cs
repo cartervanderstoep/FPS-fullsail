@@ -14,6 +14,7 @@ public class playerController : MonoBehaviour
     [Range(8, 20)][SerializeField] float jumpHeight;
     [Range(0, 35)][SerializeField] float gravityValue;
     [Range(1, 3)][SerializeField] int jumpsMax;
+    [Range(1, 60)] [SerializeField] float playerStamina; 
 
     [Header("----- Gun Stats -----")]
     [SerializeField] float shootRate;
@@ -34,11 +35,12 @@ public class playerController : MonoBehaviour
     float playerSpeedOrig;
     int jumpsMaxOrig;
     float jumpHeightOrig;
+    float pStaminaOG;
     
 
     private void Start()
     {
-        
+        pStaminaOG = playerStamina; 
         jumpHeightOrig = jumpHeight;
         jumpsMaxOrig = jumpsMax;
         playerSpeedOrig = playerSpeed;
@@ -50,6 +52,14 @@ public class playerController : MonoBehaviour
     {
         movement();
         sprint();
+        if(isSprinting)
+        {
+            playerStamina = Mathf.Lerp(playerStamina, 0, Time.deltaTime);
+        }
+        if(playerStamina < pStaminaOG && !isSprinting)
+        {
+            playerStamina = Mathf.Lerp(playerStamina, pStaminaOG, Time.deltaTime);
+        }
         StartCoroutine(shoot());
         gunSelect(); 
     }
@@ -80,10 +90,17 @@ public class playerController : MonoBehaviour
 
     void sprint()
     {
+        if(playerStamina < pStaminaOG)
+        {
+            playerStamina += Time.deltaTime; 
+        }
         if (Input.GetButtonDown("Sprint"))
         {
-            playerSpeed *= sprintMod;
-            isSprinting = true;
+            if(playerStamina > 0)
+            {
+                playerSpeed *= sprintMod;
+                isSprinting = true;
+            }
         }
         else if (Input.GetButtonUp("Sprint"))
         {
@@ -91,6 +108,7 @@ public class playerController : MonoBehaviour
             isSprinting = false;
         }
     }
+    
 
     IEnumerator shoot()
     {
