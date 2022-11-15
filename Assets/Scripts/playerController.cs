@@ -17,6 +17,9 @@ public class playerController : MonoBehaviour
     [Range(1, 60)][SerializeField] float playerStamina;
     [Range(1, 60)][SerializeField] float hoverTime;
 
+    [Header("----- Player Physics -----")]
+    [SerializeField] int pushBackTime; 
+
     [Header("----- Gun Stats -----")]
     [SerializeField] float shootRate;
     [SerializeField] int shootDist;
@@ -26,6 +29,7 @@ public class playerController : MonoBehaviour
     [SerializeField] GameObject hitEffect;
 
     Vector3 move;
+    public Vector3 pushBack; 
     private Vector3 playerVelocity;
     int jumpsTimes;
     int HPOrig;
@@ -56,6 +60,7 @@ public class playerController : MonoBehaviour
 
     void Update()
     {
+        pushBack = Vector3.Lerp(pushBack, Vector3.zero, Time.deltaTime * pushBackTime); 
         movement();
         if (isHovering)
         {
@@ -91,7 +96,7 @@ public class playerController : MonoBehaviour
         move = transform.right * Input.GetAxis("Horizontal") +
                transform.forward * Input.GetAxis("Vertical");
 
-        controller.Move(move * Time.deltaTime * playerSpeed);
+        controller.Move((move + pushBack) * Time.deltaTime * playerSpeed);
 
         if (Input.GetButtonDown("Jump") && jumpsTimes < jumpsMax)
         {
