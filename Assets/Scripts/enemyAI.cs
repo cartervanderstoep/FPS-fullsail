@@ -9,6 +9,7 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] Renderer model;
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator anim;
+    
 
     [Header("----- Enemy Stats -----")]
     [SerializeField] int HP;
@@ -35,6 +36,7 @@ public class enemyAI : MonoBehaviour, IDamage
     float breakDistance;
     Vector3 startingPos;
     float speedOrig;
+    bool isDead;
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +58,7 @@ public class enemyAI : MonoBehaviour, IDamage
         }
 
 
-        anim.SetFloat("Speed", agent.velocity.normalized.magnitude);
+        anim.SetFloat("Speed", Mathf.Lerp(anim.GetFloat("Speed"),agent.velocity.normalized.magnitude, Time.deltaTime * animLerpSpeed));
 
         angleToPlayer = Vector3.Angle(playerDir, transform.forward);
         
@@ -116,17 +118,25 @@ public class enemyAI : MonoBehaviour, IDamage
 
     public void takeDamage(int dmg)
     {
-
-        HP -= dmg;
-        agent.SetDestination(gameManager.instance.player.transform.position);
-        StartCoroutine(flashDamage());
-        agent.stoppingDistance = 0;
-        if (HP <= 0)
+        if (!isDead)
         {
-            gameManager.instance.updateEnemyNumber();
 
-            Destroy(gameObject);
+            HP -= dmg;
+            agent.SetDestination(gameManager.instance.player.transform.position);
+            StartCoroutine(flashDamage());
+            agent.stoppingDistance = 0;
+            if (HP <= 0)
+            {
+                gameManager.instance.updateEnemyNumber();
+                agent.enabled = false;
+                anim.SetBool("Dead", true);
+                isDead = true;
 
+
+
+                //  Destroy(gameObject);
+
+            }
         }
     }
 
@@ -139,6 +149,7 @@ public class enemyAI : MonoBehaviour, IDamage
     IEnumerator shoot()
     {
         isShooting = true;
+        anim.SetTrigger("Shoot");
 
         Instantiate(bullet, shootPos.position, transform.rotation);
 

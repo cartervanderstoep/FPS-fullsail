@@ -54,7 +54,7 @@ public class biterAI : MonoBehaviour, IDamage
         {
             agent.SetDestination(gameManager.instance.player.transform.position);
         }
-        anim.SetFloat("Speed", agent.velocity.normalized.magnitude);
+        anim.SetFloat("Speed", Mathf.Lerp(anim.GetFloat("Speed"), agent.velocity.normalized.magnitude, Time.deltaTime * animLerpSpeed));
 
         playerDir = (gameManager.instance.player.transform.position - trackingPos);
         trackingPos = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);

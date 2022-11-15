@@ -54,7 +54,7 @@ public class ExploderAI : MonoBehaviour, IDamage
         {
             agent.SetDestination(gameManager.instance.player.transform.position);
         }
-        anim.SetFloat("Speed", agent.velocity.normalized.magnitude);
+        anim.SetFloat("Speed", Mathf.Lerp(anim.GetFloat("Speed"), agent.velocity.normalized.magnitude, Time.deltaTime * animLerpSpeed));
 
         playerDir = (gameManager.instance.player.transform.position - headPos.transform.position);
 
@@ -166,6 +166,7 @@ public class ExploderAI : MonoBehaviour, IDamage
        
         agent.speed = 0;
         model.material.color = Color.yellow;
+        anim.SetTrigger("Attack");
         yield return new WaitForSeconds(.3f);
         model.material.color= Color.white;
         yield return new WaitForSeconds(.3f);
