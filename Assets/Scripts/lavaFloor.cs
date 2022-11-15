@@ -5,7 +5,8 @@ using UnityEngine;
 public class lavaFloor : MonoBehaviour
 {
     [SerializeField] int damage;
-    [SerializeField] int timer;
+    [SerializeField] float timer;
+    [SerializeField] float speedMod;
     bool inRange;
     bool tookDamage;
 
@@ -15,7 +16,7 @@ public class lavaFloor : MonoBehaviour
         tookDamage = false;
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
@@ -29,7 +30,7 @@ public class lavaFloor : MonoBehaviour
 
     IEnumerator inflictDamage()
     {
-        while (inRange)
+        if (inRange)
         {
             tookDamage = true;
             gameManager.instance.playerScript.damage(damage);

@@ -14,7 +14,8 @@ public class playerController : MonoBehaviour
     [Range(8, 20)][SerializeField] float jumpHeight;
     [Range(0, 35)][SerializeField] float gravityValue;
     [Range(1, 3)][SerializeField] int jumpsMax;
-    [Range(1, 60)] [SerializeField] float playerStamina; 
+    [Range(1, 60)][SerializeField] float playerStamina;
+    [Range(1, 15)][SerializeField] float hoverTime; 
 
     [Header("----- Gun Stats -----")]
     [SerializeField] float shootRate;
@@ -23,19 +24,19 @@ public class playerController : MonoBehaviour
     [SerializeField] GameObject gunModel;
     [SerializeField] List<gunStats> guns = new List<gunStats>();
     [SerializeField] GameObject hitEffect;
-    
 
     Vector3 move;
     private Vector3 playerVelocity;
     int jumpsTimes;
     int HPOrig;
     int selectedGun; 
-    bool isSprinting;
-    bool isShooting;
-    float playerSpeedOrig;
     int jumpsMaxOrig;
+    float playerSpeedOrig;
     float jumpHeightOrig;
     float pStaminaOG;
+    bool isSprinting;
+    bool isShooting;
+    bool isJumping; 
     
 
     private void Start()
@@ -80,11 +81,12 @@ public class playerController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && jumpsTimes < jumpsMax)
         {
+            isJumping = true; 
             jumpsTimes++;
             playerVelocity.y = jumpHeight;
+            isJumping = false; 
         }
-
-        playerVelocity.y -= gravityValue * Time.deltaTime;
+            playerVelocity.y -= gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
     }
 
@@ -193,6 +195,13 @@ public class playerController : MonoBehaviour
             }
         }
     }
+
+    //void hover()
+    //{
+    //      if (Input.GetButton("Jump") && jumpsTimes < jumpsMax)
+    //      {
+    //      }
+    //}
     void changeGuns()
     {
         shootRate = guns[selectedGun].gunShootRate;
