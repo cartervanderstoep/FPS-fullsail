@@ -17,6 +17,7 @@ public class gameManager : MonoBehaviour
     public GameObject winMenu;
     public GameObject playerDamageScreen;
     public GameObject playerPowerupScreen;
+    public GameObject playerHealthupScreen;
     public TextMeshProUGUI enemiesLeft;
 
     public int enemiesToKill;
@@ -75,6 +76,12 @@ public class gameManager : MonoBehaviour
         yield return new WaitForSeconds(timer);
         playerPowerupScreen.SetActive(false);
 
+    }
+    public IEnumerator playerHealthupFlash()
+    {
+        playerHealthupScreen.SetActive(true);
+        yield return new WaitForSeconds(1);
+        playerPowerupScreen.SetActive(false);
     }
 
     

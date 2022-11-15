@@ -187,6 +187,8 @@ public class playerController : MonoBehaviour
     }
     public void healPickUp(healStats healStat)
     {
+        StartCoroutine(gameManager.instance.playerHealthupFlash());
+
         if (HP + healStat.healValue > HPOrig && HP != HPOrig)
         {
             int netHeal = HPOrig - HP;
