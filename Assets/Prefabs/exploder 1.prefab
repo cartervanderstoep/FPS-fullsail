@@ -57,7 +57,7 @@ MonoBehaviour:
   sightDist: 10
   sightAngle: 45
   roamDist: 5
-  animLerpSpeed: 0
+  animLerpSpeed: 1
   headPos: {fileID: 2157333994126922398}
   playerIsTargeted: 0
   explosion: {fileID: 4429021292482948830, guid: b70b205b6e008d7489d443104ac0c919, type: 3}

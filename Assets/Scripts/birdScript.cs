@@ -35,6 +35,7 @@ public class birdScript : MonoBehaviour, IDamage
     float angleToPlayer;
     float breakDist;
     Vector3 startingPos;
+    bool isDead;
 
 
 
@@ -55,7 +56,8 @@ public class birdScript : MonoBehaviour, IDamage
         {
             agent.SetDestination(gameManager.instance.player.transform.position);
         }
-        anim.SetFloat("Speed", agent.velocity.normalized.magnitude);
+        anim.SetFloat("Speed", Mathf.Lerp(anim.GetFloat("Speed"), agent.velocity.normalized.magnitude, Time.deltaTime * animLerpSpeed));
+
         playerDir = (gameManager.instance.player.transform.position - headPos.transform.position);
 
         if (isFighting == false)
@@ -65,13 +67,16 @@ public class birdScript : MonoBehaviour, IDamage
 
         }
 
-        if (playerInRange)
+        if (anim.GetBool("Dead") == false)  
         {
-            canSeePlayer();
-        }
-        else if(agent.remainingDistance < 0.1f && agent.destination != gameManager.instance.player.transform.position)
-        {
-            roam();
+            if (playerInRange)
+            {
+                canSeePlayer();
+            }
+            else if (agent.remainingDistance < 0.1f && agent.destination != gameManager.instance.player.transform.position)
+            {
+                roam();
+            }
         }
 
         
@@ -80,6 +85,11 @@ public class birdScript : MonoBehaviour, IDamage
        
 
         diveBombCheck();
+
+        if (HP <= 0)
+        {
+            transform.position = Vector3.Lerp(transform.position,Vector3.down, agent.speed * Time.deltaTime);   
+        }
     }
     void canSeePlayer()
     {
@@ -98,7 +108,9 @@ public class birdScript : MonoBehaviour, IDamage
                     facePlayer();
                 if (ascending == false)
                 {
+                    
                     Debug.Log("swooping");
+                    
 
                     diveBomb();
                 }
@@ -136,15 +148,26 @@ public class birdScript : MonoBehaviour, IDamage
     }
     public void takeDamage(int dmg)
     {
-        HP -= dmg;
-        StartCoroutine(flashDamage());
-
-        if (HP <= 0)
+        if (!isDead)
         {
-            Destroy(gameObject);
-            gameManager.instance.updateEnemyNumber();
+
+            HP -= dmg;
+            agent.SetDestination(gameManager.instance.player.transform.position);
+            StartCoroutine(flashDamage());
+            agent.stoppingDistance = 0;
+            if (HP <= 0)
+            {
+                
+                gameManager.instance.updateEnemyNumber();
+                agent.enabled = false;
+                anim.SetBool("Dead", true);
+                isDead = true;
 
 
+
+                //  Destroy(gameObject);
+
+            }
         }
     }
     IEnumerator flashDamage()
@@ -156,13 +179,14 @@ public class birdScript : MonoBehaviour, IDamage
 
     void diveBombCheck()
     {
-
+        
 
         if (Vector3.Distance(transform.position, playerPos) <= 2)
         {
             if (Vector3.Distance(transform.position, gameManager.instance.player.transform.position) <= 2 && isFighting)
             {
                 gameManager.instance.playerScript.damage(damage);
+               
                 isFighting = false;
             }
             ascension();
@@ -207,8 +231,18 @@ public class birdScript : MonoBehaviour, IDamage
 
     void diveBomb()
     {
+       
         transform.position = Vector3.Slerp(transform.position, playerPos, agent.speed * Time.deltaTime);
-
+        StartCoroutine(playAnimation());
     }
+    IEnumerator playAnimation()
+    {
+        if (!ascending)
+        {
+            anim.SetTrigger("Dive");
+        }
+        yield return new WaitForSeconds(.3f);
+    }
+
 
 }
