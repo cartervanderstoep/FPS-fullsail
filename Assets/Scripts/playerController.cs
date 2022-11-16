@@ -75,10 +75,12 @@ public class playerController : MonoBehaviour
         if(isSprinting)
         {
             playerStamina = Mathf.Lerp(playerStamina, 0, Time.deltaTime * 3);
+            updatePlayerStaminaBar();
         }
         if(playerStamina < pStaminaOG && !isSprinting)
         {
             playerStamina = Mathf.Lerp(playerStamina, pStaminaOG, Time.deltaTime);
+            updatePlayerStaminaBar();
         }
         StartCoroutine(shoot());
         gunSelect(); 
@@ -173,6 +175,10 @@ public class playerController : MonoBehaviour
     void updatePlayerHPBar()
     {
         gameManager.instance.HPBar.fillAmount = (float)HP / (float)HPOrig;
+    }
+    void updatePlayerStaminaBar()
+    {
+        gameManager.instance.staminaBar.fillAmount = (float)playerStamina / (float)pStaminaOG;
     }
 
     public void gunPickup(gunStats gunStatx)

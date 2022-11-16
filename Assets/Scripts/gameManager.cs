@@ -21,6 +21,7 @@ public class gameManager : MonoBehaviour
     public GameObject playerHealthupScreen;
     public TextMeshProUGUI enemiesLeft;
     public Image HPBar;
+    public Image staminaBar;
 
     public int enemiesToKill;
 
