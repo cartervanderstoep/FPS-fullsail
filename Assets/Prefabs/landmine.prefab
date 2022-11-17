@@ -201,7 +201,7 @@ MonoBehaviour:
   - {fileID: 661289045892950599}
   - {fileID: 661289046938265609}
   - {fileID: 661289045827356434}
-  isBomb: 0
+  isBomb: 1
 --- !u!54 &7309029045337767356
 Rigidbody:
   m_ObjectHideFlags: 0
