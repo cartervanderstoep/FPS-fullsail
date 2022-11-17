@@ -78,6 +78,7 @@ public class playerController : MonoBehaviour
         {
             hoverTime = Mathf.Lerp(hoverTime, hoverTimeOG + 0.1f, Time.deltaTime);
         }
+        
         updatePlayerHoverBar();
         sprint();
         if(isSprinting)
@@ -116,14 +117,20 @@ public class playerController : MonoBehaviour
             aud.PlayOneShot(jumps[Random.Range(0,jumps.Length)], volume);
         }
 
-        if (Input.GetButtonDown("Hover") && hoverTime > 0.1)
+        if (Input.GetButtonDown("Hover") && hoverTime > 0.1f)
         {
-            if(hoverTime > 0)
+            if(hoverTime > 0.1f)
             {
                 isHovering = true;
                 gravityValue = 0;
                 playerVelocity.y = 0;
             }
+        }
+        if (hoverTime <= 0.1f)
+        {
+            isHovering = false;
+            gravityValue = gravityOG;
+            playerVelocity.y -= gravityValue * Time.deltaTime;
         }
         else if (Input.GetButtonUp("Hover"))
         {
@@ -138,10 +145,15 @@ public class playerController : MonoBehaviour
 
     void sprint()
     {
-        if(Input.GetButtonDown("Sprint") && playerStamina > 0.1)
+        if(Input.GetButtonDown("Sprint")&& playerStamina > 0.1f)
         {
-                playerSpeed *= sprintMod;
-                isSprinting = true;
+            playerSpeed *= sprintMod;
+            isSprinting = true;
+        }
+        if(playerStamina <= 0.1)
+        {
+            isSprinting = false;
+            playerSpeed = playerSpeedOrig;
         }
        
         else if (Input.GetButtonUp("Sprint"))
