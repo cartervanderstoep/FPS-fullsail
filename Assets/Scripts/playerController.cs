@@ -6,6 +6,7 @@ public class playerController : MonoBehaviour
 {
     [Header("----- Components -----")]
     [SerializeField] CharacterController controller;
+    [SerializeField] AudioSource aud;
 
     [Header("----- Player Stats -----")]
     [Range(0, 10)][SerializeField] int HP;
@@ -27,6 +28,13 @@ public class playerController : MonoBehaviour
     [SerializeField] GameObject gunModel;
     [SerializeField] List<gunStats> guns = new List<gunStats>();
     [SerializeField] GameObject hitEffect;
+
+
+    [Header("--------------sound---------------")]
+    [SerializeField] AudioClip[] jumps;
+    [SerializeField] AudioClip[] hurts;
+    [SerializeField] float volume;
+
 
     Vector3 move;
     public Vector3 pushBack; 
@@ -105,6 +113,7 @@ public class playerController : MonoBehaviour
             isJumping = true; 
             jumpsTimes++;
             playerVelocity.y = jumpHeight;
+            aud.PlayOneShot(jumps[Random.Range(0,jumps.Length)], volume);
         }
 
         if (Input.GetButtonDown("Hover") && hoverTime > 0.1)
@@ -167,7 +176,8 @@ public class playerController : MonoBehaviour
         HP -= dmg;
         updatePlayerHPBar();
             StartCoroutine(gameManager.instance.playerDamageFlash());
-        if(HP <= 0)
+        aud.PlayOneShot(hurts[Random.Range(0, hurts.Length)], volume);
+        if (HP <= 0)
         {
                 gameManager.instance.playerDeadMenu.SetActive(true);
                 gameManager.instance.pause();   
