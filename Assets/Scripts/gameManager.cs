@@ -22,6 +22,7 @@ public class gameManager : MonoBehaviour
     public TextMeshProUGUI enemiesLeft;
     public Image HPBar;
     public Image staminaBar;
+    public Image hoverBar;
 
     public int enemiesToKill;
 

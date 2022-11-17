@@ -52,11 +52,11 @@ MonoBehaviour:
   model: {fileID: 3408637993986042078}
   agent: {fileID: 2997496477661426075}
   anim: {fileID: 1959320805}
-  HP: 1
+  HP: 2
   playerFaceSpeed: 6
   damage: 1
   attackRate: 1
-  sightDist: 5
+  sightDist: 10
   sightAngle: 90
   roamDist: 4
   animLerpSpeed: 1

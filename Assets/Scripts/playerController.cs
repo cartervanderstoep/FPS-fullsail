@@ -70,7 +70,7 @@ public class playerController : MonoBehaviour
         {
             hoverTime = Mathf.Lerp(hoverTime, hoverTimeOG + 0.1f, Time.deltaTime);
         }
-
+        updatePlayerHoverBar();
         sprint();
         if(isSprinting)
         {
@@ -129,11 +129,12 @@ public class playerController : MonoBehaviour
 
     void sprint()
     {
-        if (Input.GetButtonDown("Sprint") && playerStamina > 0.1)
+        if(Input.GetButtonDown("Sprint") && playerStamina > 0.1)
         {
                 playerSpeed *= sprintMod;
                 isSprinting = true;
         }
+       
         else if (Input.GetButtonUp("Sprint"))
         {
             playerSpeed /= sprintMod;
@@ -179,6 +180,10 @@ public class playerController : MonoBehaviour
     void updatePlayerStaminaBar()
     {
         gameManager.instance.staminaBar.fillAmount = (float)playerStamina / (float)pStaminaOG;
+    }
+    void updatePlayerHoverBar()
+    {
+        gameManager.instance.hoverBar.fillAmount = (float)hoverTime / (float)hoverTimeOG;
     }
 
     public void gunPickup(gunStats gunStatx)
