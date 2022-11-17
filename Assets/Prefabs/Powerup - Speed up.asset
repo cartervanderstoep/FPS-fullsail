@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Powerup - Speed up
   m_EditorClassIdentifier: 
   speedMultiplier: 1.5
-  jumpHeightIncrease: 0
-  jumpNumberIncrease: 0
+  jumpHeightIncrease: 1
+  jumpNumberIncrease: 1
   duration: 8
   powerupModel: {fileID: 9082659423305186780, guid: 98f6ff90027e8b2419dfa6bbdf7ac56d, type: 3}
   pickupEffect: {fileID: 0}

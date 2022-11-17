@@ -200,7 +200,7 @@ public class playerController : MonoBehaviour
     {
         playerSpeed *= Pup.speedMultiplier;
         jumpsMax += Pup.jumpNumberIncrease;
-        jumpHeight = Pup.jumpHeightIncrease;
+        jumpHeight += Pup.jumpHeightIncrease;
         StartCoroutine(gameManager.instance.playerPowerupFlash(Pup.duration));
         yield return new WaitForSeconds(Pup.duration);
         if(isSprinting == true)
