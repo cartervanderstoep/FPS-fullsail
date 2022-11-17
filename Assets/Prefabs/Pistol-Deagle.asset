@@ -16,7 +16,7 @@ MonoBehaviour:
   gunDist: 400
   gunShootDmg: 1
   gunAmmo: 8
-  gunModel: {fileID: 919132149155446097, guid: 8f9696fb6017be144a307b6586855ac0, type: 3}
+  gunModel: {fileID: 129130, guid: 7e4fe71e8701ed147ac48614044e1c01, type: 3}
   hitEffect: {fileID: 2955623459812423943, guid: f5507a8c6a22c404ab324980c4e8a11b, type: 3}
   muzzleFlash: {fileID: 0}
   gunSound: {fileID: 0}
