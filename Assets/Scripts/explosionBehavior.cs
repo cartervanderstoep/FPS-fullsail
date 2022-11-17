@@ -24,30 +24,7 @@ public class explosionBehavior : MonoBehaviour
 
 
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    isExploding = true;
-    //    Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
-
-
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        if (explosionDamage - Vector3.Distance(gameObject.transform.position, other.transform.position) >= 0)
-    //        {
-    //            gameManager.instance.playerScript.damage(explosionDamage - (int)Vector3.Distance(gameObject.transform.position, other.transform.position));
-    //        }
-    //    }
-    //    if (other.GetComponent<IDamage>() != null)
-    //    {
-    //        if (explosionDamage - Vector3.Distance(gameObject.transform.position, other.transform.position) >= 0)
-    //        {
-    //            other.GetComponent<Collider>().GetComponent<IDamage>().takeDamage(explosionDamage - (int)Vector3.Distance(gameObject.transform.position, other.transform.position));
-    //        }
-    //    }
-
-    //    isExploding = false;
-    //    StartCoroutine(wait());
-    //}
+ 
 
 
     void explode(Vector3 center, float radius)

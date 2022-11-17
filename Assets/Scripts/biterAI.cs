@@ -34,16 +34,18 @@ public class biterAI : MonoBehaviour, IDamage
     float angleToPlayer;
     Vector3 trackingPos;
     Vector3 startingPos;
+    Color colorOrig;
    
 
     // Start is called before the first frame update
     void Start()
     {
         mobSpeed = agent.speed;
-        gameManager.instance.enemiesToKill++;
+       
         gameManager.instance.updateUI();
         breakDist = agent.stoppingDistance;
         startingPos = transform.position;
+        colorOrig = model.material.color;
       
     }
 
@@ -120,21 +122,29 @@ public class biterAI : MonoBehaviour, IDamage
     {
         HP -= dmg;
         StartCoroutine(flashDamage());
-
-        if (HP <= 0)
+        if (!anim.GetBool("Dead"))
         {
-            Destroy(gameObject);
-            gameObject.GetComponent<Collider>().enabled = false;
-            gameManager.instance.updateEnemyNumber();
-         
-           
+
+
+            if (HP <= 0)
+            {
+                // Destroy(gameObject);
+                gameObject.GetComponent<Collider>().enabled = false;
+                gameManager.instance.updateEnemyNumber();
+                anim.SetBool("Dead", true);
+                agent.enabled = false;
+
+
+
+            }
         }
+        
     }
     IEnumerator flashDamage()
     {
         model.material.color = Color.red;
         yield return new WaitForSeconds(0.15f);
-        model.material.color = Color.white;
+        model.material.color = colorOrig;
     }
 
     public void OnTriggerEnter(Collider other)
@@ -159,11 +169,12 @@ public class biterAI : MonoBehaviour, IDamage
     {
         isFighting = true;
             gameManager.instance.playerScript.damage(damage);
+        anim.SetTrigger("Attack");
 
            
         model.material.color = Color.yellow;
             yield return new WaitForSeconds(attackRate);
-        model.material.color= Color.white;
+        model.material.color= colorOrig;
         isFighting=false;
            
         

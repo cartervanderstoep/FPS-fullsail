@@ -39,7 +39,7 @@ public class ExploderAI : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
-        gameManager.instance.enemiesToKill++;
+       
         gameManager.instance.updateUI();
         isExploding = false;
         isFlashing = false;

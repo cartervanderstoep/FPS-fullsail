@@ -44,7 +44,7 @@ public class birdScript : MonoBehaviour, IDamage
     void Start()
     {
         mobSpeed = agent.speed;
-        gameManager.instance.enemiesToKill++;
+       
         gameManager.instance.updateUI();
         breakDist = agent.stoppingDistance;
     }
@@ -52,7 +52,7 @@ public class birdScript : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-        if (playerIsTargeted && !isFighting && !ascending)
+        if (playerIsTargeted && !isFighting && !ascending )
         {
             agent.SetDestination(gameManager.instance.player.transform.position);
         }
@@ -60,7 +60,7 @@ public class birdScript : MonoBehaviour, IDamage
 
         playerDir = (gameManager.instance.player.transform.position - headPos.transform.position);
 
-        if (isFighting == false)
+        if (isFighting == false && agent.enabled)
         {
             transform.position = new Vector3(transform.position.x, gameManager.instance.player.transform.position.y + 6.0f, transform.position.z);
             agent.enabled = true;
@@ -86,7 +86,7 @@ public class birdScript : MonoBehaviour, IDamage
 
         diveBombCheck();
 
-        if (HP <= 0)
+        if (HP <= 0 )
         {
             transform.position = Vector3.Lerp(transform.position,Vector3.down, agent.speed * Time.deltaTime);   
         }
@@ -163,6 +163,7 @@ public class birdScript : MonoBehaviour, IDamage
                 anim.SetBool("Dead", true);
                 isDead = true;
                 gameObject.GetComponent<Collider>().enabled = false;
+                 
 
 
 
@@ -184,7 +185,7 @@ public class birdScript : MonoBehaviour, IDamage
 
         if (Vector3.Distance(transform.position, playerPos) <= 2)
         {
-            if (Vector3.Distance(transform.position, gameManager.instance.player.transform.position) <= 2 && isFighting)
+             if (Vector3.Distance(transform.position, gameManager.instance.player.transform.position) <= 3 && isFighting)
             {
                 gameManager.instance.playerScript.damage(damage);
                

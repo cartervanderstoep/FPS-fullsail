@@ -41,7 +41,7 @@ public class enemyAI : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
-        gameManager.instance.enemiesToKill++;
+       
         gameManager.instance.updateUI();
         breakDistance = agent.stoppingDistance;
         startingPos = transform.position;
@@ -149,6 +149,7 @@ public class enemyAI : MonoBehaviour, IDamage
     }
     IEnumerator shoot()
     {
+       
         isShooting = true;
         anim.SetTrigger("Shoot");
 
@@ -156,6 +157,7 @@ public class enemyAI : MonoBehaviour, IDamage
 
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
+        
     }
 
     public void OnTriggerEnter(Collider other)
