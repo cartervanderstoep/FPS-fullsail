@@ -21,12 +21,12 @@ public class playerController : MonoBehaviour
     [Header("----- Player Physics -----")]
     [SerializeField] int pushBackTime; 
 
-    [Header("----- Gun Stats -----")]
-    [SerializeField] float shootRate;
-    [SerializeField] int shootDist;
-    [SerializeField] int shootDamage;
-    [SerializeField] GameObject gunModel;
-    [SerializeField] List<gunStats> guns = new List<gunStats>();
+    [Header("----- Spell Stats -----")]
+    [SerializeField] float castingRate;
+    [SerializeField] GameObject equipable;
+    [SerializeField] List<gunStats> spells = new List<gunStats>();
+    [SerializeField] GameObject magicAttk;
+    [SerializeField] Transform castOrigin; 
     [SerializeField] GameObject hitEffect;
 
 
@@ -166,19 +166,11 @@ public class playerController : MonoBehaviour
 
     IEnumerator shoot()
     {
-        if (guns.Count > 0 && !isShooting && Input.GetButton("Shoot"))
+        if (spells.Count > 0 && !isShooting && Input.GetButton("Shoot"))
         {
             isShooting = true;
-            RaycastHit hit;
-            if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
-            {
-                if (hit.collider.GetComponent<IDamage>() != null)
-                {
-                    hit.collider.GetComponent<IDamage>().takeDamage(shootDamage);
-                }
-                Instantiate(hitEffect, hit.point, hitEffect.transform.rotation);
-            }
-            yield return new WaitForSeconds(shootRate);
+            Instantiate(magicAttk, castOrigin.position, transform.rotation);
+            yield return new WaitForSeconds(castingRate);
             isShooting = false;
         }
     }
@@ -210,12 +202,10 @@ public class playerController : MonoBehaviour
 
     public void gunPickup(gunStats gunStatx)
     {
-        shootRate = gunStatx.gunShootRate;
-        shootDamage = gunStatx.gunShootDmg;
-        shootDist = gunStatx.gunDist;
-        gunModel.GetComponent<MeshFilter>().sharedMesh = gunStatx.gunModel.GetComponent<MeshFilter>().sharedMesh;
-        gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStatx.gunModel.GetComponent<MeshRenderer>().sharedMaterial;
-        guns.Add(gunStatx);
+        magicAttk = gunStatx.magicType; 
+        equipable.GetComponent<MeshFilter>().sharedMesh = gunStatx.wandModel.GetComponent<MeshFilter>().sharedMesh;
+        equipable.GetComponent<MeshRenderer>().sharedMaterial = gunStatx.wandModel.GetComponent<MeshRenderer>().sharedMaterial;
+        spells.Add(gunStatx);
     }
     
     public IEnumerator powerupActivate(powerupStats Pup)
@@ -242,9 +232,9 @@ public class playerController : MonoBehaviour
     }
     void gunSelect()
     {
-        if (guns.Count > 1)
+        if (spells.Count > 1)
         {
-            if (Input.GetAxis("Mouse ScrollWheel") > 0 && selectedGun < guns.Count - 1)
+            if (Input.GetAxis("Mouse ScrollWheel") > 0 && selectedGun < spells.Count - 1)
             {
                 selectedGun++;
                 changeGuns();
@@ -260,11 +250,9 @@ public class playerController : MonoBehaviour
    
     void changeGuns()
     {
-        shootRate = guns[selectedGun].gunShootRate;
-        shootDamage = guns[selectedGun].gunShootDmg;
-        shootDist = guns[selectedGun].gunDist;
-        gunModel.GetComponent<MeshFilter>().sharedMesh = guns[selectedGun].gunModel.GetComponent<MeshFilter>().sharedMesh;
-        gunModel.GetComponent<MeshRenderer>().sharedMaterial = guns[selectedGun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
+        magicAttk = spells[selectedGun].magicType; 
+        equipable.GetComponent<MeshFilter>().sharedMesh = spells[selectedGun].wandModel.GetComponent<MeshFilter>().sharedMesh;
+        equipable.GetComponent<MeshRenderer>().sharedMaterial = spells[selectedGun].wandModel.GetComponent<MeshRenderer>().sharedMaterial;
     }
 
     public void respawn()

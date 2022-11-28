@@ -6,12 +6,10 @@ using UnityEngine;
 
 public class gunStats : ScriptableObject
 {
-    public float gunShootRate;
-    public int gunDist;
-    public int gunShootDmg;
-    public int gunAmmo;
-    public GameObject gunModel;
+    public int wandAmmo;
+    public GameObject wandModel;
+    public GameObject magicType; 
     public GameObject hitEffect;
-    public GameObject muzzleFlash;
-    public AudioClip gunSound;
+    public GameObject castFlash;
+    public AudioClip spellSound;
 }

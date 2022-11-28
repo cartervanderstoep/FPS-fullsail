@@ -132,11 +132,6 @@ public class enemyAI : MonoBehaviour, IDamage
                 agent.enabled = false;
                 anim.SetBool("Dead", true);
                 gameObject.GetComponent<Collider>().enabled = false;
-
-
-
-                //Destroy(gameObject);
-
             }
         }
     }
