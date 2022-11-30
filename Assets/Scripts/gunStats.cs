@@ -7,6 +7,7 @@ using UnityEngine;
 public class gunStats : ScriptableObject
 {
     public int wandAmmo;
+    public float castRate; 
     public GameObject wandModel;
     public GameObject magicType; 
     public GameObject hitEffect;

@@ -165,11 +165,11 @@ public class playerController : MonoBehaviour
     
 
     IEnumerator shoot()
-    {
+    { 
         if (spells.Count > 0 && !isShooting && Input.GetButton("Shoot"))
         {
             isShooting = true;
-            Instantiate(magicAttk, castOrigin.position, transform.rotation);
+            Instantiate(magicAttk, castOrigin.position, Camera.main.transform.rotation);
             yield return new WaitForSeconds(castingRate);
             isShooting = false;
         }
@@ -202,7 +202,8 @@ public class playerController : MonoBehaviour
 
     public void gunPickup(gunStats gunStatx)
     {
-        magicAttk = gunStatx.magicType; 
+        magicAttk = gunStatx.magicType;
+        castingRate = gunStatx.castRate; 
         equipable.GetComponent<MeshFilter>().sharedMesh = gunStatx.wandModel.GetComponent<MeshFilter>().sharedMesh;
         equipable.GetComponent<MeshRenderer>().sharedMaterial = gunStatx.wandModel.GetComponent<MeshRenderer>().sharedMaterial;
         spells.Add(gunStatx);
