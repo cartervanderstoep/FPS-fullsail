@@ -16,13 +16,16 @@ public class playerController : MonoBehaviour
     [Range(0, 35)][SerializeField] float gravityValue;
     [Range(1, 3)][SerializeField] int jumpsMax;
     [Range(1, 60)][SerializeField] float playerStamina;
-    [Range(1, 60)][SerializeField] float hoverTime;
+    [Range(1, 60)][SerializeField] float utilityTime;
+    [SerializeField] float dashDist; 
 
     [Header("----- Player Physics -----")]
     [SerializeField] int pushBackTime; 
 
     [Header("----- Spell Stats -----")]
     [SerializeField] float castingRate;
+    [SerializeField] float castingDist; 
+    [Range(1, 3)][SerializeField] int magicElem; 
     [SerializeField] GameObject equipable;
     [SerializeField] List<gunStats> spells = new List<gunStats>();
     [SerializeField] GameObject magicAttk;
@@ -47,16 +50,19 @@ public class playerController : MonoBehaviour
     float jumpHeightOrig;
     float pStaminaOG;
     float gravityOG;
-    float hoverTimeOG; 
+    float utilityTimeOG;
+    float magicDropSpeed; 
     bool isSprinting;
     bool isShooting;
     bool isJumping;
-    bool isHovering; 
+    bool isHovering;
+    bool canHover;
+    bool canDash; 
     
 
     private void Start()
     {
-        hoverTimeOG = hoverTime; 
+        utilityTimeOG = utilityTime; 
         gravityOG = gravityValue; 
         pStaminaOG = playerStamina; 
         jumpHeightOrig = jumpHeight;
@@ -72,11 +78,11 @@ public class playerController : MonoBehaviour
         movement();
         if (isHovering)
         {
-            hoverTime = Mathf.Lerp(hoverTime, 0, Time.deltaTime * 3);
+            utilityTime = Mathf.Lerp(utilityTime, 0, Time.deltaTime * 3);
         }
-        if (hoverTime < hoverTimeOG && !isHovering)
+        if (utilityTime < utilityTimeOG && !isHovering)
         {
-            hoverTime = Mathf.Lerp(hoverTime, hoverTimeOG + 0.1f, Time.deltaTime);
+            utilityTime = Mathf.Lerp(utilityTime, utilityTimeOG + 0.1f, Time.deltaTime);
         }
         
         updatePlayerHoverBar();
@@ -117,16 +123,16 @@ public class playerController : MonoBehaviour
             aud.PlayOneShot(jumps[Random.Range(0,jumps.Length)], volume);
         }
 
-        if (Input.GetButtonDown("Hover") && hoverTime > 0.1f)
+        if (Input.GetButtonDown("Hover") && utilityTime > 0.1f && canHover)
         {
-            if(hoverTime > 0.1f)
+            if(utilityTime > 0.1f)
             {
                 isHovering = true;
                 gravityValue = 0;
                 playerVelocity.y = 0;
             }
         }
-        if (hoverTime <= 0.1f)
+        if (utilityTime <= 0.1f)
         {
             isHovering = false;
             gravityValue = gravityOG;
@@ -141,6 +147,10 @@ public class playerController : MonoBehaviour
         playerVelocity.y -= gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
         isJumping = false;
+        //if (Input.GetButtonDown("Hover") && utilityTime > 0.1f && canDash)
+        //{
+             
+        //}
     }
 
     void sprint()
@@ -168,10 +178,27 @@ public class playerController : MonoBehaviour
     { 
         if (spells.Count > 0 && !isShooting && Input.GetButton("Shoot"))
         {
-            isShooting = true;
-            Instantiate(magicAttk, castOrigin.position, Camera.main.transform.rotation);
-            yield return new WaitForSeconds(castingRate);
-            isShooting = false;
+            if(magicElem == 1 || magicElem == 2)
+            {
+                isShooting = true;
+                Instantiate(magicAttk, castOrigin.position, Camera.main.transform.rotation);
+                yield return new WaitForSeconds(castingRate);
+                isShooting = false;
+            }
+            else if (magicElem == 3)
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, castingDist))
+                {
+                    isShooting = true; 
+                    Vector3 dropLoc = hit.point;
+                    dropLoc.y += 20f;
+                    Instantiate(magicAttk, dropLoc, transform.rotation);
+                    yield return new WaitForSeconds(castingRate); 
+                    magicAttk.transform.Translate(Vector3.down * magicDropSpeed);
+                    isShooting = false; 
+                }
+            }
         }
     }
 
@@ -197,13 +224,14 @@ public class playerController : MonoBehaviour
     }
     void updatePlayerHoverBar()
     {
-        gameManager.instance.hoverBar.fillAmount = (float)hoverTime / (float)hoverTimeOG;
+        gameManager.instance.hoverBar.fillAmount = (float)utilityTime / (float)utilityTimeOG;
     }
 
     public void gunPickup(gunStats gunStatx)
     {
         magicAttk = gunStatx.magicType;
-        castingRate = gunStatx.castRate; 
+        castingRate = gunStatx.castRate;
+        magicElem = gunStatx.magicElement; 
         equipable.GetComponent<MeshFilter>().sharedMesh = gunStatx.wandModel.GetComponent<MeshFilter>().sharedMesh;
         equipable.GetComponent<MeshRenderer>().sharedMaterial = gunStatx.wandModel.GetComponent<MeshRenderer>().sharedMaterial;
         spells.Add(gunStatx);
@@ -251,7 +279,8 @@ public class playerController : MonoBehaviour
    
     void changeGuns()
     {
-        magicAttk = spells[selectedGun].magicType; 
+        magicAttk = spells[selectedGun].magicType;
+        magicElem = spells[selectedGun].magicElement; 
         equipable.GetComponent<MeshFilter>().sharedMesh = spells[selectedGun].wandModel.GetComponent<MeshFilter>().sharedMesh;
         equipable.GetComponent<MeshRenderer>().sharedMaterial = spells[selectedGun].wandModel.GetComponent<MeshRenderer>().sharedMaterial;
     }

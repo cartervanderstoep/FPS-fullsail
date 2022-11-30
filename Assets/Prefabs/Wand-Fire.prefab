@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8550466713627343365
+--- !u!1 &7638520817099375661
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,61 +8,61 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 9070967084673884351}
-  - component: {fileID: 6075006680392220781}
-  - component: {fileID: 5354031282490732314}
-  - component: {fileID: 7902023339523218384}
-  - component: {fileID: 6480605957962479097}
+  - component: {fileID: 7010603352418606743}
+  - component: {fileID: 6261535169188843824}
+  - component: {fileID: 6261535169188843826}
+  - component: {fileID: 8142937238046320120}
+  - component: {fileID: 6261535169188843825}
   m_Layer: 0
-  m_Name: Desert Eagle
+  m_Name: Wand-Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &9070967084673884351
+--- !u!4 &7010603352418606743
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8550466713627343365}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.02, y: 0.5, z: -85.04}
-  m_LocalScale: {x: 1.9723, y: 1.9723, z: 1.9723}
+  m_GameObject: {fileID: 7638520817099375661}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.37, y: 0.97598, z: 4.2805}
+  m_LocalScale: {x: 1.8662, y: 1.8662, z: 1.8662}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6075006680392220781
+--- !u!114 &6261535169188843824
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8550466713627343365}
+  m_GameObject: {fileID: 7638520817099375661}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8236b727c41f944ba4f74b265f7fcb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunStat: {fileID: 11400000, guid: 8a9134fbe2db51a4e8692bd6794ef430, type: 2}
---- !u!33 &5354031282490732314
+  gunStat: {fileID: 11400000, guid: c6eb6c040aa093641a6a9147217a3c1d, type: 2}
+--- !u!33 &6261535169188843826
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8550466713627343365}
-  m_Mesh: {fileID: 4300138, guid: 7374575f12d49ba459e91009f7a9ec62, type: 3}
---- !u!23 &7902023339523218384
+  m_GameObject: {fileID: 7638520817099375661}
+  m_Mesh: {fileID: 4300178, guid: 7374575f12d49ba459e91009f7a9ec62, type: 3}
+--- !u!23 &8142937238046320120
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8550466713627343365}
+  m_GameObject: {fileID: 7638520817099375661}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -76,7 +76,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 09b830498de6c894ead635fafa7d6b81, type: 2}
+  - {fileID: 2100000, guid: d9797f05ef5cc594ca36aecce2631e78, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,16 +98,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6480605957962479097
+--- !u!65 &6261535169188843825
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8550466713627343365}
+  m_GameObject: {fileID: 7638520817099375661}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.26056075, y: 0.971557, z: 1.6699742}
-  m_Center: {x: 0, y: 0.050266325, z: -0.10166764}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

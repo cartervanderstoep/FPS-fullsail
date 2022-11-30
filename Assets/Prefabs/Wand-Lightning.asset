@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7bf888e9dc14c4448962f5782aa1836, type: 3}
-  m_Name: Wand-Fire
+  m_Name: Wand-Lightning
   m_EditorClassIdentifier: 
   wandAmmo: 0
-  castRate: 0.4
-  magicElement: 1
-  wandModel: {fileID: 170008, guid: a5132481e1eaddb4e93b7cd8def7b311, type: 3}
-  magicType: {fileID: 8687208477904049311, guid: a495f3a8e281a4b4683a696272c8b3dd, type: 3}
-  hitEffect: {fileID: 2955623459812423943, guid: f5507a8c6a22c404ab324980c4e8a11b, type: 3}
+  castRate: 1
+  magicElement: 3
+  wandModel: {fileID: 165888, guid: 0c91618feef20c948a5f1566ab1d8275, type: 3}
+  magicType: {fileID: 7853808368397432072, guid: 9f206d4af49f92b45817631de9ab9927, type: 3}
+  hitEffect: {fileID: 0}
   castFlash: {fileID: 0}
   spellSound: {fileID: 0}

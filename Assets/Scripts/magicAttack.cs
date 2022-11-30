@@ -7,12 +7,22 @@ public class magicAttack : MonoBehaviour
     [SerializeField] Rigidbody magicRB;
 
     [SerializeField] int magicDamage;
+    [Range(1, 3)][SerializeField] int magicElm; 
     [SerializeField] float magicSpeed;
     [SerializeField] float attackTimer;
 
+    private Vector3 dropVelocity; 
+
     private void Start()
     {
-        magicRB.velocity = transform.forward * magicSpeed;
+        if(magicElm == 1 || magicElm == 2)
+        {
+            magicRB.velocity = transform.forward * magicSpeed;
+        }
+        else if(magicElm == 3)
+        {
+            magicRB.AddForce(Vector3.down * magicSpeed); 
+        }
         Destroy(gameObject, attackTimer);
     }
 
