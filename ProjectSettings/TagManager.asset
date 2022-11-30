@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Spawn Pos
   - Enemy
+  - Light
   layers:
   - Default
   - TransparentFX
@@ -15,8 +16,8 @@ TagManager:
   - UI
   - Enemy
   - Enemy Bullet
-  - 
-  - 
+  - Light
+  - Minimap Ignore
   - 
   - 
   - 
