@@ -2671,7 +2671,7 @@ MonoBehaviour:
   playerFaceSpeed: 5
   speedChase: 0
   sightDist: 15
-  sightAngle: 60
+  sightAngle: 45
   roamDist: 10
   animLerpSpeed: 1
   headPos: {fileID: 348513664327628904}
