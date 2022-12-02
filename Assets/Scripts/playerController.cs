@@ -17,7 +17,9 @@ public class playerController : MonoBehaviour
     [Range(1, 3)][SerializeField] int jumpsMax;
     [Range(1, 60)][SerializeField] float playerStamina;
     [Range(1, 60)][SerializeField] float utilityTime;
-    [SerializeField] float dashDist; 
+    [SerializeField] float dashDist;
+    [SerializeField] bool canFloat;
+    [SerializeField] bool canDash;
 
     [Header("----- Player Physics -----")]
     [SerializeField] int pushBackTime; 
@@ -25,7 +27,7 @@ public class playerController : MonoBehaviour
     [Header("----- Spell Stats -----")]
     [SerializeField] float castingRate;
     [SerializeField] float castingDist; 
-    [Range(1, 3)][SerializeField] int magicElem; 
+    [Range(1, 4)][SerializeField] int magicElem; 
     [SerializeField] GameObject equipable;
     [SerializeField] List<gunStats> spells = new List<gunStats>();
     [SerializeField] GameObject magicAttk;
@@ -40,6 +42,7 @@ public class playerController : MonoBehaviour
 
 
     Vector3 move;
+    Vector3 dashDir; 
     public Vector3 pushBack; 
     private Vector3 playerVelocity;
     int jumpsTimes;
@@ -56,8 +59,9 @@ public class playerController : MonoBehaviour
     bool isShooting;
     bool isJumping;
     bool isHovering;
-    bool canHover;
-    bool canDash; 
+    bool isDashing; 
+    bool canF;
+    bool canD; 
     
 
     private void Start()
@@ -69,6 +73,8 @@ public class playerController : MonoBehaviour
         jumpsMaxOrig = jumpsMax;
         playerSpeedOrig = playerSpeed;
         HPOrig = HP;
+        canF = canFloat;
+        canD = canDash; 
         respawn(); 
     }
 
@@ -84,7 +90,16 @@ public class playerController : MonoBehaviour
         {
             utilityTime = Mathf.Lerp(utilityTime, utilityTimeOG + 0.1f, Time.deltaTime);
         }
-        
+
+        if (isDashing)
+        {
+            utilityTime = utilityTime - (utilityTime / 2);
+        }
+        if (utilityTime < utilityTimeOG && !isDashing)
+        {
+            utilityTime = Mathf.Lerp(utilityTime, utilityTimeOG + 0.1f, Time.deltaTime);
+        }
+
         updatePlayerHoverBar();
         sprint();
         if(isSprinting)
@@ -123,7 +138,7 @@ public class playerController : MonoBehaviour
             aud.PlayOneShot(jumps[Random.Range(0,jumps.Length)], volume);
         }
 
-        if (Input.GetButtonDown("Hover") && utilityTime > 0.1f && canHover)
+        if (Input.GetButtonDown("Hover") && utilityTime > 0.1f && canF)
         {
             if(utilityTime > 0.1f)
             {
@@ -147,10 +162,25 @@ public class playerController : MonoBehaviour
         playerVelocity.y -= gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
         isJumping = false;
-        //if (Input.GetButtonDown("Hover") && utilityTime > 0.1f && canDash)
-        //{
-             
-        //}
+        if (Input.GetButtonDown("Hover") && utilityTime > 0.1f && canD)
+        {
+            if(utilityTime > 0.1f)
+            {
+                isDashing = true;
+                dashDir = transform.right * Input.GetAxis("Horizontal") + transform.forward * Input.GetAxis("Vertical");
+                controller.Move((dashDir + pushBack) * Time.deltaTime * (playerSpeed * dashDist));
+            }
+        }
+        if (utilityTime <= 0.1f)
+        {
+            isDashing = false;
+            controller.Move((move + pushBack) * Time.deltaTime * playerSpeed);
+        }
+        else if (Input.GetButtonUp("Hover"))
+        {
+            isDashing = false;
+            controller.Move((move + pushBack) * Time.deltaTime * playerSpeed);
+        }
     }
 
     void sprint()
@@ -185,7 +215,7 @@ public class playerController : MonoBehaviour
                 yield return new WaitForSeconds(castingRate);
                 isShooting = false;
             }
-            else if (magicElem == 3)
+            else if (magicElem == 3 || magicElem == 4)
             {
                 RaycastHit hit;
                 if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, castingDist))

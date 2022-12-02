@@ -7,7 +7,7 @@ public class magicAttack : MonoBehaviour
     [SerializeField] Rigidbody magicRB;
 
     [SerializeField] int magicDamage;
-    [Range(1, 3)][SerializeField] int magicElm; 
+    [Range(1, 4)][SerializeField] int magicElm; 
     [SerializeField] float magicSpeed;
     [SerializeField] float attackTimer;
 
@@ -19,7 +19,7 @@ public class magicAttack : MonoBehaviour
         {
             magicRB.velocity = transform.forward * magicSpeed;
         }
-        else if(magicElm == 3)
+        else if(magicElm == 3 || magicElm == 4)
         {
             magicRB.AddForce(Vector3.down * magicSpeed); 
         }
