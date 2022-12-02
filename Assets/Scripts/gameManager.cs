@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
+
 public class gameManager : MonoBehaviour
 {
     public static gameManager instance;
@@ -24,11 +25,21 @@ public class gameManager : MonoBehaviour
     public Image staminaBar;
     public Image hoverBar;
 
+    [Header("----- Main Menu -----")]
+    public GameObject mainMenu;
+    public GameObject creditsMenu1;
+    public GameObject creditsMenu2;
+    public GameObject loadingMenu;
+    public Image loadingBar;
+
+
     public int enemiesToKill;
 
     public GameObject spawnPos;
 
     public bool isPaused;
+    public bool isMainMenu;
+    
 
     // Start is called before the first frame update
     void Awake()
@@ -37,12 +48,22 @@ public class gameManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<playerController>();
         spawnPos = GameObject.FindGameObjectWithTag("Spawn Pos");
+        
+       
+        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Cancel") && !playerDeadMenu.activeSelf && !winMenu.activeSelf && !playerPowerupScreen.activeSelf && !playerHealthupScreen.activeSelf)
+      
+        if (mainMenu.activeSelf)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+        }
+        if (Input.GetButtonDown("Cancel") && !playerDeadMenu.activeSelf && !winMenu.activeSelf && !playerPowerupScreen.activeSelf && !playerHealthupScreen.activeSelf && !mainMenu.activeSelf && !loadingMenu.activeSelf)
         {
             isPaused = !isPaused;
             pauseMenu.SetActive(isPaused);
@@ -52,6 +73,7 @@ public class gameManager : MonoBehaviour
             else
                 unpause();
         }
+
     }
 
     public void pause()
@@ -60,6 +82,7 @@ public class gameManager : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
     }
+    
 
     public void unpause()
     {
@@ -88,7 +111,7 @@ public class gameManager : MonoBehaviour
         playerHealthupScreen.SetActive(false);
     }
 
-    
+
     public void youWin()
     {
         winMenu.SetActive(true);
@@ -103,6 +126,7 @@ public class gameManager : MonoBehaviour
         if (enemiesToKill <= 0)
             youWin();
     }
+   
 
     public void updateUI()
     {

@@ -25,4 +25,43 @@ public class buttonFunctions : MonoBehaviour
         gameManager.instance.unpause();
         gameManager.instance.playerScript.respawn();
     }
+    public void newGame()
+    {
+        gameManager.instance.unpause();
+        gameManager.instance.mainMenu.SetActive(false);
+        gameManager.instance.loadingMenu.SetActive(true);
+        AsyncOperation loadingOperation = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+        float loadProgress = loadingOperation.progress;
+        
+        gameManager.instance.loadingBar.fillAmount = loadProgress;
+        if (loadingOperation.isDone)
+        {
+            gameManager.instance.loadingMenu.SetActive(false);
+            gameManager.instance.mainMenu.SetActive(false);
+
+        }    
+    }
+    
+    // Credits Buttons
+    public void CreditsOpen()
+    {
+        gameManager.instance.mainMenu.SetActive(false);
+        gameManager.instance.creditsMenu1.SetActive(true);
+    }
+    public void CreditsNext()
+    {
+        gameManager.instance.creditsMenu1.SetActive(false);
+        gameManager.instance.creditsMenu2.SetActive(true);
+    }
+    public void CreditsPrev()
+    {
+        gameManager.instance.creditsMenu2.SetActive(false);
+        gameManager.instance.creditsMenu1.SetActive(true);
+    }
+    public void ReturnFromCredits()
+    {
+        gameManager.instance.creditsMenu2.SetActive(false);
+        gameManager.instance.creditsMenu1.SetActive(false);
+        gameManager.instance.mainMenu.SetActive(true);
+    }
 }
