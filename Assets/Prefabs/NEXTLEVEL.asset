@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f1743c644a82814ca5414b4a1ab1eba, type: 3}
+  m_Name: NEXTLEVEL
+  m_EditorClassIdentifier: 
+  changeBox: {fileID: 8442712813670749479, guid: 36e60fc0ed7311548aca2d68a8a9d13d, type: 3}
+  levelChangeSound: {fileID: 0}

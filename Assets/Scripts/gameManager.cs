@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class gameManager : MonoBehaviour
@@ -75,12 +76,14 @@ public class gameManager : MonoBehaviour
         }
 
     }
+    
 
     public void pause()
     {
         Time.timeScale = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
+        
     }
     
 
@@ -131,5 +134,17 @@ public class gameManager : MonoBehaviour
     public void updateUI()
     {
         enemiesLeft.text = enemiesToKill.ToString("F0");
+    }
+
+    public void nextScene()
+    {
+        gameManager.instance.loadingMenu.SetActive(true);
+        AsyncOperation loadingOperation = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+        if (loadingOperation.isDone)
+        {
+            gameManager.instance.loadingMenu.SetActive(false);
+            gameManager.instance.mainMenu.SetActive(false);
+
+        }
     }
 }
