@@ -2865,4 +2865,4 @@ MonoBehaviour:
   hostAnim: {fileID: 3624846679908110555}
   agent: {fileID: 5446397093045740946}
   armor: 4
-  respawnTime: 10
+  respawnTime: 5
