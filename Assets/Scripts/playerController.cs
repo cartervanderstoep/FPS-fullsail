@@ -118,7 +118,7 @@ public class playerController : MonoBehaviour
 
     void movement()
     {
-
+        Debug.Log("Jumps Remaining: " + jumpsTimes);
         if (controller.isGrounded && playerVelocity.y < 0)
         {
             jumpsTimes = 0;
