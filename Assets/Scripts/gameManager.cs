@@ -33,6 +33,11 @@ public class gameManager : MonoBehaviour
     public GameObject loadingMenu;
     public Image loadingBar;
 
+    [Header("----- Dialoge Boxes -----")]
+    public GameObject townDialogue;
+    public GameObject treeDialogue;
+    public GameObject volcanoDialogue;
+    public GameObject castleDialogue;
 
     public int enemiesToKill;
 
@@ -64,7 +69,7 @@ public class gameManager : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
         }
-        if (Input.GetButtonDown("Cancel") && !playerDeadMenu.activeSelf && !winMenu.activeSelf && !playerPowerupScreen.activeSelf && !playerHealthupScreen.activeSelf && !mainMenu.activeSelf && !loadingMenu.activeSelf)
+        if (Input.GetButtonDown("Cancel") && !playerDeadMenu.activeSelf && !winMenu.activeSelf && !playerPowerupScreen.activeSelf && !playerHealthupScreen.activeSelf && !mainMenu.activeSelf && !loadingMenu.activeSelf && !treeDialogue.activeSelf && !townDialogue.activeSelf && !volcanoDialogue.activeSelf && !castleDialogue.activeSelf)
         {
             isPaused = !isPaused;
             pauseMenu.SetActive(isPaused);
@@ -146,5 +151,47 @@ public class gameManager : MonoBehaviour
             gameManager.instance.mainMenu.SetActive(false);
 
         }
+    }
+    public void townLevelDialogue()
+    {
+        pause();
+        townDialogue.SetActive(true);
+    }
+    public void treeLevelDialogue()
+    {
+        pause();
+        isPaused = true;
+        treeDialogue.SetActive(true);
+    }
+    public void volcanoLevelDialogue()
+    {
+        pause();
+        volcanoDialogue.SetActive(true);
+    }
+    public void castleLevelDialogue()
+    {
+        pause();
+        castleDialogue.SetActive(true);
+    }
+    public void CloseTownDialogue()
+    {
+        townDialogue.SetActive(false);
+        isPaused = false;
+    }
+    public void CloseTreeDialogue()
+    {
+        treeDialogue.SetActive(false);
+        isPaused = false;
+
+    }
+    public void CloseVolcanoDialogue()
+    {
+        volcanoDialogue.SetActive(false);
+        isPaused = false;
+    }
+    public void CloseCastleDialogue()
+    {
+        castleDialogue.SetActive(false);
+        isPaused = false;
     }
 }

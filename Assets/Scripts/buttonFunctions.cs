@@ -8,13 +8,34 @@ public class buttonFunctions : MonoBehaviour
     public void resume()
     {
         gameManager.instance.unpause();
-        gameManager.instance.pauseMenu.SetActive(false);
         gameManager.instance.isPaused = false;
+        gameManager.instance.pauseMenu.SetActive(false);
+    }
+    public void closeTownD()
+    {
+        gameManager.instance.unpause();
+        gameManager.instance.CloseTownDialogue();
+    }
+    public void closeTreeD()
+    {
+        gameManager.instance.unpause();
+        gameManager.instance.CloseTreeDialogue();
+    }
+    public void closeVolcanoD()
+    {
+        gameManager.instance.unpause();
+        gameManager.instance.CloseVolcanoDialogue();
+    }
+    public void closeCastleD()
+    {
+        gameManager.instance.unpause();
+        gameManager.instance.CloseCastleDialogue();
     }
     public void restart()
     {
         gameManager.instance.unpause();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
     }
     public void quit()
     {
