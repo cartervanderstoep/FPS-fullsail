@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7edd5c97fcba6d7458656b87304607d0, type: 3}
   m_Name: Powerup - Speed up
   m_EditorClassIdentifier: 
-  speedMultiplier: 1.5
+  speedMultiplier: 4
   jumpHeightIncrease: 1
   jumpNumberIncrease: 1
   duration: 8

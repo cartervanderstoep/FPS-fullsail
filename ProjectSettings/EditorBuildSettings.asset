@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Level_Volcano.unity
     guid: 4f11e96eab83aa64ba1fc1f075cd2b8d
   - enabled: 1
+    path: Assets/Level_Volcano2.unity
+    guid: 80f64d28cbc91f44d97af70b5525a17d
+  - enabled: 1
     path: Assets/Scenes/LevelTest.unity
     guid: 420abb69d74642249b38bdc655416730
   m_configObjects: {}
