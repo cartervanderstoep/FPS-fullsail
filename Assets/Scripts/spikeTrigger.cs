@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public class spike : MonoBehaviour
+public class spikeTrigger : MonoBehaviour
 {
     [SerializeField] float timer;
     [SerializeField] int damage;
@@ -34,6 +34,13 @@ public class spike : MonoBehaviour
                 StartCoroutine(spikeMovement());
             }
         }
+        //else if (triggered)
+        //{
+        //    if (!spiked)
+        //    {
+        //        StartCoroutine(spikeTrigger());
+        //    }
+        //}
     }
 
     IEnumerator spikeMovement()
@@ -43,9 +50,26 @@ public class spike : MonoBehaviour
         yield return new WaitForSeconds(timer);
         this.gameObject.transform.position = origPos;
         yield return new WaitForSeconds(timer);
-        spiked=false;
+        spiked = false;
     }
 
+    //IEnumerator spikeTrigger()
+    //{
+    //    spiked = true;
+    //    yield return new WaitForSeconds(0.2f);
+    //    this.gameObject.transform.position = lastPos;
+    //    yield return new WaitForSeconds(timer);
+    //    this.gameObject.transform.position = origPos;
+    //    yield return new WaitForSeconds(timer);
+    //    spiked = false;
+    //}
+    //public void OnTriggerEnter(Collider other)
+    //{
+    //    if (triggered)
+    //    {
+    //        trigger = true;
+    //    }
+    //}
     public void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
