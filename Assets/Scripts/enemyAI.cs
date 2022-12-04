@@ -58,12 +58,12 @@ public class enemyAI : MonoBehaviour, IDamage
         }
 
 
-        anim.SetFloat("Speed", Mathf.Lerp(anim.GetFloat("Speed"),agent.velocity.normalized.magnitude, Time.deltaTime * animLerpSpeed));
-
-        angleToPlayer = Vector3.Angle(playerDir, transform.forward);
         
         if (agent.enabled)
         {
+        anim.SetFloat("Speed", Mathf.Lerp(anim.GetFloat("Speed"),agent.velocity.normalized.magnitude, Time.deltaTime * animLerpSpeed));
+
+        angleToPlayer = Vector3.Angle(playerDir, transform.forward);
 
             if (playerInRange)
             {
@@ -132,6 +132,7 @@ public class enemyAI : MonoBehaviour, IDamage
                 agent.enabled = false;
                 anim.SetBool("Dead", true);
                 gameObject.GetComponent<Collider>().enabled = false;
+                
             }
         }
     }

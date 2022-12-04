@@ -6,25 +6,26 @@ using UnityEngine;
 public class boss1 : MonoBehaviour, IDamage
 {
     [SerializeField] List<Transform> jumpSpots = new List<Transform>();
-    [SerializeField] int Health;
-    [SerializeField] float rotationSpeed;
-    [SerializeField] float speedSpeed;
     [SerializeField] GameObject vertWave;
     [SerializeField] GameObject wave;
 
+    [SerializeField] int Health;
+    [SerializeField] float rotationSpeed;
+    [SerializeField] float speedSpeed;
+
 
     Transform target;
-    int jumpCount;
     float jumpDist;
     Vector3 jumpDir;
-    bool falling;
     Vector3 playerDir;
+    bool falling;
     bool waiting;
     bool shootWave;
     bool shootThree;
 
     int attackChoice;
     int waveCount;
+    int jumpCount;
 
     // Start is called before the first frame update
     void Start()
