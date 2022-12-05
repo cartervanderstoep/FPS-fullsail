@@ -241,9 +241,14 @@ MonoBehaviour:
   gravityValue: 25
   jumpsMax: 1
   playerStamina: 10
-  hoverTime: 10
+  utilityTime: 10
+  dashDist: 300
+  canFloat: 0
+  canDash: 1
   pushBackTime: 0
   castingRate: 0
+  castingDist: 1000
+  magicElem: 0
   equipable: {fileID: 4156698564627127592}
   spells: []
   magicAttk: {fileID: 0}
@@ -666,7 +671,7 @@ Transform:
   m_GameObject: {fileID: 4156698564627127592}
   m_LocalRotation: {x: 0.17031696, y: -0, z: -0, w: 0.98538935}
   m_LocalPosition: {x: 0.56, y: -0.47682, z: 0.95}
-  m_LocalScale: {x: 2.0056312, y: 1.6800969, z: 1.360966}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3140376376948924137}
@@ -733,7 +738,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.2, y: 0.2, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4590777540619088478
 GameObject:
