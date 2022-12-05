@@ -112,6 +112,7 @@ public class birdScript : MonoBehaviour, IDamage
                 // agent.SetDestination(gameManager.instance.player.transform.position);
                
                 if (agent.remainingDistance < agent.stoppingDistance)
+
                     facePlayer();
                 if (ascending == false)
                 {

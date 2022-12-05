@@ -59,11 +59,11 @@ public class boss1 : MonoBehaviour, IDamage
         }
         else if (Vector3.Distance(transform.position, target.position) <= (jumpDist / 2) && Vector3.Distance(transform.position, target.position) > 0)
         {
-            //if (fallCount < 1)
-            //{
-            //    fallCount++;
-            //    fallposition = new Vector3(transform.position.x,transform.position.y,transform.position.z);
-            //}
+            if (fallCount < 1)
+            {
+                fallCount++;
+                fallposition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            }
             jumpRotation();
             fall();
         }
@@ -110,9 +110,9 @@ public class boss1 : MonoBehaviour, IDamage
         {
             falling = true;
         }
-
-        // transform.position = Vector3.Lerp(fallposition, target.position, speedSpeed * Time.deltaTime);
-        transform.position = Vector3.MoveTowards(transform.position, target.position, speedSpeed * Time.deltaTime);
+        
+        //transform.position = Vector3.Lerp(fallposition, target.position, speedSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, target.position, (speedSpeed*10) * Time.deltaTime);
 
     }
     public void takeDamage(int dmg)
