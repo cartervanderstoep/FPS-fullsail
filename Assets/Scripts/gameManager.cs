@@ -22,6 +22,7 @@ public class gameManager : MonoBehaviour
     public GameObject playerPowerupScreen;
     public GameObject playerHealthupScreen;
     public TextMeshProUGUI enemiesLeft;
+    public TextMeshProUGUI keysCollected;
     public Image HPBar;
     public Image staminaBar;
     public Image hoverBar;
@@ -88,7 +89,7 @@ public class gameManager : MonoBehaviour
         {
             Destroy(magicWall);
         }
-
+        updateUI();
     }
     
 
@@ -140,15 +141,17 @@ public class gameManager : MonoBehaviour
         enemiesToKill--;
         updateUI();
 
-        if (enemiesToKill <= 0)
+        if (enemiesToKill <= -100)
             youWin();
     }
-   
+
 
     public void updateUI()
     {
         enemiesLeft.text = enemiesToKill.ToString("F0");
+        keysCollected.text = keyCount.ToString("F0");
     }
+    
 
     public void nextScene()
     {
