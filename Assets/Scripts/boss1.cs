@@ -108,7 +108,7 @@ public class boss1 : MonoBehaviour, IDamage
             falling = true;
         }
 
-        transform.position = Vector3.MoveTowards(fallposition, target.position, (speedSpeed * 2) * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, target.position, (speedSpeed) * Time.deltaTime);
 
     }
     public void takeDamage(int dmg)
