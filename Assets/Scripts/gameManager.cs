@@ -39,7 +39,11 @@ public class gameManager : MonoBehaviour
     public GameObject volcanoDialogue;
     public GameObject castleDialogue;
 
+    [Header("----- Level Assets -----")]
+    public GameObject magicWall;
+
     public int enemiesToKill;
+    public int keyCount;
 
     public GameObject spawnPos;
 
@@ -78,6 +82,10 @@ public class gameManager : MonoBehaviour
                 pause();
             else
                 unpause();
+        }
+        if(keyCount == 3)
+        {
+            Destroy(magicWall);
         }
 
     }
@@ -194,4 +202,5 @@ public class gameManager : MonoBehaviour
         castleDialogue.SetActive(false);
         isPaused = false;
     }
+    
 }
