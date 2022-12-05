@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5745502283246981084}
   - component: {fileID: 8794060244600739074}
+  - component: {fileID: 5715541765503356896}
   - component: {fileID: 4297449402903817457}
   - component: {fileID: 2365675220617476041}
   - component: {fileID: -5030110173429610184}
-  - component: {fileID: 1349582710}
+  - component: {fileID: 1153111512}
   m_Layer: 0
   m_Name: temp health kit
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 8058513942539507286}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.5, y: 0.49999976, z: 2.5}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_LocalScale: {x: 0.4384275, y: 0.4384275, z: 0.4384275}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -43,7 +44,22 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8058513942539507286}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -6756428543458009084, guid: 4fb1a0ccf8c8571438b503faefc080ed, type: 3}
+--- !u!114 &5715541765503356896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8058513942539507286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04c2aa4f86ca6384e9a9c6d234cdef24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounceSpeed: 8
+  bounceAmplitude: 0.05
+  rotationSpeed: 90
 --- !u!23 &4297449402903817457
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -112,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healStat: {fileID: 11400000, guid: d36f101b811978745bd07d1b8feded47, type: 2}
---- !u!108 &1349582710
+--- !u!108 &1153111512
 Light:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,7 +139,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0, g: 0.8867924, b: 0.02514701, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.046749115, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30

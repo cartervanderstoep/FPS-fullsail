@@ -1445,3 +1445,68 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2097804404
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3523242081203823506, guid: 6aa06a8766885b44a8a9d53edfba44b9, type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 3523242081203823506, guid: 6aa06a8766885b44a8a9d53edfba44b9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 353.5854
+      objectReference: {fileID: 0}
+    - target: {fileID: 3523242081203823506, guid: 6aa06a8766885b44a8a9d53edfba44b9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3523242081203823506, guid: 6aa06a8766885b44a8a9d53edfba44b9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 12.593232
+      objectReference: {fileID: 0}
+    - target: {fileID: 3523242081203823506, guid: 6aa06a8766885b44a8a9d53edfba44b9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3523242081203823506, guid: 6aa06a8766885b44a8a9d53edfba44b9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3523242081203823506, guid: 6aa06a8766885b44a8a9d53edfba44b9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3523242081203823506, guid: 6aa06a8766885b44a8a9d53edfba44b9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3523242081203823506, guid: 6aa06a8766885b44a8a9d53edfba44b9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3523242081203823506, guid: 6aa06a8766885b44a8a9d53edfba44b9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3523242081203823506, guid: 6aa06a8766885b44a8a9d53edfba44b9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3523242081203823510, guid: 6aa06a8766885b44a8a9d53edfba44b9, type: 3}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3523242081203823510, guid: 6aa06a8766885b44a8a9d53edfba44b9, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d6512e2ab74bd514d8100651b255b9ee, type: 3}
+    - target: {fileID: 3523242081203823511, guid: 6aa06a8766885b44a8a9d53edfba44b9, type: 3}
+      propertyPath: m_Name
+      value: Volcano Music
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6aa06a8766885b44a8a9d53edfba44b9, type: 3}

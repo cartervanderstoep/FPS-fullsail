@@ -201,8 +201,8 @@ MonoBehaviour:
   anim: {fileID: 884923893}
   HP: 3
   playerFaceSpeed: 5
-  sightDist: 10
-  sightAngle: 45
+  sightDist: 15
+  sightAngle: 55
   roamDist: 5
   animLerpSpeed: 1
   headPos: {fileID: 2157333994126922398}

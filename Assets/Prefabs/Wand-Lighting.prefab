@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1429273131599403318}
   - component: {fileID: 4213542637399325156}
+  - component: {fileID: 2476639397178820674}
   - component: {fileID: 2628439456292607635}
   - component: {fileID: 260892718251762265}
   - component: {fileID: 4024243480240016496}
@@ -48,6 +49,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunStat: {fileID: 11400000, guid: 9557a23bbadb5014eb35d495dfcb61ba, type: 2}
+--- !u!114 &2476639397178820674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773887170634728332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04c2aa4f86ca6384e9a9c6d234cdef24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounceSpeed: 8
+  bounceAmplitude: 0.05
+  rotationSpeed: 90
 --- !u!33 &2628439456292607635
 MeshFilter:
   m_ObjectHideFlags: 0
