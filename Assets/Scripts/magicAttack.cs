@@ -28,7 +28,7 @@ public class magicAttack : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy") && Vector3.Distance(transform.position, other.transform.position) <= 3)
+        if (other.CompareTag("Enemy") && Vector3.Distance(transform.position, other.transform.position) <= 20)
         {
             other.GetComponent<IDamage>().takeDamage(magicDamage);
             Destroy(gameObject);

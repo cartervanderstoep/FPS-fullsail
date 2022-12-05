@@ -53,7 +53,7 @@ MonoBehaviour:
   magicRB: {fileID: 1433167326543314524}
   magicDamage: 1
   magicElm: 3
-  magicSpeed: 30000
+  magicSpeed: 4000
   attackTimer: 3
 --- !u!33 &7853808368397432076
 MeshFilter:
