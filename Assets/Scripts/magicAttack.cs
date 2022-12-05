@@ -7,7 +7,7 @@ public class magicAttack : MonoBehaviour
     [SerializeField] Rigidbody magicRB;
 
     [SerializeField] int magicDamage;
-    [Range(1, 4)][SerializeField] int magicElm; 
+    [Range(1, 5)][SerializeField] int magicElm; 
     [SerializeField] float magicSpeed;
     [SerializeField] float attackTimer;
 
@@ -28,7 +28,7 @@ public class magicAttack : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy") && Vector3.Distance(transform.position, other.transform.position) <= 20)
+        if (other.CompareTag("Enemy") && Vector3.Distance(transform.position, other.transform.position) <= 16)
         {
             other.GetComponent<IDamage>().takeDamage(magicDamage);
             Destroy(gameObject);
