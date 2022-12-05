@@ -27,6 +27,7 @@ public class boss1 : MonoBehaviour, IDamage
     int attackChoice;
     int waveCount;
     int jumpCount;
+    int fallCount;
 
     // Start is called before the first frame update
     void Start()
@@ -49,10 +50,7 @@ public class boss1 : MonoBehaviour, IDamage
         jumpDir = target.position - transform.position;
         playerDir = (gameManager.instance.player.transform.position) - transform.position;
 
-        if (Vector3.Distance(transform.position, target.position) == (jumpDist / 2))
-        {
-            fallposition = transform.position;
-        }
+        
 
         if (!falling && Vector3.Distance(transform.position, target.position) > (jumpDist / 2))
         {
@@ -61,6 +59,11 @@ public class boss1 : MonoBehaviour, IDamage
         }
         else if (Vector3.Distance(transform.position, target.position) <= (jumpDist / 2) && Vector3.Distance(transform.position, target.position) > 0)
         {
+            //if (fallCount < 1)
+            //{
+            //    fallCount++;
+            //    fallposition = new Vector3(transform.position.x,transform.position.y,transform.position.z);
+            //}
             jumpRotation();
             fall();
         }
@@ -108,7 +111,8 @@ public class boss1 : MonoBehaviour, IDamage
             falling = true;
         }
 
-        transform.position = Vector3.Lerp(transform.position, target.position, (speedSpeed) * Time.deltaTime);
+        // transform.position = Vector3.Lerp(fallposition, target.position, speedSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, target.position, speedSpeed * Time.deltaTime);
 
     }
     public void takeDamage(int dmg)

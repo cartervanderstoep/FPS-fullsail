@@ -10,6 +10,7 @@ public class birdScript : MonoBehaviour, IDamage
     [SerializeField] Renderer model;
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator anim;
+    [SerializeField] AudioSource aud;
 
     [Header("----- Enemy Stats -----")]
     [SerializeField] int HP;
@@ -20,6 +21,12 @@ public class birdScript : MonoBehaviour, IDamage
     [SerializeField] int roamDist;
     [SerializeField] int animLerpSpeed;
     [SerializeField] GameObject headPos;
+
+    [Header("--------------sound---------------")]
+    [SerializeField] AudioClip hurt;
+    [SerializeField] AudioClip dead;
+    [SerializeField] AudioClip attack;
+    [SerializeField] float volume;
 
 
     [Header("---------test bool--------")]
@@ -163,6 +170,7 @@ public class birdScript : MonoBehaviour, IDamage
                 anim.SetBool("Dead", true);
                 isDead = true;
                 gameObject.GetComponent<Collider>().enabled = false;
+                aud.PlayOneShot(dead, volume);
                 
                  
 
@@ -170,6 +178,10 @@ public class birdScript : MonoBehaviour, IDamage
 
                 //  Destroy(gameObject);
 
+            }
+            else
+            {
+                aud.PlayOneShot(hurt,volume);
             }
         }
     }
@@ -186,6 +198,7 @@ public class birdScript : MonoBehaviour, IDamage
 
         if (Vector3.Distance(transform.position, playerPos) <= 2)
         {
+            aud.PlayOneShot(attack, volume);
              if (Vector3.Distance(transform.position, gameManager.instance.player.transform.position) <= 3 && isFighting)
             {
                 gameManager.instance.playerScript.damage(damage);
