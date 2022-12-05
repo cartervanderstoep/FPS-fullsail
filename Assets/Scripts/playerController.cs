@@ -310,7 +310,8 @@ public class playerController : MonoBehaviour
     void changeGuns()
     {
         magicAttk = spells[selectedGun].magicType;
-        magicElem = spells[selectedGun].magicElement; 
+        magicElem = spells[selectedGun].magicElement;
+        castingRate = spells[selectedGun].castRate; 
         equipable.GetComponent<MeshFilter>().sharedMesh = spells[selectedGun].wandModel.GetComponent<MeshFilter>().sharedMesh;
         equipable.GetComponent<MeshRenderer>().sharedMaterial = spells[selectedGun].wandModel.GetComponent<MeshRenderer>().sharedMaterial;
     }
