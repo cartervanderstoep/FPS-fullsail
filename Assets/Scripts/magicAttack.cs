@@ -33,6 +33,10 @@ public class magicAttack : MonoBehaviour
             other.GetComponent<IDamage>().takeDamage(magicDamage);
             Destroy(gameObject);
         }
+        else if (!other.CompareTag("Enemy") && !other.CompareTag("Player") )
+        {
+            Destroy(gameObject);
+        }
 
     }
 }

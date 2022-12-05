@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7018185502690206654}
-  - component: {fileID: 7018185502690206631}
   - component: {fileID: 7018185502690206648}
   - component: {fileID: 7018185502690206649}
   - component: {fileID: 7018185502690206650}
   - component: {fileID: 7018185502690206651}
-  m_Layer: 0
+  - component: {fileID: 7249582217292452099}
+  m_Layer: 7
   m_Name: vert wave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,22 +36,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7018185502690206631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7018185502690206655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41bfe764a06ce60438f7a693d38249ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 7018185502690206649}
-  damage: 2
-  speed: 25
-  timer: 3
 --- !u!65 &7018185502690206648
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -131,3 +115,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7249582217292452099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7018185502690206655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e58c5c877163404da6f81409198fd26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 7018185502690206649}
+  damage: 2
+  speed: 25
+  timer: 3
