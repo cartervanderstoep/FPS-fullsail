@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8236b727c41f944ba4f74b265f7fcb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunStat: {fileID: 11400000, guid: c6eb6c040aa093641a6a9147217a3c1d, type: 2}
+  gunStat: {fileID: 11400000, guid: 9557a23bbadb5014eb35d495dfcb61ba, type: 2}
 --- !u!108 &71077280
 Light:
   m_ObjectHideFlags: 0

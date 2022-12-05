@@ -18,6 +18,7 @@ public class boss1 : MonoBehaviour, IDamage
     float jumpDist;
     Vector3 jumpDir;
     Vector3 playerDir;
+    Vector3 fallposition;
     bool falling;
     bool waiting;
     bool shootWave;
@@ -39,6 +40,7 @@ public class boss1 : MonoBehaviour, IDamage
         gameManager.instance.enemiesToKill++;
         gameManager.instance.updateUI();
 
+
     }
 
     // Update is called once per frame
@@ -47,6 +49,10 @@ public class boss1 : MonoBehaviour, IDamage
         jumpDir = target.position - transform.position;
         playerDir = (gameManager.instance.player.transform.position) - transform.position;
 
+        if (Vector3.Distance(transform.position, target.position) == (jumpDist / 2))
+        {
+            fallposition = transform.position;
+        }
 
         if (!falling && Vector3.Distance(transform.position, target.position) > (jumpDist / 2))
         {
@@ -102,7 +108,7 @@ public class boss1 : MonoBehaviour, IDamage
             falling = true;
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, target.position, (speedSpeed * 2) * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(fallposition, target.position, (speedSpeed * 2) * Time.deltaTime);
 
     }
     public void takeDamage(int dmg)
