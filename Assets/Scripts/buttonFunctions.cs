@@ -85,4 +85,14 @@ public class buttonFunctions : MonoBehaviour
         gameManager.instance.creditsMenu1.SetActive(false);
         gameManager.instance.mainMenu.SetActive(true);
     }
+    public void ControlsOpen()
+    {
+        gameManager.instance.mainMenu.SetActive(false);
+        gameManager.instance.controlsMenu.SetActive(true);
+    }
+    public void ReturnFromControls()
+    {
+        gameManager.instance.controlsMenu.SetActive(false);
+        gameManager.instance.mainMenu.SetActive(true);
+    }
 }

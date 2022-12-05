@@ -31,6 +31,7 @@ public class gameManager : MonoBehaviour
     public GameObject creditsMenu1;
     public GameObject creditsMenu2;
     public GameObject loadingMenu;
+    public GameObject controlsMenu;
     public Image loadingBar;
 
     [Header("----- Dialoge Boxes -----")]
