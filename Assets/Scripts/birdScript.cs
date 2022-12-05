@@ -74,7 +74,7 @@ public class birdScript : MonoBehaviour, IDamage
 
         }
 
-        if (anim.GetBool("Dead") == false)  
+        if (anim.GetBool("Dead") == false )  
         {
             if (playerInRange)
             {
