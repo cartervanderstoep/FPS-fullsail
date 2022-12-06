@@ -242,9 +242,9 @@ MonoBehaviour:
   jumpsMax: 1
   playerStamina: 10
   utilityTime: 10
-  dashDist: 300
-  canFloat: 0
-  canDash: 1
+  dashDist: 100
+  canFloat: 1
+  canDash: 0
   pushBackTime: 0
   castingRate: 0
   castingDist: 1000

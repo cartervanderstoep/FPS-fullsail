@@ -82,34 +82,35 @@ public class playerController : MonoBehaviour
     {
         pushBack = Vector3.Lerp(pushBack, Vector3.zero, Time.deltaTime * pushBackTime); 
         movement();
+        //Hover bar
         if (isHovering)
         {
-            utilityTime = Mathf.Lerp(utilityTime, 0, Time.deltaTime * 3);
+            utilityTime -= Time.deltaTime * 6;
         }
         if (utilityTime < utilityTimeOG && !isHovering)
         {
-            utilityTime = Mathf.Lerp(utilityTime, utilityTimeOG + 0.1f, Time.deltaTime);
+            utilityTime += Time.deltaTime * 4;
         }
-
+        //Teleport Bar
         if (isDashing)
         {
-            utilityTime = utilityTime - (utilityTime / 2);
+            utilityTime -= utilityTimeOG / 2;
         }
         if (utilityTime < utilityTimeOG && !isDashing)
         {
-            utilityTime = Mathf.Lerp(utilityTime, utilityTimeOG + 0.1f, Time.deltaTime);
+            utilityTime += Time.deltaTime * 4;
         }
 
         updatePlayerHoverBar();
-        sprint();
+        StartCoroutine(sprint());
         if(isSprinting)
         {
-            playerStamina = Mathf.Lerp(playerStamina, 0, Time.deltaTime * 3);
+            playerStamina -= Time.deltaTime * 6;
             updatePlayerStaminaBar();
         }
         if(playerStamina < pStaminaOG && !isSprinting)
         {
-            playerStamina = Mathf.Lerp(playerStamina, pStaminaOG, Time.deltaTime);
+            playerStamina += Time.deltaTime * 4;
             updatePlayerStaminaBar();
         }
         StartCoroutine(shoot());
@@ -124,12 +125,13 @@ public class playerController : MonoBehaviour
             jumpsTimes = 0;
             playerVelocity.y = 0f;
         }
-
-        move = transform.right * Input.GetAxis("Horizontal") +
-               transform.forward * Input.GetAxis("Vertical");
-
+        //Normal Movement
+        move = transform.right * Input.GetAxis("Horizontal") + transform.forward * Input.GetAxis("Vertical");
         controller.Move((move + pushBack) * Time.deltaTime * playerSpeed);
 
+        StartCoroutine(utility()); 
+        
+        //Jump
         if (Input.GetButtonDown("Jump") && jumpsTimes < jumpsMax)
         {
             isJumping = true; 
@@ -137,69 +139,32 @@ public class playerController : MonoBehaviour
             playerVelocity.y = jumpHeight;
             aud.PlayOneShot(jumps[Random.Range(0,jumps.Length)], volume);
         }
-
-        if (Input.GetButtonDown("Hover") && utilityTime > 0.1f && canF)
-        {
-            if(utilityTime > 0.1f)
-            {
-                isHovering = true;
-                gravityValue = 0;
-                playerVelocity.y = 0;
-            }
-        }
-        if (utilityTime <= 0.1f)
-        {
-            isHovering = false;
-            gravityValue = gravityOG;
-            playerVelocity.y -= gravityValue * Time.deltaTime;
-        }
-        else if (Input.GetButtonUp("Hover"))
-        {
-            isHovering = false;
-            gravityValue = gravityOG;
-            playerVelocity.y -= gravityValue * Time.deltaTime;
-        }
         playerVelocity.y -= gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
         isJumping = false;
-        if (Input.GetButtonDown("Hover") && utilityTime > 0.1f && canD)
-        {
-            if(utilityTime > 0.1f)
-            {
-                isDashing = true;
-                dashDir = transform.right * Input.GetAxis("Horizontal") + transform.forward * Input.GetAxis("Vertical");
-                controller.Move((dashDir + pushBack) * Time.deltaTime * (playerSpeed * dashDist));
-            }
-        }
-        if (utilityTime <= 0.1f)
-        {
-            isDashing = false;
-            controller.Move((move + pushBack) * Time.deltaTime * playerSpeed);
-        }
-        else if (Input.GetButtonUp("Hover"))
-        {
-            isDashing = false;
-            controller.Move((move + pushBack) * Time.deltaTime * playerSpeed);
-        }
     }
 
-    void sprint()
+    IEnumerator sprint()
     {
         if(Input.GetButtonDown("Sprint")&& playerStamina > 0.1f)
         {
-            playerSpeed *= sprintMod;
-            isSprinting = true;
+            if(playerStamina > 0.1f)
+            {
+                playerSpeed *= sprintMod;
+                isSprinting = true;
+            }
         }
         if(playerStamina <= 0.1)
         {
             isSprinting = false;
             playerSpeed = playerSpeedOrig;
+            yield return new WaitForSeconds(2f);
         }
-       
         else if (Input.GetButtonUp("Sprint"))
         {
-            playerSpeed /= sprintMod;
+            playerSpeed = playerSpeedOrig;
             isSprinting = false;
+            yield return new WaitForSeconds(2f);
         }
     }
     
@@ -229,6 +194,68 @@ public class playerController : MonoBehaviour
                     isShooting = false; 
                 }
             }
+        }
+    }
+    IEnumerator utility()
+    {
+        if (canF && !canD)
+        {
+            //Floating
+            if (Input.GetButtonDown("Hover") && utilityTime > 0.1f && canF)
+            {
+                if (utilityTime > 0.1f)
+                {
+                    isHovering = true;
+                    gravityValue = 0;
+                    playerVelocity.y = 0;
+                    yield return new WaitForSeconds(2f);
+                }
+            }
+            if (utilityTime <= 0.1f)
+            {
+                isHovering = false;
+                gravityValue = gravityOG;
+                playerVelocity.y -= gravityValue * Time.deltaTime;
+                yield return new WaitForSeconds(2f);
+            }
+            else if (Input.GetButtonUp("Hover"))
+            {
+                isHovering = false;
+                gravityValue = gravityOG;
+                playerVelocity.y -= gravityValue * Time.deltaTime;
+            }
+        }
+        if (canD && !canF)
+        {
+            //Teleport
+            if (Input.GetButtonDown("Hover") && utilityTime > 0.1f && canD)
+            {
+                if (utilityTime > 0.1f)
+                {
+                    isDashing = true;
+                    dashDir = transform.right * Input.GetAxis("Horizontal") + transform.forward * Input.GetAxis("Vertical");
+                    controller.Move((dashDir + pushBack) * Time.deltaTime * (playerSpeed * dashDist));
+                    yield return new WaitForSeconds(2f);
+                }
+                move = transform.right * Input.GetAxis("Horizontal") + transform.forward * Input.GetAxis("Vertical");
+            }
+            if (utilityTime <= 0.1f)
+            {
+                isDashing = false;
+                controller.Move((move + pushBack) * Time.deltaTime * playerSpeed);
+                yield return new WaitForSeconds(2f);
+            }
+            else if (Input.GetButtonUp("Hover"))
+            {
+                isDashing = false;
+                move = transform.right * Input.GetAxis("Horizontal") + transform.forward * Input.GetAxis("Vertical");
+                yield return new WaitForSeconds(2f);
+            }
+        }
+        if (canD && canF)
+        {
+            canFloat = true;
+            canDash = false;
         }
     }
 
