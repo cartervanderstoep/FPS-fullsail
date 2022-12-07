@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Light
   - Player bullet
+  - enemy prefab
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Light
   - Minimap Ignore
   - Main Camera Ignore
-  - player Bullet
+  - 
   - 
   - 
   - 

@@ -1,5 +1,65 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &676274240
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 676274241}
+  - component: {fileID: 676274243}
+  - component: {fileID: 676274242}
+  m_Layer: 0
+  m_Name: hurtBox (1)
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &676274241
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676274240}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7812869919664105752}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &676274243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676274240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb6589dc2f5275342bcbd46c031464d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  childEnemy: {fileID: 5225092221698458282}
+--- !u!136 &676274242
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676274240}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.25, z: 0}
 --- !u!1 &2066887659
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,7 +223,7 @@ GameObject:
   - component: {fileID: -351493645736463744}
   m_Layer: 6
   m_Name: Shield man
-  m_TagString: Enemy
+  m_TagString: enemy prefab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,6 +243,7 @@ Transform:
   - {fileID: 7754843702928777077}
   - {fileID: 8018463197718963779}
   - {fileID: 2066887660}
+  - {fileID: 676274241}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -271,7 +332,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 5225092221698458282}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2.5
   m_Direction: 1
@@ -3028,7 +3089,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8018463197718964156}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.05, y: 1.18, z: 1.048}
+  m_LocalPosition: {x: 0.05, y: 1.18, z: 1.09}
   m_LocalScale: {x: 1.4162501, y: 2.7543752, z: 0.19614}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3113,6 +3174,7 @@ MonoBehaviour:
   model: {fileID: 8018463197718963776}
   collision: {fileID: 8018463197718963777}
   host: {fileID: 5225092221698458282}
+  hostScript: {fileID: 5780814010390725606}
   hostAnim: {fileID: 3624846679908110555}
   agent: {fileID: 5446397093045740946}
   armor: 4

@@ -9,6 +9,7 @@ public class shieldSpawn : MonoBehaviour, IDamage
     [SerializeField] Renderer model;
     [SerializeField] Collider collision;
     [SerializeField] GameObject host;
+    [SerializeField] enemyAI hostScript;
     [SerializeField] Animator hostAnim;
     [SerializeField] NavMeshAgent agent;
 
@@ -32,6 +33,11 @@ public class shieldSpawn : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
+      if (hostScript.getHP() <=0)
+        {
+            hostAnim.SetBool("Stunned", false);
+            Destroy(gameObject);
+        }
       
     }
 

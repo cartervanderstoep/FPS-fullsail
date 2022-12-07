@@ -130,7 +130,10 @@ public class enemyAI : MonoBehaviour, IDamage
            
            
             HP -= dmg;
-            agent.SetDestination(gameManager.instance.player.transform.position);
+            if (agent.enabled == true)
+            {
+                agent.SetDestination(gameManager.instance.player.transform.position);
+            }
             StartCoroutine(flashDamage());
             
             agent.stoppingDistance = 0;
@@ -186,5 +189,10 @@ public class enemyAI : MonoBehaviour, IDamage
         {
             playerInRange = false;
         }
+    }
+
+    public int getHP()
+    {
+        return HP;
     }
 }
