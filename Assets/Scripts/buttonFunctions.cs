@@ -95,4 +95,35 @@ public class buttonFunctions : MonoBehaviour
         gameManager.instance.controlsMenu.SetActive(false);
         gameManager.instance.mainMenu.SetActive(true);
     }
+    public void ConfirmationOpenPause() // Confirmation menu for quitting from the pause menu. 
+    {
+        gameManager.instance.pauseMenu.SetActive(false);
+        gameManager.instance.confirmMenuPause.SetActive(true);
+    }
+    public void ConfirmationOpenDead() // Confirmation menu for quitting from the death menu. 
+    {
+        gameManager.instance.playerDeadMenu.SetActive(false);
+        gameManager.instance.confirmMenuPause.SetActive(true);
+    }
+    public void ConfirmationClosePause() // Sends player back to the Pause menu from the confirmation window. 
+    {
+        gameManager.instance.confirmMenuPause.SetActive(false);
+        gameManager.instance.pauseMenu.SetActive(true);
+    }
+    public void ConfirmationCloseDead() // Sends player back to the Death menu from the confirmation window. 
+    {
+        gameManager.instance.confirmMenuDead.SetActive(false);
+        gameManager.instance.playerDeadMenu.SetActive(true);
+    }
+    public void ReturnToMainMenuPause()// Sends player back to the main menu from the pause menu
+    {
+        gameManager.instance.pauseMenu.SetActive(false);
+        SceneManager.LoadSceneAsync(0);
+
+    }
+    public void ReturnToMainMenuDead()// Sends player back to the main menu from the death menu
+    {
+        gameManager.instance.playerDeadMenu.SetActive(false);
+        SceneManager.LoadSceneAsync(0);
+    }
 }

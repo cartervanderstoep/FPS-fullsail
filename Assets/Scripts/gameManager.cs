@@ -18,6 +18,8 @@ public class gameManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject playerDeadMenu;
     public GameObject winMenu;
+    public GameObject confirmMenuPause; //Quit confirmation menu from the pause screen
+    public GameObject confirmMenuDead; //Quit confirmation menu from the death screen
     public GameObject playerDamageScreen;
     public GameObject playerPowerupScreen;
     public GameObject playerHealthupScreen;
@@ -75,7 +77,7 @@ public class gameManager : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
         }
-        if (Input.GetButtonDown("Cancel") && !playerDeadMenu.activeSelf && !winMenu.activeSelf && !playerPowerupScreen.activeSelf && !playerHealthupScreen.activeSelf && !mainMenu.activeSelf && !loadingMenu.activeSelf && !treeDialogue.activeSelf && !townDialogue.activeSelf && !volcanoDialogue.activeSelf && !castleDialogue.activeSelf)
+        if (Input.GetButtonDown("Cancel") && !playerDeadMenu.activeSelf && !winMenu.activeSelf && !playerPowerupScreen.activeSelf && !playerHealthupScreen.activeSelf && !mainMenu.activeSelf && !loadingMenu.activeSelf && !treeDialogue.activeSelf && !townDialogue.activeSelf && !volcanoDialogue.activeSelf && !castleDialogue.activeSelf && !confirmMenuPause.activeSelf)
         {
             isPaused = !isPaused;
             pauseMenu.SetActive(isPaused);
