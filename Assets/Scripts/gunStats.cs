@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class gunStats : ScriptableObject
 {
+    [Header ("----- Components -----")]
     public int wandAmmo;
     public float castRate;
     public int magicElement; 
