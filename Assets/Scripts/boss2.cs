@@ -9,7 +9,7 @@ public class boss2 : MonoBehaviour, IDamage
     [SerializeField] int Hp;
 
     [Header("offensive components")]
-    [SerializeField] GameObject sideGun;
+  
     [SerializeField] List<Transform> chainGuns;
     [SerializeField] List<GameObject> gunAmount;
     [SerializeField] List<GameObject> spawnSpots;

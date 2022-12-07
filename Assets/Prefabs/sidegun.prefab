@@ -85,6 +85,7 @@ MonoBehaviour:
   model: {fileID: 8214311667971472274}
   agent: {fileID: 1745605902089552650}
   anim: {fileID: 1745605902089552695}
+  aud: {fileID: 0}
   HP: 10
   playerFaceSpeed: 1
   speedChase: 0
@@ -96,6 +97,10 @@ MonoBehaviour:
   bullet: {fileID: 3629509274466799517, guid: 022d0d3b1462b7740a971abf08d0a38f, type: 3}
   shootPos: {fileID: 1130271313968983593}
   shootRate: 1.5
+  hurt: []
+  dead: {fileID: 0}
+  attack: {fileID: 0}
+  volume: 0
   playerIsTargeted: 0
 --- !u!114 &1745605902080077965
 MonoBehaviour:

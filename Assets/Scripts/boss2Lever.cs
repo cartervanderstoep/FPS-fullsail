@@ -38,6 +38,7 @@ public class boss2Lever : MonoBehaviour,IDamage
     }
     public void takeDamage(int dmg)
     {
+        Debug.Log("hit");
         
         transform.Translate( 0, ((float)(-dmg) * .75f), 0);
         door.transform.Translate( (float)(dmg * .5f),0,0);
