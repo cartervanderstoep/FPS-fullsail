@@ -2880,7 +2880,7 @@ MonoBehaviour:
   HP: 3
   playerFaceSpeed: 5
   speedChase: 0
-  sightDist: 15
+  sightDist: 1000
   sightAngle: 45
   roamDist: 10
   animLerpSpeed: 1
@@ -2905,7 +2905,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1
-  m_Speed: 3.5
+  m_Speed: 8
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 600
@@ -2962,7 +2962,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 15
+  m_Radius: 30.83
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &1980417909
 AudioSource:

@@ -262,12 +262,12 @@ MonoBehaviour:
   anim: {fileID: 884923893}
   HP: 3
   playerFaceSpeed: 5
-  sightDist: 15
+  sightDist: 1000
   sightAngle: 55
   roamDist: 5
   animLerpSpeed: 1
   headPos: {fileID: 2157333994126922398}
-  playerIsTargeted: 1
+  playerIsTargeted: 0
   explosion: {fileID: 4429021292482948830, guid: b70b205b6e008d7489d443104ac0c919, type: 3}
 --- !u!195 &6493319541340410383
 NavMeshAgent:
@@ -279,7 +279,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1
-  m_Speed: 2
+  m_Speed: 18
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -316,7 +316,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 6.22
+  m_Radius: 25.1
   m_Center: {x: 0, y: 1.97, z: 0}
 --- !u!95 &884923893
 Animator:
