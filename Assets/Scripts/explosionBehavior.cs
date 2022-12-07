@@ -5,6 +5,9 @@ using UnityEngine;
 public class explosionBehavior : MonoBehaviour
 {
     [SerializeField] int explosionDamage;
+    [SerializeField] int volume;
+    [SerializeField] AudioSource aud;
+    [SerializeField] AudioClip boom;
     public GameObject explosion;
     bool isExploding = false;
    
@@ -12,6 +15,7 @@ public class explosionBehavior : MonoBehaviour
     private void Start()
     {
         Instantiate(explosion, transform.position, transform.rotation);
+        aud.PlayOneShot(boom, volume);
         explode(gameObject.transform.position, explosionDamage * 2);
         StartCoroutine(wait());
     }

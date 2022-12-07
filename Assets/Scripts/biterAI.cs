@@ -10,6 +10,7 @@ public class biterAI : MonoBehaviour, IDamage
     [SerializeField] Renderer model;
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator anim;
+    [SerializeField] AudioSource aud;
 
     [Header("----- Enemy Stats -----")]
     [SerializeField] int HP;
@@ -21,6 +22,12 @@ public class biterAI : MonoBehaviour, IDamage
     [SerializeField] int roamDist;
     [SerializeField] int animLerpSpeed;
     [SerializeField] GameObject headPos;
+
+    [Header("--------------sound---------------")]
+    [SerializeField] AudioClip hurt;
+    [SerializeField] AudioClip dead;
+    [SerializeField] AudioClip attackSound;
+    [SerializeField] float volume;
 
     [Header("---------test bool--------")]
     [SerializeField] bool playerIsTargeted;
@@ -131,11 +138,16 @@ public class biterAI : MonoBehaviour, IDamage
                 // Destroy(gameObject);
                 gameObject.GetComponent<Collider>().enabled = false;
                 gameManager.instance.updateEnemyNumber();
+                aud.PlayOneShot(dead,volume);
                 anim.SetBool("Dead", true);
                 agent.enabled = false;
 
 
 
+            }
+            else
+            {
+                aud.PlayOneShot(hurt,volume);
             }
         }
         
@@ -170,6 +182,7 @@ public class biterAI : MonoBehaviour, IDamage
         isFighting = true;
             gameManager.instance.playerScript.damage(damage);
         anim.SetTrigger("Attack");
+        aud.PlayOneShot(attackSound,volume);
 
            
         model.material.color = Color.yellow;

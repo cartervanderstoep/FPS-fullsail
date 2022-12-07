@@ -9,7 +9,8 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] Renderer model;
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator anim;
-    
+    [SerializeField] AudioSource aud;
+
 
     [Header("----- Enemy Stats -----")]
     [SerializeField] int HP;
@@ -25,6 +26,12 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] GameObject bullet;
     [SerializeField] Transform shootPos;
     [SerializeField] float shootRate;
+
+    [Header("--------------sound---------------")]
+    [SerializeField] AudioClip[] hurt;
+    [SerializeField] AudioClip dead;
+    [SerializeField] AudioClip attack;
+    [SerializeField] float volume;
 
     [Header("---------test bool--------")]
     [SerializeField] bool playerIsTargeted;
@@ -120,10 +127,12 @@ public class enemyAI : MonoBehaviour, IDamage
     {
         if (!isDead)
         {
-
+           
+           
             HP -= dmg;
             agent.SetDestination(gameManager.instance.player.transform.position);
             StartCoroutine(flashDamage());
+            
             agent.stoppingDistance = 0;
             if (HP <= 0)
             {
@@ -131,8 +140,14 @@ public class enemyAI : MonoBehaviour, IDamage
                 gameManager.instance.updateEnemyNumber();
                 agent.enabled = false;
                 anim.SetBool("Dead", true);
+                aud.PlayOneShot(dead,volume);
                 gameObject.GetComponent<Collider>().enabled = false;
                 
+            }
+            if (HP > 0)
+            {
+                int randomHurt = Random.Range(0, 2);
+                aud.PlayOneShot(hurt[randomHurt], volume);
             }
         }
     }
@@ -150,6 +165,7 @@ public class enemyAI : MonoBehaviour, IDamage
         anim.SetTrigger("Shoot");
 
         Instantiate(bullet, shootPos.position, transform.rotation);
+        aud.PlayOneShot(attack, volume);
 
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
