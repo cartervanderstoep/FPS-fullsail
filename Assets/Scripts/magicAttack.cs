@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class magicAttack : MonoBehaviour
 {
+    [Header ("----- Components -----")]
     [SerializeField] Rigidbody magicRB;
-
     [SerializeField] int magicDamage;
     [Range(1, 5)][SerializeField] int magicElm; 
     [SerializeField] float magicSpeed;

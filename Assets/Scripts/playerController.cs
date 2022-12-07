@@ -19,7 +19,8 @@ public class playerController : MonoBehaviour
     [Range(1, 60)][SerializeField] float utilityTime;
     [SerializeField] float dashDist;
     [SerializeField] bool canFloat;
-    [SerializeField] bool canDash;
+    [SerializeField] bool canTeleport;
+    [SerializeField] bool canDefend; 
 
     [Header("----- Player Physics -----")]
     [SerializeField] int pushBackTime; 
@@ -27,11 +28,14 @@ public class playerController : MonoBehaviour
     [Header("----- Spell Stats -----")]
     [SerializeField] float castingRate;
     [SerializeField] float castingDist; 
+    [SerializeField] GameObject magicAttk;
+
+    [Header("----- Spell Utilities -----")]
     [Range(1, 4)][SerializeField] int magicElem; 
     [SerializeField] GameObject equipable;
+    [SerializeField] GameObject playerSheild; 
     [SerializeField] List<gunStats> spells = new List<gunStats>();
-    [SerializeField] GameObject magicAttk;
-    [SerializeField] Transform castOrigin; 
+    [SerializeField] Transform castOrigin;
     [SerializeField] GameObject hitEffect;
 
 
@@ -59,8 +63,10 @@ public class playerController : MonoBehaviour
     bool isShooting;
     bool isJumping;
     bool isHovering;
-    bool isDashing; 
+    bool isTeleporting;
+    bool isDefending; 
     bool canF;
+    bool canT;
     bool canD; 
     
 
@@ -74,7 +80,8 @@ public class playerController : MonoBehaviour
         playerSpeedOrig = playerSpeed;
         HPOrig = HP;
         canF = canFloat;
-        canD = canDash; 
+        canT = canTeleport;
+        canD = canDefend; 
         respawn(); 
     }
 
@@ -83,22 +90,27 @@ public class playerController : MonoBehaviour
         pushBack = Vector3.Lerp(pushBack, Vector3.zero, Time.deltaTime * pushBackTime); 
         movement();
         //Hover bar
+        float utilitySub = Time.deltaTime * 4; 
         if (isHovering)
         {
-            utilityTime -= Time.deltaTime * 6;
+            utilitySub = -Time.deltaTime * 6; 
         }
-        if (utilityTime < utilityTimeOG && !isHovering)
-        {
-            utilityTime += Time.deltaTime * 4;
-        }
+        
         //Teleport Bar
-        if (isDashing)
+        else if (isTeleporting)
         {
-            utilityTime -= utilityTimeOG / 2;
+            utilitySub = -utilityTimeOG / 2;
         }
-        if (utilityTime < utilityTimeOG && !isDashing)
+        
+        //Shield bar
+        else if (isDefending)
         {
-            utilityTime += Time.deltaTime * 4;
+            utilitySub = -Time.deltaTime * 6;
+        }
+        utilityTime += utilitySub; 
+        if(utilityTime > utilityTimeOG)
+        {
+            utilityTime = utilityTimeOG; 
         }
 
         updatePlayerHoverBar();
@@ -198,7 +210,7 @@ public class playerController : MonoBehaviour
     }
     IEnumerator utility()
     {
-        if (canF && !canD)
+        if (canF && !canT && !canD)
         {
             //Floating
             if (Input.GetButtonDown("Hover") && utilityTime > 0.1f && canF)
@@ -225,14 +237,14 @@ public class playerController : MonoBehaviour
                 playerVelocity.y -= gravityValue * Time.deltaTime;
             }
         }
-        if (canD && !canF)
+        if (canT && !canF && !canD)
         {
             //Teleport
-            if (Input.GetButtonDown("Hover") && utilityTime > 0.1f && canD)
+            if (Input.GetButtonDown("Hover") && utilityTime > 0.1f && canT)
             {
                 if (utilityTime > 0.1f)
                 {
-                    isDashing = true;
+                    isTeleporting = true;
                     dashDir = transform.right * Input.GetAxis("Horizontal") + transform.forward * Input.GetAxis("Vertical");
                     controller.Move((dashDir + pushBack) * Time.deltaTime * (playerSpeed * dashDist));
                     yield return new WaitForSeconds(2f);
@@ -241,21 +253,47 @@ public class playerController : MonoBehaviour
             }
             if (utilityTime <= 0.1f)
             {
-                isDashing = false;
+                isTeleporting = false;
                 controller.Move((move + pushBack) * Time.deltaTime * playerSpeed);
                 yield return new WaitForSeconds(2f);
             }
             else if (Input.GetButtonUp("Hover"))
             {
-                isDashing = false;
+                isTeleporting = false;
                 move = transform.right * Input.GetAxis("Horizontal") + transform.forward * Input.GetAxis("Vertical");
                 yield return new WaitForSeconds(2f);
             }
         }
-        if (canD && canF)
+        if(canD && !canF && !canT)
         {
-            canFloat = true;
-            canDash = false;
+            //Sheild
+            if (Input.GetButtonDown("Hover") && utilityTime > 0.1f && canD)
+            {
+                if (utilityTime > 0.1f)
+                {
+                    isDefending = true;
+                    playerSheild.SetActive(true);
+                    yield return new WaitForSeconds(2f);
+                }
+            }
+            if (utilityTime <= 0.1f)
+            {
+                isDefending = false;
+                playerSheild.SetActive(false);
+                yield return new WaitForSeconds(2f);
+            }
+            else if (Input.GetButtonUp("Hover"))
+            {
+                isDefending = false;
+                playerSheild.SetActive(false);
+                yield return new WaitForSeconds(2f);
+            }
+        }
+        if (canT && canF && canD)
+        {
+            canFloat = false;
+            canTeleport = false;
+            canDefend = false; 
         }
     }
 

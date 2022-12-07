@@ -22,6 +22,10 @@ public class bullet : MonoBehaviour
         {
             gameManager.instance.playerScript.damage(damage);
         }
+        else if (other.CompareTag("Player Shield"))
+        {
+            Destroy(gameObject); 
+        }
             Destroy(gameObject);
 
        
