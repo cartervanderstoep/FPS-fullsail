@@ -10,6 +10,10 @@ TagManager:
   - Player bullet
   - enemy prefab
   - Player Shield
+  - Fire
+  - Ice
+  - Lightning
+  - Meteor
   layers:
   - Default
   - TransparentFX
