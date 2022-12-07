@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7edd5c97fcba6d7458656b87304607d0, type: 3}
   m_Name: Powerup - Speed up
   m_EditorClassIdentifier: 
-  speedMultiplier: 4
+  speedMultiplier: 10
   jumpHeightIncrease: 1
   jumpNumberIncrease: 1
-  duration: 8
+  duration: 20
   powerupModel: {fileID: 9082659423305186780, guid: 98f6ff90027e8b2419dfa6bbdf7ac56d, type: 3}
   pickupEffect: {fileID: 0}
   powerupSound: {fileID: 0}
