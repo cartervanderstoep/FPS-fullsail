@@ -14,7 +14,8 @@ public class SummonUsingBullets : MonoBehaviour
     public GameObject enemy;
     int freeze;
     Vector3 enemyPos;
-    public int timer;
+    public int fireTimer;
+    public int lightningTimer;
 
     private void Update()
     {
@@ -25,22 +26,11 @@ public class SummonUsingBullets : MonoBehaviour
     {
         if (other.CompareTag("Fire"))
         {
-            for (int i = 0; i < Fire.Length; i++)
-            {
-                Fire[i].SetActive(true);
-            }
+            StartCoroutine(delayFire());
             
         }
 
-        if (other.CompareTag("Ice"))
-        {
-            if (freeze == 3) // if the enemy is hit 3 times with an ice spell they freeze. this will disable the enemy and place a frozen 3d model of them instead.
-            {
-                stuff();
-                
-            }
-           
-        }
+        
         if (other.CompareTag("Ice"))
         {
             if(freeze >= 3) // if the enemy is hit 3 times with an ice spell they freeze. this will disable the enemy and place a frozen 3d model of them instead.
@@ -69,10 +59,7 @@ public class SummonUsingBullets : MonoBehaviour
         }
         if (other.CompareTag("Lightning"))
         {
-            for (int i = 0; i < Lightning.Length; i++)
-            {
-                Lightning[i].SetActive(true);
-            }
+            StartCoroutine(delayLightning());
 
         }
         if (other.CompareTag("Meteor"))
@@ -85,10 +72,34 @@ public class SummonUsingBullets : MonoBehaviour
         }
 
     }
-    public void stuff()
+
+    public IEnumerator delayFire()
     {
-        
+        for (int i = 0; i < Fire.Length; i++)
+        {
+            Fire[i].SetActive(true);
+        }
+        yield return new WaitForSeconds(fireTimer);
+        for (int i = 0; i < Fire.Length; i++)
+        {
+            Fire[i].SetActive(false);
+        }
+
     }
+    public IEnumerator delayLightning()
+    {
+        for (int i = 0; i < Lightning.Length; i++)
+        {
+            Lightning[i].SetActive(true);
+        }
+        yield return new WaitForSeconds(lightningTimer);
+        for (int i = 0; i < Lightning.Length; i++)
+        {
+            Lightning[i].SetActive(false);
+        }
+
+    }
+
 
 
 }
