@@ -17,6 +17,5 @@ MonoBehaviour:
   magicElement: 1
   wandModel: {fileID: 170008, guid: a5132481e1eaddb4e93b7cd8def7b311, type: 3}
   magicType: {fileID: 8687208477904049311, guid: a495f3a8e281a4b4683a696272c8b3dd, type: 3}
-  hitEffect: {fileID: 2955623459812423943, guid: f5507a8c6a22c404ab324980c4e8a11b, type: 3}
-  castFlash: {fileID: 0}
-  spellSound: {fileID: 0}
+  castFlash: {fileID: 959015526820619756, guid: 22270149fc99cc04daba263787daa37b, type: 3}
+  spellSound: {fileID: 8300000, guid: 887377c88a7dcfb4e95579c1e0d0a5cb, type: 3}

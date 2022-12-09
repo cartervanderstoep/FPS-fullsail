@@ -29,21 +29,24 @@ public class playerController : MonoBehaviour
     [SerializeField] float castingRate;
     [SerializeField] float castingDist; 
     [SerializeField] GameObject magicAttk;
-
+    
     [Header("----- Spell Utilities -----")]
     [Range(1, 4)][SerializeField] int magicElem; 
     [SerializeField] GameObject equipable;
     [SerializeField] GameObject playerSheild; 
     [SerializeField] List<gunStats> spells = new List<gunStats>();
     [SerializeField] Transform castOrigin;
-    [SerializeField] GameObject hitEffect;
 
-
-    [Header("--------------sound---------------")]
+    [Header("----- Sound -----")]
     [SerializeField] AudioClip[] jumps;
     [SerializeField] AudioClip[] hurts;
     [SerializeField] float volume;
 
+    [Header("----- Special FX -----")]
+    [SerializeField] Transform fXOrigin; 
+    [SerializeField] GameObject castEffect;
+    [SerializeField] GameObject utilityUseEffect;
+    [SerializeField] AudioClip spellAud; 
 
     Vector3 move;
     Vector3 dashDir; 
@@ -188,6 +191,8 @@ public class playerController : MonoBehaviour
             if(magicElem == 1 || magicElem == 2)
             {
                 isShooting = true;
+                aud.PlayOneShot(spellAud, volume);
+                Instantiate(castEffect, fXOrigin.position, transform.rotation);
                 Instantiate(magicAttk, castOrigin.position, Camera.main.transform.rotation);
                 yield return new WaitForSeconds(castingRate);
                 isShooting = false;
@@ -200,6 +205,8 @@ public class playerController : MonoBehaviour
                     isShooting = true; 
                     Vector3 dropLoc = hit.point;
                     dropLoc.y += 20f;
+                    aud.PlayOneShot(spellAud, volume); 
+                    Instantiate(castEffect, dropLoc, transform.rotation); 
                     Instantiate(magicAttk, dropLoc, transform.rotation);
                     yield return new WaitForSeconds(castingRate); 
                     magicAttk.transform.Translate(Vector3.down * magicDropSpeed);
@@ -326,7 +333,9 @@ public class playerController : MonoBehaviour
     {
         magicAttk = gunStatx.magicType;
         castingRate = gunStatx.castRate;
-        magicElem = gunStatx.magicElement; 
+        magicElem = gunStatx.magicElement;
+        castEffect = gunStatx.castFlash;
+        spellAud = gunStatx.spellSound; 
         equipable.GetComponent<MeshFilter>().sharedMesh = gunStatx.wandModel.GetComponent<MeshFilter>().sharedMesh;
         equipable.GetComponent<MeshRenderer>().sharedMaterial = gunStatx.wandModel.GetComponent<MeshRenderer>().sharedMaterial;
         spells.Add(gunStatx);
@@ -376,7 +385,9 @@ public class playerController : MonoBehaviour
     {
         magicAttk = spells[selectedGun].magicType;
         magicElem = spells[selectedGun].magicElement;
-        castingRate = spells[selectedGun].castRate; 
+        castingRate = spells[selectedGun].castRate;
+        castEffect = spells[selectedGun].castFlash;
+        spellAud = spells[selectedGun].spellSound; 
         equipable.GetComponent<MeshFilter>().sharedMesh = spells[selectedGun].wandModel.GetComponent<MeshFilter>().sharedMesh;
         equipable.GetComponent<MeshRenderer>().sharedMaterial = spells[selectedGun].wandModel.GetComponent<MeshRenderer>().sharedMaterial;
     }

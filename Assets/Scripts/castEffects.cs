@@ -1,0 +1,27 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class castEffects : MonoBehaviour
+{
+    [SerializeField] GameObject castFX;
+    [SerializeField] float timer;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        StartCoroutine(spawnTime()); 
+    }
+
+    public IEnumerator spawnTime()
+    {
+        yield return new WaitForSeconds(timer);
+        Destroy(castFX); 
+    }
+}

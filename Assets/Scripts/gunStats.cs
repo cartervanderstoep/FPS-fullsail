@@ -12,7 +12,6 @@ public class gunStats : ScriptableObject
     public int magicElement; 
     public GameObject wandModel;
     public GameObject magicType; 
-    public GameObject hitEffect;
     public GameObject castFlash;
     public AudioClip spellSound;
 }
