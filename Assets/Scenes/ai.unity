@@ -838,6 +838,67 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4c2ed94ec373c74b8e634ffb0ab1a8c, type: 3}
+--- !u!1001 &2112433659
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3214315845676266362, guid: 7907ec59f98bad64e9954512771c167e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3214315846174453322, guid: 7907ec59f98bad64e9954512771c167e, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3214315846174453322, guid: 7907ec59f98bad64e9954512771c167e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3214315846174453322, guid: 7907ec59f98bad64e9954512771c167e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3214315846174453322, guid: 7907ec59f98bad64e9954512771c167e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 3214315846174453322, guid: 7907ec59f98bad64e9954512771c167e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3214315846174453322, guid: 7907ec59f98bad64e9954512771c167e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3214315846174453322, guid: 7907ec59f98bad64e9954512771c167e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3214315846174453322, guid: 7907ec59f98bad64e9954512771c167e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3214315846174453322, guid: 7907ec59f98bad64e9954512771c167e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3214315846174453322, guid: 7907ec59f98bad64e9954512771c167e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3214315846174453322, guid: 7907ec59f98bad64e9954512771c167e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3214315846174453325, guid: 7907ec59f98bad64e9954512771c167e, type: 3}
+      propertyPath: m_Name
+      value: boss cannon _spawn_
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7907ec59f98bad64e9954512771c167e, type: 3}
 --- !u!1001 &5875551543964440964
 PrefabInstance:
   m_ObjectHideFlags: 0

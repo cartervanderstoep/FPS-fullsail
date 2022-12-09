@@ -17702,7 +17702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c96d3d36837474c488db5b8bbacf89ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  model: {fileID: 0}
+  model: {fileID: 378206889305778871}
   agent: {fileID: 2653236490853592176}
   anim: {fileID: 6703967665300822329}
   aud: {fileID: 1980417909}

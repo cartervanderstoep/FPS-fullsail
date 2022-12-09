@@ -13,7 +13,7 @@ public class gameManager : MonoBehaviour
     [Header("----- Player Stuff -----")]
     public GameObject player;
     public playerController playerScript;
-    public List<GameObject> minionList;
+   
 
     [Header("----- UI -----")]
     public GameObject pauseMenu;
@@ -54,7 +54,11 @@ public class gameManager : MonoBehaviour
 
     public bool isPaused;
     public bool isMainMenu;
-    
+
+    [Header("------spawn lists--------")]
+    public List<GameObject> minionList;
+    public List<GameObject> bossSpawnList;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -93,6 +97,7 @@ public class gameManager : MonoBehaviour
             Destroy(magicWall);
         }
         updateUI();
+        Debug.Log(minionList.Count.ToString());
     }
     
 
@@ -215,6 +220,13 @@ public class gameManager : MonoBehaviour
         int minionCount = minionList.Count;
 
         return minionCount;
+
+    }
+    public int getBossSpawnCount()
+    {
+        int spawnCount = bossSpawnList.Count;
+
+        return spawnCount;
 
     }
 }

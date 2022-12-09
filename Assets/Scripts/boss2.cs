@@ -52,7 +52,7 @@ public class boss2 : MonoBehaviour, IDamage
             }
         }
 
-        if (!spawning)
+        if (!spawning && gameManager.instance.bossSpawnList.Count < 4)
         {
             spawning = true;
             StartCoroutine(spawn());

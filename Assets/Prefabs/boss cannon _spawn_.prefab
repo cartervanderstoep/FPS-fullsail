@@ -411,7 +411,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fee19f53b803484991a51d3e569a8ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  models: []
+  models:
+  - {fileID: 3214315845953014205}
+  - {fileID: 3214315846256481502}
+  - {fileID: 3214315845718289705}
+  - {fileID: 3214315844894602182}
+  - {fileID: 3214315846275327543}
   Hp: 40
   chainGuns:
   - {fileID: 3214315844989278428}

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
-public class helperAI : MonoBehaviour,IDamage
+public class helperAI : MonoBehaviour, IDamage
 {
     [Header("-----------------components-------------")]
     [SerializeField] NavMeshAgent agent;
@@ -35,8 +35,9 @@ public class helperAI : MonoBehaviour,IDamage
         target = gameManager.instance.player;
         targetCount = 0;
         attacking = false;
-        Destroy(gameObject, timer);
+        StartCoroutine(die());
         speed = agent.speed;
+        gameManager.instance.minionList.Add(gameObject);
 
     }
 
@@ -56,12 +57,12 @@ public class helperAI : MonoBehaviour,IDamage
         }
 
         agent.SetDestination(target.transform.position);
-       
+
         if (!attacking)
         {
             attacking = true;
             StartCoroutine(attack());
-            
+
         }
 
         if (target.GetComponent<NavMeshAgent>() != null)
@@ -71,23 +72,25 @@ public class helperAI : MonoBehaviour,IDamage
                 target = null;
             }
         }
-        
+
         faceTarget();
 
     }
 
     private void OnTriggerEnter(Collider other)
     {
-       
-            if (other.CompareTag("Enemy") && targetCount < 1 && other.GetComponent<NavMeshAgent>().enabled /*&& Vector3.Distance(transform.position,target.transform.position ) < helperColl.bounds.size.magnitude*/)
+        if (other.GetComponent<NavMeshAgent>() != null)
+        {
+            if (other.CompareTag("enemy prefab") && targetCount < 1 && other.GetComponent<NavMeshAgent>().enabled /*&& Vector3.Distance(transform.position,target.transform.position ) < helperColl.bounds.size.magnitude*/)
             {
                 targetCount += 1;
                 target = other.gameObject;
                 //agent.SetDestination(target);
             }
-           
-       
-        
+        }
+
+
+
     }
     IEnumerator attack()
     {
@@ -110,10 +113,11 @@ public class helperAI : MonoBehaviour,IDamage
     }
     public void takeDamage(int dmg)
     {
-        Hp-= damage;
+        Hp -= damage;
         StartCoroutine(flashDamage());
-        if (Hp<=0)
+        if (Hp <= 0)
         {
+            gameManager.instance.minionList.Remove(gameObject);
             Destroy(gameObject);
         }
     }
@@ -122,6 +126,12 @@ public class helperAI : MonoBehaviour,IDamage
         model.material.color = Color.red;
         yield return new WaitForSeconds(0.15f);
         model.material.color = Color.white;
+    }
+    IEnumerator die()
+    {
+        yield return new WaitForSeconds(timer);
+        gameManager.instance.minionList.Remove(gameObject);
+        Destroy(gameObject);
     }
 }
 
