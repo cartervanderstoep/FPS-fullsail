@@ -14987,6 +14987,7 @@ MonoBehaviour:
   roamDist: 6
   animLerpSpeed: 1
   headPos: {fileID: 7903471779559447718}
+  attackSpeed: 7
   hurt: {fileID: 8300000, guid: a21d030049f40e04092479742e3591ee, type: 3}
   dead: {fileID: 8300000, guid: 21f9114fd7ac23c4983351e7042e290e, type: 3}
   attack: {fileID: 8300000, guid: 3d1eb86fef7f444499781618f867707b, type: 3}
