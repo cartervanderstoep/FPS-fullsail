@@ -17722,7 +17722,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 427bb08236c720d44b2c9f1a8b72a32e, type: 3}
   dead: {fileID: 8300000, guid: 9e841297cc7893a4da79bdaac9c00803, type: 3}
   attack: {fileID: 8300000, guid: 3de16155dbb08dc409c530ba8413ad86, type: 3}
-  volume: 0.5
+  volume: 0.3
   playerIsTargeted: 0
 --- !u!195 &2653236490853592176
 NavMeshAgent:
@@ -22939,6 +22939,10 @@ PrefabInstance:
       propertyPath: frozen
       value: 
       objectReference: {fileID: 5252535191698110994, guid: e36bfabfb3129e849b98f65d2e27151a, type: 3}
+    - target: {fileID: 4246873657438228456, guid: 0d3543ca732f00f4bb2ccae1d0d81443, type: 3}
+      propertyPath: FrozenPos
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4246873657438228456, guid: 0d3543ca732f00f4bb2ccae1d0d81443, type: 3}
       propertyPath: fireTimer
       value: 10

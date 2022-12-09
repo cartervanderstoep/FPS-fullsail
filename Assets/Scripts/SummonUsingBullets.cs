@@ -14,6 +14,7 @@ public class SummonUsingBullets : MonoBehaviour
     Vector3 enemyPos;
     public int fireTimer;
     public int lightningTimer;
+    public int FrozenPos;
 
     private void Update()
     {
@@ -35,9 +36,9 @@ public class SummonUsingBullets : MonoBehaviour
             {
                 enemyPos = this.transform.position;
                 //frozen.transform.position = enemyPos;
-                Instantiate(frozen, enemyPos, transform.rotation);
+                GameObject fz = Instantiate(frozen, enemyPos, transform.rotation);
                 //frozen.SetActive(true);
-                
+                fz.transform.position += Vector3.down * FrozenPos;
                 for (int i = 0; i < Ice.Length; i++)
                 {
                     Ice[i].SetActive(false);
