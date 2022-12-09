@@ -35,7 +35,7 @@ public class SummonUsingBullets : MonoBehaviour
             if(freeze >= 3) // if the enemy is hit 3 times with an ice spell they freeze. this will disable the enemy and place a frozen 3d model of them instead.
             {
                 enemyPos = this.transform.position;
-                //frozen.transform.position = enemyPos;
+                frozen.transform.position = enemyPos;
                 GameObject fz = Instantiate(frozen, enemyPos, transform.rotation);
                 //frozen.SetActive(true);
                 fz.transform.position += Vector3.down * FrozenPos;
