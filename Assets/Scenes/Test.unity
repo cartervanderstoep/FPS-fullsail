@@ -281,14 +281,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 881789279, guid: dc20ea6d54630164cb3dd97fdf33e994, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 881789279, guid: dc20ea6d54630164cb3dd97fdf33e994, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.00024414062
-      objectReference: {fileID: 0}
     - target: {fileID: 8436125083147643384, guid: dc20ea6d54630164cb3dd97fdf33e994, type: 3}
       propertyPath: m_Name
       value: UI
@@ -379,6 +371,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc20ea6d54630164cb3dd97fdf33e994, type: 3}
+--- !u!1 &800878773 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 800878773, guid: dc20ea6d54630164cb3dd97fdf33e994, type: 3}
+  m_PrefabInstance: {fileID: 420001341}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1111901178
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -662,6 +659,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8021286592606786380, guid: aeef64cb89fa7b340a1da3f30ba68b14, type: 3}
+      propertyPath: canFloat
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021286592606786380, guid: aeef64cb89fa7b340a1da3f30ba68b14, type: 3}
+      propertyPath: floatAud
+      value: 
+      objectReference: {fileID: 8300000, guid: 4cedf96a0a41c9f4998e6aeb66f580fe, type: 3}
+    - target: {fileID: 8021286592606786380, guid: aeef64cb89fa7b340a1da3f30ba68b14, type: 3}
+      propertyPath: canDefend
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021286592606786380, guid: aeef64cb89fa7b340a1da3f30ba68b14, type: 3}
+      propertyPath: teleportFlash
+      value: 
+      objectReference: {fileID: 800878773}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aeef64cb89fa7b340a1da3f30ba68b14, type: 3}
 --- !u!1001 &5518246047051206718

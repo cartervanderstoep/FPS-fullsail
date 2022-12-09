@@ -43,13 +43,21 @@ public class playerController : MonoBehaviour
     [SerializeField] float volume;
 
     [Header("----- Special FX -----")]
-    [SerializeField] Transform fXOrigin; 
+    [SerializeField] Transform fXOrigin;
+    [SerializeField] Transform utilityFXOrigin; 
     [SerializeField] GameObject castEffect;
-    [SerializeField] GameObject utilityUseEffect;
-    [SerializeField] AudioClip spellAud; 
+    [SerializeField] GameObject hoverEffect;
+    [SerializeField] GameObject teleportEffect;
+    [SerializeField] GameObject sheildEffect;
+    [SerializeField] GameObject teleportFlash; 
+    [SerializeField] AudioClip spellAud;
+    [SerializeField] AudioClip floatAud; 
+    [SerializeField] AudioClip teleportAud;
+    [SerializeField] AudioClip shieldAud; 
 
     Vector3 move;
-    Vector3 dashDir; 
+    Vector3 dashDir;
+    Transform utilityPos; 
     public Vector3 pushBack; 
     private Vector3 playerVelocity;
     int jumpsTimes;
@@ -90,6 +98,7 @@ public class playerController : MonoBehaviour
 
     void Update()
     {
+        utilityPos = utilityFXOrigin;
         pushBack = Vector3.Lerp(pushBack, Vector3.zero, Time.deltaTime * pushBackTime); 
         movement();
         //Hover bar
@@ -225,6 +234,7 @@ public class playerController : MonoBehaviour
                 if (utilityTime > 0.1f)
                 {
                     isHovering = true;
+                    aud.PlayOneShot(floatAud, volume); 
                     gravityValue = 0;
                     playerVelocity.y = 0;
                     yield return new WaitForSeconds(2f);
@@ -252,6 +262,8 @@ public class playerController : MonoBehaviour
                 if (utilityTime > 0.1f)
                 {
                     isTeleporting = true;
+                    aud.PlayOneShot(teleportAud, volume);
+                    StartCoroutine(utilityFlashF()); 
                     dashDir = transform.right * Input.GetAxis("Horizontal") + transform.forward * Input.GetAxis("Vertical");
                     controller.Move((dashDir + pushBack) * Time.deltaTime * (playerSpeed * dashDist));
                     yield return new WaitForSeconds(2f);
@@ -279,6 +291,7 @@ public class playerController : MonoBehaviour
                 if (utilityTime > 0.1f)
                 {
                     isDefending = true;
+                    aud.PlayOneShot(shieldAud, volume); 
                     playerSheild.SetActive(true);
                     yield return new WaitForSeconds(2f);
                 }
@@ -304,6 +317,12 @@ public class playerController : MonoBehaviour
         }
     }
 
+    public IEnumerator utilityFlashF()
+    {
+        teleportFlash.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        teleportFlash.SetActive(false); 
+    }
     public void damage(int dmg)
     {
         HP -= dmg;

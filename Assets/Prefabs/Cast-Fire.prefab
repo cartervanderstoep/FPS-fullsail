@@ -4878,4 +4878,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   castFX: {fileID: 959015526820619756}
-  timer: 1
+  timer: 0.2
