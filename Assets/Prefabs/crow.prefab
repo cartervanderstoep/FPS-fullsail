@@ -20195,7 +20195,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4246873657438228455, guid: 0d3543ca732f00f4bb2ccae1d0d81443, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4246873657438228456, guid: 0d3543ca732f00f4bb2ccae1d0d81443, type: 3}
       propertyPath: enemy
@@ -20227,7 +20227,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4246873657438228456, guid: 0d3543ca732f00f4bb2ccae1d0d81443, type: 3}
       propertyPath: Fire.Array.size
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4246873657438228456, guid: 0d3543ca732f00f4bb2ccae1d0d81443, type: 3}
       propertyPath: Ice.Array.data[0]

@@ -8,7 +8,7 @@ public class KeyDestroy : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         gameManager.instance.keyCount += 1;
-        Instantiate(sound, this.transform.position, transform.rotation);
+        //Instantiate(sound, this.transform.position, transform.rotation);
         Destroy(gameObject);
     }
 }
