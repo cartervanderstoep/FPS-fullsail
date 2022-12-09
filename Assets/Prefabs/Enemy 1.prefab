@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 310252722}
   - component: {fileID: 310252721}
   - component: {fileID: 310252720}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LightningEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5049,7 +5049,7 @@ GameObject:
   - component: {fileID: 1114769572}
   - component: {fileID: 1114769571}
   - component: {fileID: 1114769570}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9962,7 +9962,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1277915938}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -10074,7 +10074,7 @@ GameObject:
   - component: {fileID: 1346023690}
   - component: {fileID: 1346023689}
   - component: {fileID: 1346023694}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ice (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17904,7 +17904,7 @@ GameObject:
   - component: {fileID: 6965138497335942388}
   - component: {fileID: 6381413525367980651}
   - component: {fileID: 2434831893747029636}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ice (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22871,6 +22871,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 228467551321022714}
     m_Modifications:
+    - target: {fileID: 410511014143980804, guid: 0d3543ca732f00f4bb2ccae1d0d81443, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2808000824433517430, guid: 0d3543ca732f00f4bb2ccae1d0d81443, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4246873657438228452, guid: 0d3543ca732f00f4bb2ccae1d0d81443, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -22928,8 +22936,12 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4246873657438228456, guid: 0d3543ca732f00f4bb2ccae1d0d81443, type: 3}
+      propertyPath: frozen
+      value: 
+      objectReference: {fileID: 5252535191698110994, guid: e36bfabfb3129e849b98f65d2e27151a, type: 3}
+    - target: {fileID: 4246873657438228456, guid: 0d3543ca732f00f4bb2ccae1d0d81443, type: 3}
       propertyPath: fireTimer
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4246873657438228456, guid: 0d3543ca732f00f4bb2ccae1d0d81443, type: 3}
       propertyPath: Ice.Array.size
@@ -22962,6 +22974,22 @@ PrefabInstance:
     - target: {fileID: 5006043623867161987, guid: 0d3543ca732f00f4bb2ccae1d0d81443, type: 3}
       propertyPath: looping
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5006043623867161989, guid: 0d3543ca732f00f4bb2ccae1d0d81443, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5006043623994029786, guid: 0d3543ca732f00f4bb2ccae1d0d81443, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5006043624029435353, guid: 0d3543ca732f00f4bb2ccae1d0d81443, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5006043625525251815, guid: 0d3543ca732f00f4bb2ccae1d0d81443, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3543ca732f00f4bb2ccae1d0d81443, type: 3}

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4106531189361777422}
   - component: {fileID: 7136060324353416929}
   - component: {fileID: 8607182380298823638}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Magic Attack-Meteor
   m_TagString: Player bullet
   m_Icon: {fileID: 0}

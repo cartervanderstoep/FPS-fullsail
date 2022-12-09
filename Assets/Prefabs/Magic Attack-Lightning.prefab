@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5131618935817440504}
   - component: {fileID: 3144820865404844681}
   - component: {fileID: 4222565350320319927}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cylinder
   m_TagString: Lightning
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 274845708236172105}
   - component: {fileID: 9030498415473056873}
   - component: {fileID: 1642162296}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Magic Attack-Lightning
   m_TagString: Player bullet
   m_Icon: {fileID: 0}

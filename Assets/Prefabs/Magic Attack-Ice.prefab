@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7174463757284444904}
   - component: {fileID: 2290083631202796241}
   - component: {fileID: 4230128060568387451}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sphere
   m_TagString: Ice
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 2162211461756721988}
   - component: {fileID: 1769901581915668123}
   - component: {fileID: 8256349417817386297}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Magic Attack-Ice
   m_TagString: Player bullet
   m_Icon: {fileID: 0}
