@@ -21,7 +21,7 @@ public class spike : MonoBehaviour
     {
         tookDamage = false;
         origPos = this.transform.position;
-        move = new Vector3(0, 2, 0);
+        move = new Vector3(0, 5, 0);
         lastPos = this.transform.position + move;
     }
     // Update is called once per frame
