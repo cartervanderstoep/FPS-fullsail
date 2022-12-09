@@ -13,6 +13,7 @@ public class gameManager : MonoBehaviour
     [Header("----- Player Stuff -----")]
     public GameObject player;
     public playerController playerScript;
+    public List<GameObject> minionList;
 
     [Header("----- UI -----")]
     public GameObject pauseMenu;
@@ -209,4 +210,11 @@ public class gameManager : MonoBehaviour
         isPaused = false;
     }
     
+    public int getHelperCount()
+    {
+        int minionCount = minionList.Count;
+
+        return minionCount;
+
+    }
 }

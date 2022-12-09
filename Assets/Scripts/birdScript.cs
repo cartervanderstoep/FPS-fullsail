@@ -251,7 +251,8 @@ public class birdScript : MonoBehaviour, IDamage
     {
        
         transform.position = Vector3.Slerp(transform.position, playerPos, attackSpeed * Time.deltaTime);
-        StartCoroutine(playAnimation());
+        if (HP<0)
+         StartCoroutine(playAnimation());
     }
     IEnumerator playAnimation()
     {

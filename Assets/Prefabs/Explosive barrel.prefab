@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 1
-  explosion: {fileID: 4429021292482948830, guid: b70b205b6e008d7489d443104ac0c919, type: 3}
+  explosion: {fileID: 4068249816582401791, guid: bfe79549e4282824a9bd1f5ddb4391b3, type: 3}
   barrelTransform: {fileID: 4249354958107627984}
 --- !u!33 &4249354958107627998
 MeshFilter:
