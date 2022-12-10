@@ -5,13 +5,24 @@ using UnityEngine;
 
 public class boss1 : MonoBehaviour, IDamage
 {
+    [Header("---------components----------")]
     [SerializeField] List<Transform> jumpSpots = new List<Transform>();
     [SerializeField] GameObject vertWave;
     [SerializeField] GameObject wave;
+    [SerializeField] AudioSource aud;
 
+    [Header("----------stats--------")]
     [SerializeField] int Health;
     [SerializeField] float rotationSpeed;
     [SerializeField] float speedSpeed;
+
+    [Header("---------- sound parts---------")]
+    [SerializeField] AudioClip attack;
+    [SerializeField] AudioClip[] hurt;
+    [SerializeField] AudioClip vertShot;
+    [SerializeField] AudioClip dead;
+    [SerializeField] AudioClip waveSound;
+    [SerializeField] float volume;
 
 
     Transform target;
@@ -32,6 +43,7 @@ public class boss1 : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
+        
         jumpCount = 0;
         jumpDist = Vector3.Distance(gameObject.transform.position, jumpSpots[jumpCount + 1].transform.position);
         target = jumpSpots[jumpCount + 1];
@@ -118,6 +130,8 @@ public class boss1 : MonoBehaviour, IDamage
     public void takeDamage(int dmg)
     {
         Health -= dmg;
+        int randNoise = Random.Range(0,hurt.Length);
+        aud.PlayOneShot(hurt[randNoise], volume);
         if (Health <= 0)
         {
             Destroy(gameObject);
@@ -198,11 +212,13 @@ public class boss1 : MonoBehaviour, IDamage
 
         quickFace();  
         Vector3 spawnPos = new Vector3(transform.position.x, gameManager.instance.player.transform.position.y, transform.position.z);
+        aud.PlayOneShot(attack, volume);
         for (int i = 0; i < 3; i++)
         {
             yield return new WaitForSeconds(.3f);
             Quaternion rotation = transform.rotation;
             Instantiate(vertWave, spawnPos, rotation);
+            aud.PlayOneShot(vertShot, volume);
         }
 
     }
@@ -212,6 +228,7 @@ public class boss1 : MonoBehaviour, IDamage
         {
             quickFace();
             Vector3 spawnPos = new Vector3(transform.position.x, gameManager.instance.player.transform.position.y, transform.position.z);
+            aud.PlayOneShot(waveSound, volume);
             Instantiate(wave, spawnPos, transform.rotation);
             waveCount++;
         }
