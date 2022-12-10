@@ -18,10 +18,11 @@ public class boss2 : MonoBehaviour, IDamage
     [SerializeField] float spawnTimer;
     [SerializeField] float spawnBreak;
 
+
     int maxHp;
     bool guns;
     bool spawning;
-
+    int spawnCount;
     
     // Start is called before the first frame update
     void Start()
@@ -52,9 +53,14 @@ public class boss2 : MonoBehaviour, IDamage
             }
         }
 
-        if (!spawning && gameManager.instance.bossSpawnList.Count < 4)
+        if (spawnCount <1)
         {
-            spawning = true;
+            spawnCount++;
+            StartCoroutine(spawn());
+        }
+        else if(spawnCount <2  && phase2)
+        {
+            spawnCount++;
             StartCoroutine(spawn());
         }
 

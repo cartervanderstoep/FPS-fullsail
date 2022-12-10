@@ -88,7 +88,7 @@ MonoBehaviour:
   HP: 9999
   playerFaceSpeed: 10
   speedChase: 0
-  sightDist: 20
+  sightDist: 1000
   sightAngle: 180
   roamDist: 0
   headPos: {fileID: 1130271313968983592}
@@ -165,7 +165,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 20.22
+  m_Radius: 51.83
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1745605902080077964
 Rigidbody:

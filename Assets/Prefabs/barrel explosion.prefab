@@ -68,6 +68,7 @@ MonoBehaviour:
   volume: 5
   aud: {fileID: 6523513727388504550}
   boom: {fileID: 8300000, guid: c69cbaab32736b9468b922e5856e6399, type: 3}
+  forceAmount: 8
   explosion: {fileID: 167558, guid: a11dc34cafe3dfd4facb59cfb4e72de8, type: 3}
 --- !u!54 &360948507579442708
 Rigidbody:

@@ -8,6 +8,7 @@ public class explosionBehavior : MonoBehaviour
     [SerializeField] int volume;
     [SerializeField] AudioSource aud;
     [SerializeField] AudioClip boom;
+    [SerializeField] int forceAmount;
     public GameObject explosion;
     bool isExploding = false;
    
@@ -42,6 +43,7 @@ public class explosionBehavior : MonoBehaviour
                 if (explosionDamage - Vector3.Distance(gameObject.transform.position, entity.transform.position) >= 0)
                 {
                     gameManager.instance.playerScript.damage(explosionDamage - (int)Vector3.Distance(gameObject.transform.position, entity.transform.position));
+                    gameManager.instance.playerScript.pushBack = (entity.transform.position - transform.position).normalized * forceAmount;
                 }
             }
             if (entity.GetComponent<IDamage>() != null)

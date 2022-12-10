@@ -800,6 +800,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boss: {fileID: 3214315845676266362}
+  bossIntro: 0
+  aud: {fileID: 0}
+  boss1: {fileID: 0}
+  boss2: {fileID: 0}
+  bossVolume: 0
 --- !u!65 &3214315846174453324
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1127,6 +1132,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3214315845676266357}
     m_Modifications:
+    - target: {fileID: 6390281279013824438, guid: 3a30c94dead500841928f06b1d2fb312, type: 3}
+      propertyPath: sightDist
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 6390281279013824440, guid: 3a30c94dead500841928f06b1d2fb312, type: 3}
       propertyPath: m_Name
       value: bossTurret
@@ -1178,6 +1187,10 @@ PrefabInstance:
     - target: {fileID: 6390281279013993432, guid: 3a30c94dead500841928f06b1d2fb312, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6390281279021241392, guid: 3a30c94dead500841928f06b1d2fb312, type: 3}
+      propertyPath: m_Radius
+      value: 44.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a30c94dead500841928f06b1d2fb312, type: 3}

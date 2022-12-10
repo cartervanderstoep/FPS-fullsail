@@ -110,6 +110,7 @@ public class birdScript : MonoBehaviour, IDamage
             if (hit.collider.CompareTag("Player") && angleToPlayer <= sightAngle)
             {
                 agent.stoppingDistance = breakDist;
+                playerIsTargeted = true;
                 // agent.SetDestination(gameManager.instance.player.transform.position);
                
                 if (agent.enabled && agent.remainingDistance < agent.stoppingDistance)

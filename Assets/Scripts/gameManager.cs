@@ -55,9 +55,9 @@ public class gameManager : MonoBehaviour
     public bool isPaused;
     public bool isMainMenu;
 
-    [Header("------spawn lists--------")]
+    [Header("------spawn list--------")]
     public List<GameObject> minionList;
-    public List<GameObject> bossSpawnList;
+    
 
 
     // Start is called before the first frame update
@@ -222,11 +222,6 @@ public class gameManager : MonoBehaviour
         return minionCount;
 
     }
-    public int getBossSpawnCount()
-    {
-        int spawnCount = bossSpawnList.Count;
-
-        return spawnCount;
-
-    }
+    
+    
 }

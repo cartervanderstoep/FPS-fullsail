@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &131787907
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 131787908}
+  m_Layer: 3
+  m_Name: legs
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &131787908
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131787907}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.74, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3134512815446716483}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &195173220
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,7 +260,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3134512815446716483}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1874873403
 MeshFilter:
@@ -414,6 +445,7 @@ Transform:
   m_Children:
   - {fileID: 3140376376948924137}
   - {fileID: 195173221}
+  - {fileID: 131787908}
   - {fileID: 1874873401}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -439,13 +471,13 @@ MonoBehaviour:
   gravityValue: 25
   jumpsMax: 1
   playerStamina: 10
-  utilityTime: 10
-  dashDist: 100
+  utilityTime: 5.4
+  dashDist: 10
   canFloat: 0
   canTeleport: 0
   canDefend: 1
-  pushBackTime: 0
-  castingRate: 0
+  pushBackTime: 5
+  castingRate: 1
   castingDist: 1000
   magicAttk: {fileID: 0}
   magicElem: 0
@@ -471,6 +503,7 @@ MonoBehaviour:
   sheildEffect: {fileID: 0}
   teleportFlash: {fileID: 0}
   spellAud: {fileID: 0}
+  floatAud: {fileID: 0}
   teleportAud: {fileID: 8300000, guid: d34b94cf2983ad04db1185dbb59f6f79, type: 3}
   shieldAud: {fileID: 8300000, guid: 8e4c20c22245e8541b51e126ce0229e0, type: 3}
   pushBack: {x: 0, y: 0, z: 0}

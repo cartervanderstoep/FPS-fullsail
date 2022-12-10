@@ -91,6 +91,7 @@ public class ExploderAI : MonoBehaviour, IDamage
             {
                 agent.stoppingDistance = breakDist;      
                 agent.SetDestination(gameManager.instance.player.transform.position);
+                playerIsTargeted = true;
                 if (agent.remainingDistance < agent.stoppingDistance)
                     facePlayer();
                 if (Vector3.Distance(transform.position, gameManager.instance.player.transform.position) < 4 && isFlashing == false)

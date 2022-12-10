@@ -94,6 +94,7 @@ public class enemyAI : MonoBehaviour, IDamage
             {
                 agent.stoppingDistance = breakDistance;
                 agent.SetDestination(gameManager.instance.player.transform.position);
+                playerIsTargeted = true;
                 if (agent.remainingDistance < agent.stoppingDistance)
                     facePlayer();
                 if (!isShooting)

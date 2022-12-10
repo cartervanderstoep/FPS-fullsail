@@ -92,6 +92,7 @@ public class biterAI : MonoBehaviour, IDamage
             if (hit.collider.CompareTag("Player") && angleToPlayer <= sightAngle)
             {
                 agent.SetDestination(gameManager.instance.player.transform.position);
+                playerIsTargeted = true;
                 facePlayer();
                 if (agent.remainingDistance < breakDist && !isFighting)
                 {
