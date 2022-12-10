@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class boss1 : MonoBehaviour, IDamage
 {
@@ -10,11 +11,15 @@ public class boss1 : MonoBehaviour, IDamage
     [SerializeField] GameObject vertWave;
     [SerializeField] GameObject wave;
     [SerializeField] AudioSource aud;
+    [SerializeField] Animator anim;
+    [SerializeField] MeshRenderer model;
+
 
     [Header("----------stats--------")]
     [SerializeField] int Health;
     [SerializeField] float rotationSpeed;
     [SerializeField] float speedSpeed;
+    [SerializeField] int animLerpSpeed;
 
     [Header("---------- sound parts---------")]
     [SerializeField] AudioClip attack;
@@ -39,11 +44,14 @@ public class boss1 : MonoBehaviour, IDamage
     int waveCount;
     int jumpCount;
     int fallCount;
+    bool jumped;
+
+    // float fakeVelocity;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
         jumpCount = 0;
         jumpDist = Vector3.Distance(gameObject.transform.position, jumpSpots[jumpCount + 1].transform.position);
         target = jumpSpots[jumpCount + 1];
@@ -59,15 +67,18 @@ public class boss1 : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
+
         jumpDir = target.position - transform.position;
         playerDir = (gameManager.instance.player.transform.position) - transform.position;
 
-        
+
+
 
         if (!falling && Vector3.Distance(transform.position, target.position) > (jumpDist / 2))
         {
             jumpRotation();
             jump();
+            // Mathf.Lerp(fakeVelocity,1,Time.deltaTime);
         }
         else if (Vector3.Distance(transform.position, target.position) <= (jumpDist / 2) && Vector3.Distance(transform.position, target.position) > 0)
         {
@@ -82,7 +93,9 @@ public class boss1 : MonoBehaviour, IDamage
 
         else
         {
+            // Mathf.Lerp(fakeVelocity, 0, 1);
             facePlayer();
+            anim.SetBool("fall", false);
 
             if (shootWave)
             {
@@ -91,7 +104,7 @@ public class boss1 : MonoBehaviour, IDamage
             }
             else if (shootThree)
             {
-                shootThree=false;
+                shootThree = false;
                 StartCoroutine(tripleShot());
             }
             else if (waiting == false)
@@ -111,6 +124,12 @@ public class boss1 : MonoBehaviour, IDamage
     }
     void jump()
     {
+        if (!jumped)
+        {
+           // anim.SetTrigger("jump");
+            anim.SetBool("fall", true);
+            jumped = true;
+        }
 
         transform.position = Vector3.Slerp(transform.position, target.position, speedSpeed * Time.deltaTime);
         transform.Translate(Vector3.up * speedSpeed * Time.deltaTime);
@@ -122,15 +141,15 @@ public class boss1 : MonoBehaviour, IDamage
         {
             falling = true;
         }
-        
+
         //transform.position = Vector3.Lerp(fallposition, target.position, speedSpeed * Time.deltaTime);
-        transform.position = Vector3.MoveTowards(transform.position, target.position, (speedSpeed*10) * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, target.position, (speedSpeed * 10) * Time.deltaTime);
 
     }
     public void takeDamage(int dmg)
     {
         Health -= dmg;
-        int randNoise = Random.Range(0,hurt.Length);
+        int randNoise = Random.Range(0, hurt.Length);
         aud.PlayOneShot(hurt[randNoise], volume);
         if (Health <= 0)
         {
@@ -156,6 +175,7 @@ public class boss1 : MonoBehaviour, IDamage
             target = jumpSpots[0];
         }
         jumpDist = Vector3.Distance(gameObject.transform.position, target.position);
+        jumped = false;
         falling = false;
     }
     void facePlayer()
@@ -187,7 +207,7 @@ public class boss1 : MonoBehaviour, IDamage
     void chooseAttack()
     {
         attackChoice = Random.Range(1, 4);
-       
+
 
         switch (attackChoice)
         {
@@ -210,11 +230,12 @@ public class boss1 : MonoBehaviour, IDamage
     IEnumerator tripleShot()
     {
 
-        quickFace();  
+        quickFace();
         Vector3 spawnPos = new Vector3(transform.position.x, gameManager.instance.player.transform.position.y, transform.position.z);
         aud.PlayOneShot(attack, volume);
         for (int i = 0; i < 3; i++)
         {
+            anim.SetTrigger("attack");
             yield return new WaitForSeconds(.3f);
             Quaternion rotation = transform.rotation;
             Instantiate(vertWave, spawnPos, rotation);
