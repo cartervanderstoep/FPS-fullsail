@@ -46,7 +46,7 @@ public class SummonUsingBullets : MonoBehaviour
                 Destroy(enemy);
             }
             
-            if(freeze < 3)
+            if(freeze < 3&& Ice.Length > 0)
             {
                 Ice[freeze].SetActive(true); // this will increase the number of freeze effects each time they are hit. 
 
