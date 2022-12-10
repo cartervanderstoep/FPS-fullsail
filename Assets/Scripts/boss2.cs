@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class boss2 : MonoBehaviour, IDamage
 {
-    [SerializeField] List<MeshRenderer> models;
+    [Header("----normal components------")]
+    [SerializeField] GameObject model;
+    [SerializeField] GameObject spawnFx;
     [SerializeField] int Hp;
 
     [Header("offensive components")]
@@ -79,15 +81,10 @@ public class boss2 : MonoBehaviour, IDamage
     }
     IEnumerator flashDamage()
     {
-        for (int i = 0; i < models.Count; i++)
-        {
-            models[i].material.color = Color.red;
-        }
+        model.SetActive(true);
         yield return new WaitForSeconds(0.15f);
-        for (int i = 0; i < models.Count; i++)
-        {
-            models[i].material.color = Color.white;
-        }
+        model.SetActive(false);
+        
     }
 
     //IEnumerator sideGuns()
@@ -121,11 +118,13 @@ public class boss2 : MonoBehaviour, IDamage
         for (int i = 0; i < spawnSpots.Count; i++)
         {
             Instantiate(enemySpawn, spawnSpots[i].transform.position, spawnSpots[i].transform.rotation);
+            Instantiate(spawnFx, spawnSpots[i].transform.position, spawnSpots[i].transform.rotation);
         }
         yield return new WaitForSeconds(spawnTimer);
         for (int i = 0; i < spawnSpots.Count; i++)
         {
             Instantiate(enemySpawn, spawnSpots[i].transform.position, spawnSpots[i].transform.rotation);
+            Instantiate(spawnFx, spawnSpots[i].transform.position, spawnSpots[i].transform.rotation);
         }
 
         yield return new WaitForSeconds(spawnBreak);

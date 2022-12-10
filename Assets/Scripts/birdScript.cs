@@ -60,7 +60,7 @@ public class birdScript : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-        if (playerIsTargeted && !isFighting && !ascending )
+        if (playerIsTargeted && !isFighting && !ascending  && agent.enabled)
         {
             agent.SetDestination(gameManager.instance.player.transform.position);
         }
@@ -75,7 +75,7 @@ public class birdScript : MonoBehaviour, IDamage
 
         }
 
-        if (anim.GetBool("Dead") == false )  
+        if (anim.GetBool("Dead") == false  )  
         {
             if (playerInRange)
             {

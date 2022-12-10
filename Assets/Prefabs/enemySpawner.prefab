@@ -163,6 +163,8 @@ MonoBehaviour:
   - {fileID: 7801287693894649847}
   - {fileID: 7801287695013332409}
   - {fileID: 7801287693557328546}
+  spawnFX: {fileID: 100006, guid: bcf46e46336114145b09deb1db11d480, type: 3}
+  isBomb: 0
 --- !u!1 &7801287695013332414
 GameObject:
   m_ObjectHideFlags: 0

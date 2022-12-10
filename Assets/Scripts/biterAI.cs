@@ -59,7 +59,7 @@ public class biterAI : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-        if (playerIsTargeted)
+        if (playerIsTargeted && agent.enabled)
         {
             agent.SetDestination(gameManager.instance.player.transform.position);
         }

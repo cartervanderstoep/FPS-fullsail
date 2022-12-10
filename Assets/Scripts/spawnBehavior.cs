@@ -16,13 +16,14 @@ public class spawnBehavior : MonoBehaviour
     //[SerializeField] GameObject spawn3;
     //[SerializeField] GameObject spawn4;
     //[SerializeField] GameObject spawn5;
-    [SerializeField]List<Transform> spawnTransformList = new List<Transform>();
+    [SerializeField] List<Transform> spawnTransformList = new List<Transform>();
+    [SerializeField] GameObject spawnFX;
 
     [SerializeField] bool isBomb;
 
 
     int spawnTarget = 0;
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -59,15 +60,19 @@ public class spawnBehavior : MonoBehaviour
     }
     void spawn()
     {
-       if(spawnTarget < spawnList.Count)
+        if (spawnTarget < spawnList.Count)
         {
-             Instantiate(spawnList[spawnTarget], spawnTransformList[spawnTarget].transform.position, transform.rotation);
+            Instantiate(spawnList[spawnTarget], spawnTransformList[spawnTarget].transform.position, transform.rotation);
+            if (!isBomb)
+            {
+                Instantiate(spawnFX, spawnTransformList[spawnTarget].transform.position, transform.rotation);
+            }
 
 
             spawnTarget++;
 
             spawn();
-           
+
         }
     }
 }
