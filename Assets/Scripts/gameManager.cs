@@ -76,6 +76,13 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (instance != this)
+        {
+            instance = this;
+        }
+        
+            playerScript = player.GetComponent<playerController>();
+        
       
         if (mainMenu.activeSelf)
         {
