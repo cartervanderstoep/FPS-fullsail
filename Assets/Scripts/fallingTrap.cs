@@ -10,9 +10,15 @@ public class fallingTrap : MonoBehaviour
     [SerializeField] float forceAmount;
     [SerializeField] int damage;
     [SerializeField] bool pull;
+    [SerializeField] AudioSource aud;
+
+    [Header("--------------sound---------------")]
+    [SerializeField] AudioClip fall;
+    [SerializeField] float volume;
 
     private void OnTriggerEnter(Collider other)
     {
+        aud.PlayOneShot(fall, volume);
         if (other.CompareTag("Player"))
         {
             if (damage != 0)
