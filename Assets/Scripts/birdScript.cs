@@ -45,6 +45,7 @@ public class birdScript : MonoBehaviour, IDamage
     Vector3 startingPos;
     bool isDead;
 
+    int diveTimes;
 
 
 
@@ -162,7 +163,10 @@ public class birdScript : MonoBehaviour, IDamage
         {
 
             HP -= dmg;
-            agent.SetDestination(gameManager.instance.player.transform.position);
+            if (agent.enabled)
+            {
+                agent.SetDestination(gameManager.instance.player.transform.position);
+            }
             StartCoroutine(flashDamage());
             agent.stoppingDistance = 0;
             if (HP <= 0)
@@ -201,7 +205,7 @@ public class birdScript : MonoBehaviour, IDamage
 
         if (Vector3.Distance(transform.position, playerPos) <= 2)
         {
-            aud.PlayOneShot(attack, volume);
+          
              if (Vector3.Distance(transform.position, gameManager.instance.player.transform.position) <= 3 && isFighting)
             {
                 gameManager.instance.playerScript.damage(damage);
@@ -245,14 +249,19 @@ public class birdScript : MonoBehaviour, IDamage
         Vector3 ascend = new Vector3(playerPos.x * 2, playerPos.y + 6, playerPos.z * 2);
         transform.Translate(transform.forward * attackSpeed * Time.deltaTime);
         transform.Translate(transform.up * attackSpeed * Time.deltaTime);
+        diveTimes = 0;
 
     }
 
     void diveBomb()
     {
-       
+        if (diveTimes < 1)
+        {
+            diveTimes++;
+            aud.PlayOneShot(attack, volume);
+        }
         transform.position = Vector3.Slerp(transform.position, playerPos, attackSpeed * Time.deltaTime);
-        if (HP<0)
+        
          StartCoroutine(playAnimation());
     }
     IEnumerator playAnimation()

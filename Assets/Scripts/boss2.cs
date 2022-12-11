@@ -9,6 +9,9 @@ public class boss2 : MonoBehaviour, IDamage
     [SerializeField] GameObject model;
     [SerializeField] GameObject spawnFx;
     [SerializeField] int Hp;
+    [SerializeField] AudioSource aud;
+    [SerializeField] float volume;
+    [SerializeField] AudioClip hurt;
 
     [Header("offensive components")]
   
@@ -71,13 +74,15 @@ public class boss2 : MonoBehaviour, IDamage
     public void takeDamage(int dmg)
     {
            Hp -= dmg;
-        StartCoroutine(flashDamage()); 
+
         if (Hp<=0)
         {
             Destroy(gameObject);
             gameManager.instance.updateEnemyNumber();
             gameManager.instance.updateUI();
         }
+        StartCoroutine(flashDamage());
+        aud.PlayOneShot(hurt, volume);
     }
     IEnumerator flashDamage()
     {
