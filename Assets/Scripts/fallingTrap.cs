@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class fallingTrap : MonoBehaviour
 {
 
-    [SerializeField] int forceAmount;
+    [SerializeField] float forceAmount;
     [SerializeField] int damage;
     [SerializeField] bool pull;
 
@@ -14,7 +15,10 @@ public class fallingTrap : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            gameManager.instance.playerScript.damage(damage);
+            if (damage != 0)
+            {
+                gameManager.instance.playerScript.damage(damage);
+            }
             if (pull)
                 gameManager.instance.playerScript.pushBack = (transform.position - other.transform.position).normalized * forceAmount;
             else
