@@ -18,5 +18,9 @@ public class explosiveBarrel : MonoBehaviour , IDamage
         }
 
     }
-  
+    public void blackHole()
+    {
+
+    }
+
 }

@@ -36,6 +36,7 @@ public class enemyAI : MonoBehaviour, IDamage
     [Header("---------test bool--------")]
     [SerializeField] bool playerIsTargeted;
 
+    
     bool isShooting;
     bool playerInRange;
     Vector3 playerDir;
@@ -59,9 +60,10 @@ public class enemyAI : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
+        
         if (playerIsTargeted && agent.enabled)
         {
-            agent.SetDestination(gameManager.instance.player.transform.position);
+            agent.SetDestination(gameManager.instance.player.transform.position );
         }
 
 
@@ -195,5 +197,9 @@ public class enemyAI : MonoBehaviour, IDamage
     public int getHP()
     {
         return HP;
+    }
+    public void blackHole()
+    {
+        
     }
 }

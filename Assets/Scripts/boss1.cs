@@ -275,5 +275,9 @@ public class boss1 : MonoBehaviour, IDamage
     //        jumpCount = 0;
     //    }
     //}
+    public void blackHole()
+    {
+
+    }
 }
 

@@ -45,4 +45,8 @@ public class boss2Lever : MonoBehaviour,IDamage
         newDoorPos = door.transform.position;
         newLeverPos = transform.position;
     }
+    public void blackHole()
+    {
+
+    }
 }

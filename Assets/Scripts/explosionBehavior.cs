@@ -51,6 +51,7 @@ public class explosionBehavior : MonoBehaviour
                 if (explosionDamage - Vector3.Distance(gameObject.transform.position, entity.transform.position) >= 0)
                 {
                     entity.GetComponent<Collider>().GetComponent<IDamage>().takeDamage(explosionDamage - (int)Vector3.Distance(gameObject.transform.position, entity.transform.position));
+                    
                 }
             }
 

@@ -191,4 +191,8 @@ public class ExploderAI : MonoBehaviour, IDamage
         if (other.CompareTag("Player")) 
           playerInRange = true;
     }
+    public void blackHole()
+    {
+
+    }
 }

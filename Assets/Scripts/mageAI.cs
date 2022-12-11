@@ -176,4 +176,8 @@ public class mageAI : MonoBehaviour, IDamage
             playerInRange = false;
         }
     }
+    public void blackHole()
+    {
+
+    }
 }

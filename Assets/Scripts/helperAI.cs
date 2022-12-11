@@ -133,5 +133,9 @@ public class helperAI : MonoBehaviour, IDamage
         gameManager.instance.minionList.Remove(gameObject);
         Destroy(gameObject);
     }
+    public void blackHole()
+    {
+
+    }
 }
 

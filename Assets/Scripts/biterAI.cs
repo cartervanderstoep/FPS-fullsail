@@ -160,7 +160,7 @@ public class biterAI : MonoBehaviour, IDamage
         model.material.color = colorOrig;
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
@@ -192,6 +192,10 @@ public class biterAI : MonoBehaviour, IDamage
         isFighting=false;
            
         
+    }
+    public void blackHole()
+    {
+
     }
 }
                                                    

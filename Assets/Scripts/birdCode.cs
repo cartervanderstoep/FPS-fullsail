@@ -246,6 +246,10 @@ public class birdCode : MonoBehaviour, IDamage
         }
         yield return new WaitForSeconds(.3f);
     }
+          
+    public void blackHole()
+    {
 
+    }
 
 }

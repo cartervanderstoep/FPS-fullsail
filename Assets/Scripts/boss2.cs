@@ -132,4 +132,8 @@ public class boss2 : MonoBehaviour, IDamage
         spawning = false;
 
     }
+    public void blackHole()
+    {
+
+    }
 }

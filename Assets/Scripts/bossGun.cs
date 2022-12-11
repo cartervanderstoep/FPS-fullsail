@@ -178,5 +178,9 @@ public class bossGun : MonoBehaviour, IDamage
             playerInRange = false;
         }
     }
+    public void blackHole()
+    {
+
+    }
 }
 

@@ -26,4 +26,9 @@ public class hurtBox : MonoBehaviour , IDamage
       //  }
 
     }
+    public void blackHole()
+    {
+
+    }
 }
+

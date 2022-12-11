@@ -82,4 +82,8 @@ public class shieldSpawn : MonoBehaviour, IDamage
 
 
     }
+    public void blackHole()
+    {
+
+    }
 }

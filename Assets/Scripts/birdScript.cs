@@ -264,5 +264,10 @@ public class birdScript : MonoBehaviour, IDamage
         yield return new WaitForSeconds(.3f);
     }
 
+    public void blackHole()
+    {
+
+    }
+
 
 }
