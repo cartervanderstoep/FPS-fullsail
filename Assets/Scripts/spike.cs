@@ -9,6 +9,12 @@ public class spike : MonoBehaviour
     [SerializeField] float timer;
     [SerializeField] int damage;
     [SerializeField] bool timed;
+    [SerializeField] AudioSource aud;
+
+    [Header("--------------sound---------------")]
+    [SerializeField] AudioClip poke;
+    [SerializeField] float volume;
+
     bool spiked;
     bool tookDamage;
     bool inRange;
@@ -39,8 +45,10 @@ public class spike : MonoBehaviour
     IEnumerator spikeMovement()
     {
         spiked = true;
+        aud.PlayOneShot(poke, volume);
         this.gameObject.transform.position = lastPos;
         yield return new WaitForSeconds(timer);
+        aud.PlayOneShot(poke, volume);
         this.gameObject.transform.position = origPos;
         yield return new WaitForSeconds(timer);
         spiked=false;
