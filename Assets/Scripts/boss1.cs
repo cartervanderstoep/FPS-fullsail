@@ -154,7 +154,8 @@ public class boss1 : MonoBehaviour, IDamage
         if (Health <= 0)
         {
             Destroy(gameObject);
-            gameManager.instance.youWin();
+            //gameManager.instance.youWin();
+            gameManager.instance.NextLevelPortal.SetActive(true);
             gameManager.instance.updateEnemyNumber();
             gameManager.instance.updateUI();
         }

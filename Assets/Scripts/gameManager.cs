@@ -46,6 +46,7 @@ public class gameManager : MonoBehaviour
 
     [Header("----- Level Assets -----")]
     public GameObject magicWall;
+    public GameObject NextLevelPortal;
 
     public int enemiesToKill;
     public int keyCount;
@@ -67,7 +68,7 @@ public class gameManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<playerController>();
         spawnPos = GameObject.FindGameObjectWithTag("Spawn Pos");
-        
+        NextLevelPortal.SetActive(false);
        
         
 
