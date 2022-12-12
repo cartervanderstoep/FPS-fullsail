@@ -5,7 +5,7 @@ using UnityEngine;
 public class explosionBehavior : MonoBehaviour
 {
     [SerializeField] int explosionDamage;
-    [SerializeField] int volume;
+    [SerializeField] float volume;
     [SerializeField] AudioSource aud;
     [SerializeField] AudioClip boom;
     [SerializeField] int forceAmount;

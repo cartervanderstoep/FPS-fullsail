@@ -275,7 +275,7 @@ MonoBehaviour:
   hurt: {fileID: 8300000, guid: 0c1e492bbb698eb4b93b57ebbb5a659f, type: 3}
   dead: {fileID: 8300000, guid: fbebb7f811f406b44bcadcd6652a92e6, type: 3}
   attackSound: {fileID: 8300000, guid: 0598055dcc0f63a47a4fc70702553969, type: 3}
-  volume: 0.5
+  volume: 0.3
   playerIsTargeted: 0
 --- !u!195 &2997496477661426075
 NavMeshAgent:
@@ -402,7 +402,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

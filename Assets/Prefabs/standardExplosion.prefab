@@ -65,9 +65,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionDamage: 5
-  volume: 5
+  volume: 0.5
   aud: {fileID: 6884444641551651271}
   boom: {fileID: 8300000, guid: c69cbaab32736b9468b922e5856e6399, type: 3}
+  forceAmount: 10
   explosion: {fileID: 5519418630042462817, guid: 9eeae9c49ced36a408692e1d7b1afa4d, type: 3}
 --- !u!54 &1201514037
 Rigidbody:
@@ -106,9 +107,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 50
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -141,7 +142,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
