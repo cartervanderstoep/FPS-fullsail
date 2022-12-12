@@ -76100,6 +76100,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelEndTeleport 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1392276190095054000, guid: c2406d0e329ddca44a3b2f03fadfef75, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1392276190095054031, guid: c2406d0e329ddca44a3b2f03fadfef75, type: 3}
       propertyPath: m_RootOrder
       value: 3
