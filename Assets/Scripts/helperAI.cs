@@ -20,7 +20,7 @@ public class helperAI : MonoBehaviour, IDamage
     [SerializeField] float attackInterval;
     [SerializeField] float timer;
     [SerializeField] int animLerpSpeed;
-
+    [SerializeField] int magicAttkType = 5; 
 
     float speed;
     int targetCount;

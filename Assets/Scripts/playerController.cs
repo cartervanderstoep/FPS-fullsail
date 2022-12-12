@@ -31,7 +31,7 @@ public class playerController : MonoBehaviour
     [SerializeField] GameObject magicAttk;
     
     [Header("----- Spell Utilities -----")]
-    [Range(1, 4)][SerializeField] int magicElem; 
+    [Range(1, 5)][SerializeField] int magicElem; 
     [SerializeField] GameObject equipable;
     [SerializeField] GameObject playerSheild; 
     [SerializeField] List<gunStats> spells = new List<gunStats>();
@@ -220,6 +220,19 @@ public class playerController : MonoBehaviour
                     yield return new WaitForSeconds(castingRate); 
                     magicAttk.transform.Translate(Vector3.down * magicDropSpeed);
                     isShooting = false; 
+                }
+            }
+            else if (magicElem == 5)
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, castingDist))
+                {
+                    isShooting = true;
+                    aud.PlayOneShot(spellAud, volume);
+                    Instantiate(castEffect, hit.point, transform.rotation);
+                    Instantiate(magicAttk, hit.point, transform.rotation);
+                    yield return new WaitForSeconds(castingRate);
+                    isShooting = false;
                 }
             }
         }
