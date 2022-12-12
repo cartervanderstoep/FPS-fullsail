@@ -126,4 +126,9 @@ public class buttonFunctions : MonoBehaviour
         gameManager.instance.playerDeadMenu.SetActive(false);
         SceneManager.LoadSceneAsync(0);
     }
+    public void ReturnToMainMenuWin()// Sends player back to main menu from the win screen
+    {
+        gameManager.instance.winMenu.SetActive(false);
+        SceneManager.LoadSceneAsync(0);
+    }
 }

@@ -78,6 +78,7 @@ public class boss2 : MonoBehaviour, IDamage
         if (Hp<=0)
         {
             Destroy(gameObject);
+            gameManager.instance.youWin();
             gameManager.instance.updateEnemyNumber();
             gameManager.instance.updateUI();
         }
