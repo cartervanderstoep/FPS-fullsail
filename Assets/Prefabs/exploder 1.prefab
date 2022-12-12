@@ -262,6 +262,10 @@ MonoBehaviour:
   model: {fileID: 2157333994115424158}
   agent: {fileID: 6493319541340410383}
   anim: {fileID: 884923893}
+  aud: {fileID: -5926971871578549791}
+  hurt: {fileID: 8300000, guid: cf97cf9abb4572c4da3054ca328c2faa, type: 3}
+  warning: {fileID: 8300000, guid: 1abb26a0f942aa8439b5952be9e618cd, type: 3}
+  volume: 0.5
   HP: 5
   playerFaceSpeed: 5
   sightDist: 1000

@@ -10,6 +10,10 @@ public class ExploderAI : MonoBehaviour, IDamage
     [SerializeField] Renderer model;
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator anim;
+    [SerializeField] AudioSource aud;
+    [SerializeField] AudioClip hurt;
+    [SerializeField] AudioClip warning;
+    [SerializeField] float volume;
 
     [Header("----- Enemy Stats -----")]
     [SerializeField] int HP;
@@ -107,6 +111,7 @@ public class ExploderAI : MonoBehaviour, IDamage
                         warningCount = 0;
                         explode();
                     }
+                    aud.PlayOneShot(warning,volume);
                     Debug.Log(warningCount.ToString());
                 }
                 else if (Vector3.Distance(transform.position, gameManager.instance.player.transform.position) > 4)
@@ -152,6 +157,7 @@ public class ExploderAI : MonoBehaviour, IDamage
             Debug.Log("ouch");
             explode();
         }
+        aud.PlayOneShot(hurt, volume);
     }
 
     IEnumerator flashDamage()
