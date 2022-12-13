@@ -60,11 +60,11 @@ Camera:
   far clip plane: 1000
   field of view: 30
   orthographic: 1
-  orthographic size: 20
+  orthographic size: 45
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1279
+    m_Bits: 1215
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 68db88dabbd6a7445bfe459698f1ec5a, type: 2}
   m_TargetDisplay: 1
@@ -435,12 +435,12 @@ MonoBehaviour:
   HP: 10
   playerSpeed: 13
   sprintMod: 1.6
-  jumpHeight: 13
+  jumpHeight: 16
   gravityValue: 25
   jumpsMax: 1
-  playerStamina: 10
-  utilityTime: 5.4
-  dashDist: 10
+  playerStamina: 12
+  utilityTime: 10
+  dashDist: 100
   canFloat: 0
   canTeleport: 0
   canDefend: 1
@@ -462,7 +462,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 64bd8d8041ec96e419999f81cd41a304, type: 3}
   - {fileID: 8300000, guid: c74d2c360e0d25b4a9c72fbe9fec58d4, type: 3}
   - {fileID: 8300000, guid: 17fcea369b1b7bc42b0d025f91923fa6, type: 3}
-  volume: 0.5
+  volume: 0.6
   fXOrigin: {fileID: 542160679314344067}
   utilityFXOrigin: {fileID: 1874873401}
   castEffect: {fileID: 0}
