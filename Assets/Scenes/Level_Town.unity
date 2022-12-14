@@ -51835,14 +51835,6 @@ PrefabInstance:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1202385254167674, guid: 28b228c79a309474b9c2034310e32a42, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1202385254167674, guid: 28b228c79a309474b9c2034310e32a42, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1233103988171370, guid: 28b228c79a309474b9c2034310e32a42, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -80758,7 +80750,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4417263687295661886, guid: c23e6a82291634c41a88d0aaa684e7d6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4417263687295661887, guid: c23e6a82291634c41a88d0aaa684e7d6, type: 3}
       propertyPath: m_Volume
