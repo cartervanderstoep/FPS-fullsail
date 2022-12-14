@@ -27,7 +27,7 @@ public class ExploderAI : MonoBehaviour, IDamage
     [Header("---------test bool--------")]
     [SerializeField] bool playerIsTargeted;
 
-   
+
     bool playerInRange;
     public GameObject explosion;
     int warningCount;
@@ -43,13 +43,13 @@ public class ExploderAI : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
-       
+        startingPos = transform.position;
         gameManager.instance.updateUI();
         isExploding = false;
         isFlashing = false;
         mobSpeed = agent.speed;
         warningCount = 0;
-       
+
     }
 
     // Update is called once per frame
@@ -72,13 +72,13 @@ public class ExploderAI : MonoBehaviour, IDamage
                 canSeePlayer();
 
             }
-            else if(agent.remainingDistance < 0.1f && agent.destination != gameManager.instance.player.transform.position)
+            else if (agent.remainingDistance < 0.1f && agent.destination != gameManager.instance.player.transform.position)
             {
                 roam();
             }
         }
 
-       
+
 
 
     }
@@ -93,7 +93,7 @@ public class ExploderAI : MonoBehaviour, IDamage
         {
             if (hit.collider.CompareTag("Player") && angleToPlayer <= sightAngle)
             {
-                agent.stoppingDistance = breakDist;      
+                agent.stoppingDistance = breakDist;
                 agent.SetDestination(gameManager.instance.player.transform.position);
                 playerIsTargeted = true;
                 if (agent.remainingDistance < agent.stoppingDistance)
@@ -111,7 +111,7 @@ public class ExploderAI : MonoBehaviour, IDamage
                         warningCount = 0;
                         explode();
                     }
-                    aud.PlayOneShot(warning,volume);
+                    aud.PlayOneShot(warning, volume);
                     Debug.Log(warningCount.ToString());
                 }
                 else if (Vector3.Distance(transform.position, gameManager.instance.player.transform.position) > 4)
@@ -134,12 +134,15 @@ public class ExploderAI : MonoBehaviour, IDamage
         randomDir += startingPos;
 
         NavMeshHit hit;
-        NavMesh.SamplePosition(new Vector3(randomDir.x, 0, randomDir.z), out hit, 1, 1);
+        bool foundPath = NavMesh.SamplePosition(new Vector3(randomDir.x, randomDir.y, randomDir.z), out hit, 10, NavMesh.AllAreas);
         NavMeshPath path = new NavMeshPath();
-        agent.CalculatePath(hit.position, path);
-        agent.SetPath(path);
-    }
+        if (foundPath)
+        {
+            agent.CalculatePath(hit.position, path);
+            agent.SetPath(path);
+        }
 
+    }
     void facePlayer()
     {
         playerDir.y = 0;
@@ -151,6 +154,10 @@ public class ExploderAI : MonoBehaviour, IDamage
     {
         HP -= dmg;
         StartCoroutine(flashDamage());
+        if (agent.enabled == true)
+        {
+            agent.SetDestination(gameManager.instance.player.transform.position);
+        }
 
         if (HP <= 0 && !isExploding)
         {
@@ -170,12 +177,12 @@ public class ExploderAI : MonoBehaviour, IDamage
 
     IEnumerator warningFlash()
     {
-       
+
         agent.speed = 0;
         model.material.color = Color.yellow;
         anim.SetTrigger("Attack");
         yield return new WaitForSeconds(.3f);
-        model.material.color= Color.white;
+        model.material.color = Color.white;
         yield return new WaitForSeconds(.3f);
         isFlashing = false;
 
@@ -194,8 +201,8 @@ public class ExploderAI : MonoBehaviour, IDamage
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) 
-          playerInRange = true;
+        if (other.CompareTag("Player"))
+            playerInRange = true;
     }
     public void blackHole()
     {

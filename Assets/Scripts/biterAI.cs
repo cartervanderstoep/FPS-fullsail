@@ -80,6 +80,11 @@ public class biterAI : MonoBehaviour, IDamage
             }
         }
 
+        if (gameManager.instance.playerScript.getHP() <=0)
+        {
+            playerInRange = false;
+        }
+
     }
     void canSeePlayer()
     {
@@ -115,10 +120,13 @@ public class biterAI : MonoBehaviour, IDamage
         randomDir += startingPos;
 
         NavMeshHit hit;
-        NavMesh.SamplePosition(new Vector3(randomDir.x, 0, randomDir.z), out hit, 1, 1);
+        bool foundPath = NavMesh.SamplePosition(new Vector3(randomDir.x, randomDir.y, randomDir.z), out hit, 3, NavMesh.AllAreas);
         NavMeshPath path = new NavMeshPath();
-        agent.CalculatePath(hit.position, path);
-        agent.SetPath(path);
+        if (foundPath)
+        {
+            agent.CalculatePath(hit.position, path);
+            agent.SetPath(path);
+        }
     }
     void facePlayer()
     {
@@ -130,6 +138,10 @@ public class biterAI : MonoBehaviour, IDamage
     {
         HP -= dmg;
         StartCoroutine(flashDamage());
+        if (agent.enabled == true)
+        {
+            agent.SetDestination(gameManager.instance.player.transform.position);
+        }
         if (!anim.GetBool("Dead"))
         {
 

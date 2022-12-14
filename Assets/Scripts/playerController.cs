@@ -449,5 +449,10 @@ public class playerController : MonoBehaviour
         }
         updatePlayerHPBar();
     }
+
+    public int getHP()
+    {
+        return HP;
+    }
    
 }

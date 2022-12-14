@@ -113,10 +113,13 @@ public class enemyAI : MonoBehaviour, IDamage
         randomDir += startingPos;
 
         NavMeshHit hit;
-        NavMesh.SamplePosition(new Vector3(randomDir.x, 0, randomDir.z), out hit, 1, 1);
+        bool foundPath = NavMesh.SamplePosition(new Vector3(randomDir.x, randomDir.y, randomDir.z), out hit, 3, NavMesh.AllAreas);
         NavMeshPath path = new NavMeshPath();
-        agent.CalculatePath(hit.position, path);
-        agent.SetPath(path);
+        if (foundPath)
+        {
+            agent.CalculatePath(hit.position, path);
+            agent.SetPath(path);
+        }
     }
 
     void facePlayer()
