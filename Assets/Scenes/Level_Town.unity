@@ -43355,8 +43355,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8021286592606786380, guid: aeef64cb89fa7b340a1da3f30ba68b14, type: 3}
+      propertyPath: canDefend
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021286592606786380, guid: aeef64cb89fa7b340a1da3f30ba68b14, type: 3}
       propertyPath: jumpHeight
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021286592606786380, guid: aeef64cb89fa7b340a1da3f30ba68b14, type: 3}
+      propertyPath: canTeleport
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aeef64cb89fa7b340a1da3f30ba68b14, type: 3}

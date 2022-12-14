@@ -155,9 +155,13 @@ public class biterAI : MonoBehaviour, IDamage
     }
     IEnumerator flashDamage()
     {
-        model.material.color = Color.red;
-        yield return new WaitForSeconds(0.15f);
-        model.material.color = colorOrig;
+        if(HP > 0)
+        {
+            model.material.color = Color.red;
+            yield return new WaitForSeconds(0.15f);
+            model.material.color = colorOrig;
+        }
+        
     }
 
     public void OnTriggerStay(Collider other)

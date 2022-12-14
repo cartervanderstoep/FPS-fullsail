@@ -47,6 +47,7 @@ public class gameManager : MonoBehaviour
     [Header("----- Level Assets -----")]
     public GameObject magicWall;
     public GameObject NextLevelPortal;
+    
 
     public int enemiesToKill;
     public int keyCount;

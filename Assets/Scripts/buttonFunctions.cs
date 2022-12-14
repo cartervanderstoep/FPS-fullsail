@@ -45,6 +45,7 @@ public class buttonFunctions : MonoBehaviour
     {
         gameManager.instance.unpause();
         gameManager.instance.playerScript.respawn();
+        
     }
     public void newGame()
     {
