@@ -39160,8 +39160,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.0951757, y: 1.1705073, z: 2.0940018}
+  m_Center: {x: -0.032452352, y: 0.08525447, z: 0.010188225}
 --- !u!114 &879800839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97313,9 +97313,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 451976543}
     m_Modifications:
+    - target: {fileID: 2960015366886520610, guid: 6ca741609bd5ec04f9796a72f2f28ff1, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960015367004757117, guid: 6ca741609bd5ec04f9796a72f2f28ff1, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960015367107501950, guid: 6ca741609bd5ec04f9796a72f2f28ff1, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960015368611652672, guid: 6ca741609bd5ec04f9796a72f2f28ff1, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5374229988387899857, guid: 6ca741609bd5ec04f9796a72f2f28ff1, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233810345619629376, guid: 6ca741609bd5ec04f9796a72f2f28ff1, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 6416181711343383863, guid: 6ca741609bd5ec04f9796a72f2f28ff1, type: 3}
       propertyPath: m_Name
       value: exploder 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7628941619394125731, guid: 6ca741609bd5ec04f9796a72f2f28ff1, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 9071790308717321861, guid: 6ca741609bd5ec04f9796a72f2f28ff1, type: 3}
       propertyPath: m_RootOrder
