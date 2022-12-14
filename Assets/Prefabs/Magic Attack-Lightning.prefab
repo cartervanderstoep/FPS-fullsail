@@ -520,7 +520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   magicRB: {fileID: 1433167326543314524}
   expl: {fileID: 0}
-  magicDamage: 1
+  magicDamage: 5
   magicElm: 3
   magicSpeed: 4000
   attackTimer: 3
