@@ -433,9 +433,9 @@ MonoBehaviour:
   controller: {fileID: 7488080005536711147}
   aud: {fileID: 4156698563929171873}
   HP: 10
-  playerSpeed: 13
+  playerSpeed: 16
   sprintMod: 1.6
-  jumpHeight: 16
+  jumpHeight: 15
   gravityValue: 25
   jumpsMax: 1
   playerStamina: 12

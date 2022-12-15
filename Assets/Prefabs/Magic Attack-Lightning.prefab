@@ -395,7 +395,7 @@ Transform:
   m_GameObject: {fileID: 3633864866549754156}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 4.4, z: 0}
-  m_LocalScale: {x: 6.7829633, y: 6.3710575, z: 6.7829633}
+  m_LocalScale: {x: 12.056815, y: 10.356956, z: 12.056815}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7853808368397432077}
@@ -522,7 +522,7 @@ MonoBehaviour:
   expl: {fileID: 0}
   magicDamage: 5
   magicElm: 3
-  magicSpeed: 4000
+  magicSpeed: 5000
   attackTimer: 3
 --- !u!33 &7853808368397432076
 MeshFilter:
@@ -770,10 +770,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 2
-  m_Height: 16
+  m_Radius: 7
+  m_Height: 18
   m_Direction: 1
-  m_Center: {x: 0, y: 3.2, z: 0.10587673}
+  m_Center: {x: 0, y: 3.2, z: 0}
 --- !u!82 &1642162296
 AudioSource:
   m_ObjectHideFlags: 0

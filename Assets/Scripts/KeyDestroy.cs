@@ -7,8 +7,12 @@ public class KeyDestroy : MonoBehaviour
     public GameObject sound;
     public void OnTriggerEnter(Collider other)
     {
-        gameManager.instance.keyCount += 1;
-        Instantiate(sound, this.transform.position, transform.rotation);
-        Destroy(gameObject);
+        if (other.CompareTag("Player"))
+        {
+            gameManager.instance.keyCount += 1;
+            Instantiate(sound, this.transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
+        
     }
 }

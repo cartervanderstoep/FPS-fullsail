@@ -92,8 +92,12 @@ public class gameManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Confined;
             Time.timeScale = 0;
         }
-        if (Input.GetButtonDown("Cancel") && !playerDeadMenu.activeSelf && !winMenu.activeSelf && !playerPowerupScreen.activeSelf && !playerHealthupScreen.activeSelf && !mainMenu.activeSelf && !loadingMenu.activeSelf && !treeDialogue.activeSelf && !townDialogue.activeSelf && !volcanoDialogue.activeSelf && !castleDialogue.activeSelf && !confirmMenuPause.activeSelf && !controlsMenu.activeSelf && !creditsMenu1.activeSelf && !creditsMenu2.activeSelf)
+        if (Input.GetButtonDown("Cancel") && !playerDeadMenu.activeSelf && !winMenu.activeSelf && !playerPowerupScreen.activeSelf && !mainMenu.activeSelf && !loadingMenu.activeSelf && !treeDialogue.activeSelf && !townDialogue.activeSelf && !volcanoDialogue.activeSelf && !castleDialogue.activeSelf && !confirmMenuPause.activeSelf && !controlsMenu.activeSelf && !creditsMenu1.activeSelf && !creditsMenu2.activeSelf)
         {
+            if (playerHealthupScreen.activeSelf)
+            {
+                playerHealthupScreen.SetActive(false);
+            }
             isPaused = !isPaused;
             pauseMenu.SetActive(isPaused);
 
