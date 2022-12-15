@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1491620448, guid: dc20ea6d54630164cb3dd97fdf33e994, type: 3}
+      propertyPath: m_text
+      value: War-Locke
+      objectReference: {fileID: 0}
     - target: {fileID: 5032939357714960558, guid: dc20ea6d54630164cb3dd97fdf33e994, type: 3}
       propertyPath: m_IsActive
       value: 1

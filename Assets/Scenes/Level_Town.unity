@@ -75353,6 +75353,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2016978018, guid: dc20ea6d54630164cb3dd97fdf33e994, type: 3}
+      propertyPath: m_text
+      value: 'Your name is Locke, you live in the world known as Paldea. Things have
+        been pretty peacefull untill the warlock clan started causing corruption
+        all around the world. It is your job to cleanse them from this realm. You
+        must first find the 3 magic keys to drop the barrier to your hometown so
+        you can progress. '
+      objectReference: {fileID: 0}
     - target: {fileID: 8436125083147643384, guid: dc20ea6d54630164cb3dd97fdf33e994, type: 3}
       propertyPath: m_Name
       value: UI
