@@ -121,7 +121,7 @@ public class birdScript : MonoBehaviour, IDamage
                 if (ascending == false)
                 {
                     
-                    Debug.Log("swooping");
+                   
                     
 
                     diveBomb();
@@ -249,7 +249,7 @@ public class birdScript : MonoBehaviour, IDamage
     void ascension()
     {
         ascending = true;
-        Debug.Log("ascending");
+      
         Vector3 ascend = new Vector3(playerPos.x * 2, playerPos.y + 6, playerPos.z * 2);
         transform.Translate(transform.forward * attackSpeed * Time.deltaTime);
         transform.Translate(transform.up * attackSpeed * Time.deltaTime);

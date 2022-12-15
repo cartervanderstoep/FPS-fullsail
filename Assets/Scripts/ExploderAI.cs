@@ -112,7 +112,7 @@ public class ExploderAI : MonoBehaviour, IDamage
                         explode();
                     }
                     aud.PlayOneShot(warning, volume);
-                    Debug.Log(warningCount.ToString());
+                   
                 }
                 else if (Vector3.Distance(transform.position, gameManager.instance.player.transform.position) > 4)
                 {
@@ -161,7 +161,7 @@ public class ExploderAI : MonoBehaviour, IDamage
 
         if (HP <= 0 && !isExploding)
         {
-            Debug.Log("ouch");
+            
             explode();
         }
         aud.PlayOneShot(hurt, volume);
@@ -191,7 +191,7 @@ public class ExploderAI : MonoBehaviour, IDamage
     {
         if (!isExploding)
         {
-            Debug.Log("bang");
+           
             isExploding = true;
             gameManager.instance.updateEnemyNumber();
             Instantiate(explosion, transform.position, transform.rotation);

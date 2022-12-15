@@ -111,7 +111,7 @@ public class gameManager : MonoBehaviour
             Destroy(magicWall);
         }
         updateUI();
-        Debug.Log(minionList.Count.ToString());
+       
     }
     
 

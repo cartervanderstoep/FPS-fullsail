@@ -183,6 +183,10 @@ public class biterAI : MonoBehaviour, IDamage
             playerInRange = true;
             
         }
+        //else if (playerIsTargeted && other.CompareTag("enemy prefab"))
+        //{
+        //    other.GetComponent<IDamage>().takeDamage(0);
+        //}
     }
 
     public void OnTriggerExit(Collider other)
