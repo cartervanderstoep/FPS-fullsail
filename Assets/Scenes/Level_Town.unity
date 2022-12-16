@@ -75450,6 +75450,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8436125083634113980, guid: dc20ea6d54630164cb3dd97fdf33e994, type: 3}
+      propertyPath: music
+      value: 
+      objectReference: {fileID: 1756932093}
+    - target: {fileID: 8436125083634113980, guid: dc20ea6d54630164cb3dd97fdf33e994, type: 3}
       propertyPath: spawnPos
       value: 
       objectReference: {fileID: 922324853}

@@ -749,6 +749,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8436125083634113980, guid: dc20ea6d54630164cb3dd97fdf33e994, type: 3}
+      propertyPath: music
+      value: 
+      objectReference: {fileID: 2097804405}
     - target: {fileID: 8575718073317808058, guid: dc20ea6d54630164cb3dd97fdf33e994, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1558,6 +1562,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6aa06a8766885b44a8a9d53edfba44b9, type: 3}
+--- !u!1 &2097804405 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3523242081203823511, guid: 6aa06a8766885b44a8a9d53edfba44b9, type: 3}
+  m_PrefabInstance: {fileID: 2097804404}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2142120529
 GameObject:
   m_ObjectHideFlags: 0

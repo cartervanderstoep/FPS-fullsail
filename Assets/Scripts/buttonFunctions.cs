@@ -10,6 +10,13 @@ public class buttonFunctions : MonoBehaviour
         gameManager.instance.unpause();
         gameManager.instance.isPaused = false;
         gameManager.instance.pauseMenu.SetActive(false);
+        gameManager.instance.health.SetActive(true);
+        gameManager.instance.stamina.SetActive(true);
+        gameManager.instance.mana.SetActive(true);
+        gameManager.instance.minimap.SetActive(true);
+        gameManager.instance.music.SetActive(true);
+
+
     }
     public void closeTownD()
     {

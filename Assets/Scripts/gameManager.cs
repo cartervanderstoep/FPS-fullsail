@@ -47,6 +47,14 @@ public class gameManager : MonoBehaviour
     [Header("----- Level Assets -----")]
     public GameObject magicWall;
     public GameObject NextLevelPortal;
+
+    [Header("----- Menu Toggles ------")]
+    public GameObject minimap;
+    public GameObject health;
+    public GameObject stamina;
+    public GameObject mana;
+    public GameObject music;
+    
     
 
     public int enemiesToKill;
@@ -97,6 +105,14 @@ public class gameManager : MonoBehaviour
             if (playerHealthupScreen.activeSelf)
             {
                 playerHealthupScreen.SetActive(false);
+            }
+            
+            if (minimap.activeSelf) {
+                minimap.SetActive(false); health.SetActive(false); stamina.SetActive(false); mana.SetActive(false); music.SetActive(false);
+            }
+            else
+            {
+                minimap.SetActive(true); health.SetActive(true); stamina.SetActive(true); mana.SetActive(true); music.SetActive(true);
             }
             isPaused = !isPaused;
             pauseMenu.SetActive(isPaused);

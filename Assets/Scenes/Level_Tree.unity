@@ -56993,6 +56993,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8063d4bc07a8d44fb8ae380057cf27c7, type: 3}
+--- !u!1 &1202791531 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1701536703693840503, guid: 64d0378ddbd6e0645af2d999d14a035b, type: 3}
+  m_PrefabInstance: {fileID: 953549879}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1203340375
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71496,6 +71501,18 @@ PrefabInstance:
       propertyPath: m_text
       value: Defeat the Demon at the top of the World Tree
       objectReference: {fileID: 0}
+    - target: {fileID: 8052603119434352849, guid: dc20ea6d54630164cb3dd97fdf33e994, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052603119434352849, guid: dc20ea6d54630164cb3dd97fdf33e994, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052603119434352849, guid: dc20ea6d54630164cb3dd97fdf33e994, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8436125083147643384, guid: dc20ea6d54630164cb3dd97fdf33e994, type: 3}
       propertyPath: m_Name
       value: UI
@@ -71588,6 +71605,10 @@ PrefabInstance:
       propertyPath: boss
       value: 
       objectReference: {fileID: 812136888}
+    - target: {fileID: 8436125083634113980, guid: dc20ea6d54630164cb3dd97fdf33e994, type: 3}
+      propertyPath: music
+      value: 
+      objectReference: {fileID: 1202791531}
     - target: {fileID: 8436125083634113980, guid: dc20ea6d54630164cb3dd97fdf33e994, type: 3}
       propertyPath: NextLevelPortal
       value: 
